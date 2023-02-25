@@ -4,6 +4,7 @@ import Head from 'next/head';
 import { useEffect, useState } from 'react';
 
 import ArticleContent from '@/components/articles/ArticleContent';
+import { getArticles } from '@/utils';
 
 interface Post {
 	attributes: {
@@ -23,21 +24,32 @@ interface Post {
 export default function Home() {
 	const [posts, setPosts] = useState<Post[]>([]);
 
-	useEffect(() => {
-		const fetchPosts = async () => {
-			const res = await fetch(
-				'http://localhost:1337/api/articles?populate=image'
-			);
-			const { data, meta } = await res.json();
-			const postArr = JSON.stringify(data);
-			// const postArr = Object.entries(data);
-			setPosts(data);
-		};
+	// useEffect(() => {
+	// 	const fetchPosts = async () => {
+	// 		const res = await fetch(
+	// 			'http://localhost:1337/api/articles?populate=image'
+	// 		);
+	// 		const { data } = await res.json();
 
-		fetchPosts();
-	}, []);
+	// 		setPosts(data);
+	// 	};
 
-	useEffect(() => console.log(posts), [posts]);
+	// 	fetchPosts();
+	// }, []);
+
+	// Test using getArticles() from utils
+	// useEffect(() => {
+	// 	const fetchPosts = async () => {
+	// 		const { articles } = await getArticles();
+	// 		// const { data } = await res.json();
+
+	// 		setPosts(articles);
+	// 	};
+
+	// 	fetchPosts();
+	// }, []);
+
+	// useEffect(() => console.log(posts), [posts]);
 
 	return (
 		<>
