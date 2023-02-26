@@ -4,7 +4,11 @@ export interface Article {
 		title: string;
 		content: string;
 		image: {
-			url: string;
+			data: {
+				attributes: {
+					url: string;
+				};
+			};
 		};
 		createdAt: string;
 	};

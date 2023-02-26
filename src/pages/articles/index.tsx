@@ -1,7 +1,8 @@
 import { Article } from '@/types';
 import { getArticles } from '@/utils';
-import { Heading, VStack } from '@chakra-ui/react';
+import { SimpleGrid, VStack } from '@chakra-ui/react';
 import { GetStaticProps, NextPage } from 'next';
+import ArticleContent from '@/components/articles/ArticleContent';
 
 export const getStaticProps: GetStaticProps = async () => {
 	const { articles }: { articles: Article[] } = await getArticles();
@@ -17,10 +18,16 @@ export const getStaticProps: GetStaticProps = async () => {
 const BlogListPage: NextPage<{ articles: Article[] }> = ({ articles }) => {
 	return (
 		<>
-			<Heading>Blog Page</Heading>
-			<VStack>
+			<VStack p={4} spacing={4} maxW='850px' mx='auto'>
 				{articles.map((article) => (
-					<Heading key={article.id}>{article.attributes.title}</Heading>
+					<ArticleContent
+						key={article.id}
+						id={article.id}
+						title={article.attributes.title}
+						content={article.attributes.content}
+						image={article.attributes.image.data.attributes.url}
+						createdAt={article.attributes.createdAt}
+					/>
 				))}
 			</VStack>
 		</>
