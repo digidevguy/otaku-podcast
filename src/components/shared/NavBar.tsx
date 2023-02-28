@@ -14,14 +14,16 @@ import {
 	Stack,
 	IconButton,
 	useDisclosure,
+	useColorMode,
 } from '@chakra-ui/react';
 import Link from 'next/link';
-import { HamburgerIcon } from '@chakra-ui/icons';
+import { HamburgerIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { navigation } from '../../libs/navigation';
 import { social } from '../../libs/social';
 
 const NavBar: React.FC = () => {
 	const { isOpen, onOpen, onClose } = useDisclosure();
+	const { colorMode, toggleColorMode } = useColorMode();
 
 	return (
 		<>
@@ -63,7 +65,7 @@ const NavBar: React.FC = () => {
 				top={0}
 				pos='sticky'
 				zIndex='sticky'
-				bg='white'
+				bg={colorMode === 'light' ? 'white' : 'gray.800'}
 				boxShadow='sm'
 			>
 				<Stack spacing={3} direction='row' align='center'>
@@ -78,13 +80,21 @@ const NavBar: React.FC = () => {
 						<Heading>Navbar</Heading>
 					</Link>
 				</Stack>
-				<ButtonGroup variant='outline' display={['none', 'inherit']}>
-					{navigation.map(({ label, href }) => (
-						<Link href={href} key={label}>
-							<Button variant='ghost'>{label}</Button>
-						</Link>
-					))}
-				</ButtonGroup>
+				<Stack direction='row'>
+					<ButtonGroup variant='outline' display={['none', 'inherit']}>
+						{navigation.map(({ label, href }) => (
+							<Link href={href} key={label}>
+								<Button variant='ghost'>{label}</Button>
+							</Link>
+						))}
+					</ButtonGroup>
+					<IconButton
+						icon={<SunIcon />}
+						aria-label='Toggle Dark Mode'
+						variant='ghost'
+						onClick={toggleColorMode}
+					/>
+				</Stack>
 			</Flex>
 		</>
 	);
