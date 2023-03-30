@@ -11,19 +11,14 @@ import { format } from 'date-fns';
 import { useEffect } from 'react';
 import ReadButton from './ReadButton';
 
-interface ArticleContentProps {
+interface ArticleCardProps {
 	title: string;
 	image: string;
 	createdAt: string;
 	id: number;
 }
 
-const ArticleContent = ({
-	title,
-	image,
-	createdAt,
-	id,
-}: ArticleContentProps) => {
+const ArticleCard = ({ title, image, createdAt, id }: ArticleCardProps) => {
 	useEffect(() => console.log(image), [image]);
 
 	return (
@@ -35,13 +30,12 @@ const ArticleContent = ({
 			rounded='lg'
 			overflow='hidden'
 			boxShadow={useColorModeValue('md', 'none')}
+			maxW='lg'
 		>
 			<Image src={`http://localhost:1337${image}`} alt={title} />
 			<Flex flexDir='column' alignSelf='start' gap={2} p={4} w='full'>
 				<Flex flexDir='column'>
-					<Link as={NextLink} href={`/anime/${id}`}>
-						<Heading textAlign='left'>{title}</Heading>
-					</Link>
+					<Heading textAlign='left'>{title}</Heading>
 					<Text>{format(new Date(createdAt), 'MMMM do yyyy')}</Text>
 				</Flex>
 				<ReadButton id={id} />
@@ -50,4 +44,4 @@ const ArticleContent = ({
 	);
 };
 
-export default ArticleContent;
+export default ArticleCard;

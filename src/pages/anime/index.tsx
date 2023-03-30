@@ -1,9 +1,9 @@
 import { Article } from '@/types';
 import { getArticles } from '@/utils';
 import Image from 'next/image';
-import { Box, Flex, VStack, Text } from '@chakra-ui/react';
+import { Box, Flex, Text, SimpleGrid } from '@chakra-ui/react';
 import { GetStaticProps, NextPage } from 'next';
-import ArticleContent from '@/components/articles/ArticleContent';
+import ArticleCard from '@/components/articles/ArticleCard';
 
 export const getStaticProps: GetStaticProps = async () => {
 	const { articles }: { articles: Article[] } = await getArticles();
@@ -37,9 +37,9 @@ const BlogListPage: NextPage<{ articles: Article[] }> = ({ articles }) => {
 					pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
 					culpa qui officia deserunt mollit anim id est laborum.
 				</Text>
-				<VStack p={4} spacing={4} maxW='850px'>
+				<SimpleGrid p={4} spacing={4} maxW='1000px' columns={[1, 2]}>
 					{articles.map((article) => (
-						<ArticleContent
+						<ArticleCard
 							key={article.id}
 							id={article.id}
 							title={article.attributes.title}
@@ -47,7 +47,7 @@ const BlogListPage: NextPage<{ articles: Article[] }> = ({ articles }) => {
 							createdAt={article.attributes.createdAt}
 						/>
 					))}
-				</VStack>
+				</SimpleGrid>
 			</Flex>
 		</>
 	);

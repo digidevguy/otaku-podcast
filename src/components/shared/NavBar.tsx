@@ -15,11 +15,13 @@ import {
 	IconButton,
 	useDisclosure,
 	useColorMode,
+	useColorModeValue,
 } from '@chakra-ui/react';
 import Link from 'next/link';
 import { HamburgerIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { navigation } from '../../libs/navigation';
 import { social } from '../../libs/social';
+import NavButton from './NavButton';
 
 const NavBar: React.FC = () => {
 	const { isOpen, onOpen, onClose } = useDisclosure();
@@ -84,7 +86,7 @@ const NavBar: React.FC = () => {
 					<ButtonGroup variant='outline' display={['none', null, 'inherit']}>
 						{navigation.map(({ label, href }) => (
 							<Link href={href} key={label}>
-								<Button variant='ghost'>{label}</Button>
+								<NavButton label={label} />
 							</Link>
 						))}
 					</ButtonGroup>
@@ -93,6 +95,10 @@ const NavBar: React.FC = () => {
 						aria-label='Toggle Dark Mode'
 						variant='ghost'
 						onClick={toggleColorMode}
+						_hover={{
+							bg: useColorModeValue('black', 'white'),
+							color: useColorModeValue('white', 'black'),
+						}}
 					/>
 				</Stack>
 			</Flex>
