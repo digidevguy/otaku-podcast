@@ -1,8 +1,19 @@
 import { Article } from '@/types';
 import { getArticle, getArticles } from '@/utils';
-import { Heading, Text } from '@chakra-ui/react';
+import {
+	Box,
+	Flex,
+	Heading,
+	Image,
+	Text,
+	useColorModeValue,
+} from '@chakra-ui/react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { ParsedUrlQuery } from 'querystring';
+import { useEffect } from 'react';
+import ReactMarkdown from 'react-markdown';
+import ChakraUIRenderer from 'chakra-ui-markdown-renderer';
+import format from 'date-fns/format';
 
 interface IParams extends ParsedUrlQuery {
 	id: string;
@@ -35,10 +46,42 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 export default function BlogDetailPage({ article }: { article: Article }) {
+	useEffect(() => {
+		console.log(article);
+	}, [article]);
 	return (
 		<>
-			<Heading>Blog Detail Page</Heading>
-			<Text>{article.attributes.title}</Text>
+			<Flex flexDir='column'>
+				<Flex
+					align='center'
+					borderBottom='1px'
+					borderColor={useColorModeValue('gray.200', 'gray.700')}
+					flexDir={['column-reverse', null, 'row']}
+				>
+					<Flex w={['full', null, '50%']} flexDir='column' align='center'>
+						<Flex maxW='500px' flexDir='column'>
+							<Heading>{article.attributes.title}</Heading>
+							<Text color='gray.500'>
+								{format(
+									new Date(article.attributes.createdAt),
+									'MMMM do, yyyy'
+								)}
+							</Text>
+						</Flex>
+					</Flex>
+					<Box w={['full', null, '50%']}>
+						<Image
+							src={`http://localhost:1337${article.attributes.image.data.attributes.url}`}
+							alt={article.attributes.title}
+						/>
+					</Box>
+				</Flex>
+				<Flex flexDir='column' p={2} maxW='850px' mx='auto'>
+					<ReactMarkdown components={ChakraUIRenderer()} skipHtml>
+						{article.attributes.content}
+					</ReactMarkdown>
+				</Flex>
+			</Flex>
 		</>
 	);
 }

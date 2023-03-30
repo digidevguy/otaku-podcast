@@ -4,9 +4,11 @@ import {
 	Flex,
 	Heading,
 	Image,
+	Link,
 	Text,
 	VStack,
 } from '@chakra-ui/react';
+import NextLink from 'next/link';
 import { format } from 'date-fns';
 import { useEffect } from 'react';
 
@@ -42,7 +44,9 @@ const ArticleContent = ({
 			{/* </Box> */}
 			<VStack p={4}>
 				<Flex flexDir='column' alignSelf='start'>
-					<Heading>{title}</Heading>
+					<Link as={NextLink} href={`/anime/${id}`}>
+						<Heading>{title}</Heading>
+					</Link>
 					<Text>{format(new Date(createdAt), 'MMMM do yyyy')}</Text>
 				</Flex>
 				<Divider w='40%' alignSelf='start' />
