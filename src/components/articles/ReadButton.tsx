@@ -10,7 +10,7 @@ const ReadButton = ({ id }: ReadButtonProps) => {
 	const router = useRouter();
 	return (
 		<Button
-			maxW='10vh'
+			maxW='12vh'
 			variant='outline'
 			borderColor={useColorModeValue('black', 'white')}
 			rightIcon={<ArrowForwardIcon />}
