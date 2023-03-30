@@ -19,7 +19,7 @@ export const getStaticProps: GetStaticProps = async () => {
 const BlogListPage: NextPage<{ articles: Article[] }> = ({ articles }) => {
 	return (
 		<>
-			<Flex flexDir='column'>
+			<Flex flexDir='column' align='center'>
 				<Box pos='relative' overflow='hidden' h={['250px', '350px']} w='full'>
 					<Image
 						src='/gracia-dharma-qTlbO6mkQH0-unsplash.jpg'
@@ -28,7 +28,7 @@ const BlogListPage: NextPage<{ articles: Article[] }> = ({ articles }) => {
 						style={{ objectFit: 'cover' }}
 					/>
 				</Box>
-				<Text p={2}>
+				<Text p={2} maxW='1000px'>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 					eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
 					minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -37,7 +37,7 @@ const BlogListPage: NextPage<{ articles: Article[] }> = ({ articles }) => {
 					pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
 					culpa qui officia deserunt mollit anim id est laborum.
 				</Text>
-				<VStack p={4} spacing={4} maxW='850px' mx='auto'>
+				<VStack p={4} spacing={4} maxW='850px'>
 					{articles.map((article) => (
 						<ArticleContent
 							key={article.id}
