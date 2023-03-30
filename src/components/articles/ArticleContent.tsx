@@ -1,20 +1,18 @@
 import {
-	Box,
-	Divider,
 	Flex,
 	Heading,
 	Image,
 	Link,
 	Text,
-	VStack,
+	useColorModeValue,
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import { format } from 'date-fns';
 import { useEffect } from 'react';
+import ReadButton from './ReadButton';
 
 interface ArticleContentProps {
 	title: string;
-	content: string;
 	image: string;
 	createdAt: string;
 	id: number;
@@ -22,7 +20,6 @@ interface ArticleContentProps {
 
 const ArticleContent = ({
 	title,
-	content,
 	image,
 	createdAt,
 	id,
@@ -32,28 +29,23 @@ const ArticleContent = ({
 	return (
 		<Flex
 			flexDir='column'
-			gap={3}
-			border='1px solid'
-			borderColor='gray.200'
+			border={useColorModeValue('none', '1px')}
+			borderColor={useColorModeValue('none', 'gray.600')}
 			pos='relative'
 			rounded='lg'
 			overflow='hidden'
+			boxShadow={useColorModeValue('md', 'none')}
 		>
-			{/* <Box boxSize='lg'> */}
 			<Image src={`http://localhost:1337${image}`} alt={title} />
-			{/* </Box> */}
-			<VStack p={4}>
-				<Flex flexDir='column' alignSelf='start'>
+			<Flex flexDir='column' alignSelf='start' gap={2} p={4} w='full'>
+				<Flex flexDir='column'>
 					<Link as={NextLink} href={`/anime/${id}`}>
-						<Heading>{title}</Heading>
+						<Heading textAlign='left'>{title}</Heading>
 					</Link>
 					<Text>{format(new Date(createdAt), 'MMMM do yyyy')}</Text>
 				</Flex>
-				<Divider w='40%' alignSelf='start' />
-				<Text whiteSpace='pre-wrap' noOfLines={[3, 3]}>
-					{content}
-				</Text>
-			</VStack>
+				<ReadButton id={id} />
+			</Flex>
 		</Flex>
 	);
 };

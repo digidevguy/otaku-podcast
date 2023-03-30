@@ -43,7 +43,6 @@ const BlogListPage: NextPage<{ articles: Article[] }> = ({ articles }) => {
 							key={article.id}
 							id={article.id}
 							title={article.attributes.title}
-							content={article.attributes.content}
 							image={article.attributes.image.data.attributes.url}
 							createdAt={article.attributes.createdAt}
 						/>
