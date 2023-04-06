@@ -14,3 +14,19 @@ export interface Article {
 	};
 	map?: () => void;
 }
+
+export interface Image {
+	id: number;
+	attributes: {
+		date: string;
+		location: string;
+		name: string;
+		img: {
+			data: {
+				attributes: {
+					url: string;
+				};
+			};
+		};
+	};
+}

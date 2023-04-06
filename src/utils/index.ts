@@ -11,7 +11,7 @@ interface AProps {
  */
 export function getStrapiURL(path = '') {
 	return `${
-		process.env.NEXT_PUBLIC_STRAPI_API_URL || 'http://localhost:1337'
+		process.env.NEXT_PUBLIC_STRAPI_API_URL || 'http://0.0.0.0:1337'
 	}${path}`;
 }
 
@@ -34,4 +34,11 @@ export async function getArticle(id: string) {
 
 	const article: AProps = await res.json();
 	return { article: article.data };
+}
+
+export async function getStrapiImages() {
+	const res = await fetch(getStrapiURL('/api/images'));
+
+	const images = await res.json();
+	return { images: images.data, count: images.meta.pagination.total };
 }
