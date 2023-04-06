@@ -1,4 +1,4 @@
-import { Article } from '@/types';
+import { Article, Image } from '@/types';
 
 interface AProps {
 	data: Article;
@@ -37,8 +37,8 @@ export async function getArticle(id: string) {
 }
 
 export async function getStrapiImages() {
-	const res = await fetch(getStrapiURL('/api/images'));
+	const res = await fetch(getStrapiURL('/api/photos?populate=*'));
 
-	const images = await res.json();
-	return { images: images.data, count: images.meta.pagination.total };
+	const data = await res.json();
+	return { images: data.data };
 }
