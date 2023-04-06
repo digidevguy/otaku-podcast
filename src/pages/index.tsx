@@ -1,4 +1,5 @@
-import { Flex, Heading, Text } from '@chakra-ui/react';
+import Recommendations from '@/components/landing/Recommendations';
+import { Button, Flex, Heading, Text } from '@chakra-ui/react';
 import Head from 'next/head';
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
 					pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
 					culpa qui officia deserunt mollit anim id est laborum.
 				</Text>
+				<Recommendations />
 			</Flex>
 		</>
 	);
