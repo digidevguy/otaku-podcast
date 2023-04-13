@@ -36,9 +36,10 @@ const ImagePreviewPage: NextPage<{ image: Image }> = ({ image }) => {
 		<Flex flexDir='column' p={4} minH='100vh' align='center' justify='center'>
 			<Flex flexDir='column' gap={4} align='center'>
 				<Flex
+					position='relative'
 					overflow='hidden'
 					rounded={15}
-					w={image.attributes.img.data.attributes.width}
+					maxW={['full', null, '1500px']}
 				>
 					<NextImage
 						loader={imageLoader}

@@ -1,10 +1,9 @@
 import { Image } from '@/types';
 import { Flex } from '@chakra-ui/react';
-import { useEffect } from 'react';
 import NextImage from 'next/image';
 import { imageLoader } from '@/utils';
 import Link from 'next/link';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 type GalleryItemProps = {
 	image: Image;
@@ -13,8 +12,6 @@ type GalleryItemProps = {
 const MotionFlex = motion(Flex);
 
 const GalleryItem = ({ image }: GalleryItemProps) => {
-	useEffect(() => console.log(image), [image]);
-
 	return (
 		<Link href={`/gallery/${image.id}`} passHref>
 			<MotionFlex
