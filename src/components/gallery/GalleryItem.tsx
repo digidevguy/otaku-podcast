@@ -1,22 +1,42 @@
 import { Image } from '@/types';
-import { Flex, Image as ChakraImage } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 import { useEffect } from 'react';
+import NextImage from 'next/image';
+import { imageLoader } from '@/utils';
+import Link from 'next/link';
+import { AnimatePresence, motion } from 'framer-motion';
 
 type GalleryItemProps = {
 	image: Image;
 };
 
+const MotionFlex = motion(Flex);
+
 const GalleryItem = ({ image }: GalleryItemProps) => {
 	useEffect(() => console.log(image), [image]);
 
 	return (
-		<Flex overflow='hidden' maxH='200px'>
-			<ChakraImage
-				src={`http://localhost:1337${image.attributes.img.data.attributes.url}`}
-				alt={image.attributes.name}
-				objectFit='cover'
-			/>
-		</Flex>
+		<Link href={`/gallery/${image.id}`} passHref>
+			<MotionFlex
+				position='relative'
+				overflow='hidden'
+				rounded={15}
+				h='125px'
+				whileHover={{ scale: 1.1 }}
+				whileTap={{ scale: 0.9 }}
+			>
+				<NextImage
+					loader={imageLoader}
+					src={image.attributes.img.data.attributes.url}
+					alt={image.attributes.name}
+					// fill
+					style={{ objectFit: 'contain' }}
+					width={image.attributes.img.data.attributes.width}
+					height={image.attributes.img.data.attributes.height}
+					priority
+				/>
+			</MotionFlex>
+		</Link>
 	);
 };
 

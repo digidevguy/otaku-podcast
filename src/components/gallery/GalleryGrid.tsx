@@ -11,7 +11,7 @@ const GalleryGrid = ({ images }: GalleryGridProps) => {
 	useEffect(() => console.log(images), [images]);
 
 	return (
-		<SimpleGrid minChildWidth='150px' w='full'>
+		<SimpleGrid minChildWidth='125px' w={['full', null, '1200px']} spacing={2}>
 			{images.map((image) => (
 				<GalleryItem key={image.id} image={image} />
 			))}
