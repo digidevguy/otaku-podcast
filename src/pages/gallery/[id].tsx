@@ -2,6 +2,8 @@ import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { Image, IParams } from '@/types';
 import { getStrapiImage, getStrapiImages, imageLoader } from '@/utils';
 import NextImage from 'next/image';
+import { Button, Flex, Heading, useColorModeValue } from '@chakra-ui/react';
+import Link from 'next/link';
 
 export const getStaticPaths: GetStaticPaths = async () => {
 	const { images }: { images: Image[] } = await getStrapiImages();
@@ -31,17 +33,36 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
 const ImagePreviewPage: NextPage<{ image: Image }> = ({ image }) => {
 	return (
-		<div>
-			<h1>Image Preview Page</h1>
-			<NextImage
-				loader={imageLoader}
-				src={image.attributes.img.data.attributes.url}
-				alt={image.attributes.name}
-				width={image.attributes.img.data.attributes.width}
-				height={image.attributes.img.data.attributes.height}
-				priority
-			/>
-		</div>
+		<Flex flexDir='column' p={4} minH='100vh' align='center' justify='center'>
+			<Flex flexDir='column' gap={4} align='center'>
+				<Flex
+					overflow='hidden'
+					rounded={15}
+					w={image.attributes.img.data.attributes.width}
+				>
+					<NextImage
+						loader={imageLoader}
+						src={image.attributes.img.data.attributes.url}
+						alt={image.attributes.name}
+						width={image.attributes.img.data.attributes.width}
+						height={image.attributes.img.data.attributes.height}
+						priority
+					/>
+				</Flex>
+				<Heading>{image.attributes.name}</Heading>
+				<Link href='/gallery' passHref>
+					<Button
+						variant='outline'
+						_hover={{
+							bg: useColorModeValue('black', 'white'),
+							color: useColorModeValue('white', 'black'),
+						}}
+					>
+						Back to gallery
+					</Button>
+				</Link>
+			</Flex>
+		</Flex>
 	);
 };
 
