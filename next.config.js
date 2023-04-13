@@ -4,6 +4,14 @@ const nextConfig = {
 	images: {
 		loader: 'default',
 		domains: ['localhost'],
+		// remotePatterns: [
+		// 	{
+		// 		protocol: 'http',
+		// 		hostname: 'localhost',
+		// 		port: '1337',
+		// 		pathname: '/:path*',
+		// 	},
+		// ],
 	},
 };
 

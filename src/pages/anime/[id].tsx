@@ -1,15 +1,8 @@
 import { Article } from '@/types';
-import { getArticle, getArticles } from '@/utils';
-import {
-	Box,
-	Flex,
-	Heading,
-	Image,
-	Text,
-	useColorModeValue,
-} from '@chakra-ui/react';
+import { getArticle, getArticles, imageLoader } from '@/utils';
+import { Box, Flex, Heading, Text, useColorModeValue } from '@chakra-ui/react';
+import Image from 'next/image';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { ParsedUrlQuery } from 'querystring';
 import ReactMarkdown from 'react-markdown';
 import ChakraUIRenderer from 'chakra-ui-markdown-renderer';
 import format from 'date-fns/format';
@@ -64,8 +57,12 @@ export default function BlogDetailPage({ article }: { article: Article }) {
 					</Flex>
 					<Box w={['full', null, '50%']}>
 						<Image
-							src={`http://localhost:1337${article.attributes.image.data.attributes.url}`}
+							loader={imageLoader}
+							src={article.attributes.image.data.attributes.url}
 							alt={article.attributes.title}
+							width={article.attributes.image.data.attributes.width}
+							height={article.attributes.image.data.attributes.height}
+							priority
 						/>
 					</Box>
 				</Flex>

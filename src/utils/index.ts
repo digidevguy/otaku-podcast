@@ -49,3 +49,15 @@ export async function getStrapiImage(id: string) {
 	const data = await res.json();
 	return { image: data.data };
 }
+
+export const imageLoader = ({
+	src,
+	width,
+	quality,
+}: {
+	src: string;
+	width: number;
+	quality?: number;
+}) => {
+	return `http://localhost:1337${src}?w=${width}&q=${quality || 75}`;
+};

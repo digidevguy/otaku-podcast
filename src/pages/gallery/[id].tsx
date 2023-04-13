@@ -1,6 +1,7 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { Image, IParams } from '@/types';
-import { getStrapiImage, getStrapiImages } from '@/utils';
+import { getStrapiImage, getStrapiImages, imageLoader } from '@/utils';
+import NextImage from 'next/image';
 
 export const getStaticPaths: GetStaticPaths = async () => {
 	const { images }: { images: Image[] } = await getStrapiImages();
@@ -29,10 +30,17 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 const ImagePreviewPage: NextPage<{ image: Image }> = ({ image }) => {
-	console.log(image);
 	return (
 		<div>
 			<h1>Image Preview Page</h1>
+			<NextImage
+				loader={imageLoader}
+				src={image.attributes.img.data.attributes.url}
+				alt={image.attributes.name}
+				width={image.attributes.img.data.attributes.width}
+				height={image.attributes.img.data.attributes.height}
+				priority
+			/>
 		</div>
 	);
 };
