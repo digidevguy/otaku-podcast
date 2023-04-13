@@ -19,7 +19,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
 const GalleryPage: NextPage<{ images: Image[] }> = ({ images }) => {
 	return (
-		<Flex flexDir='column' align='center' p={4}>
+		<Flex flexDir='column' align='center' p={4} minH='100vh'>
 			<Heading my={3}>Media Page</Heading>
 			<GalleryGrid images={images} />
 		</Flex>

@@ -1,6 +1,7 @@
 import Recommendations from '@/components/landing/Recommendations';
 import { Button, Flex, Heading, Text } from '@chakra-ui/react';
 import Head from 'next/head';
+import Image from 'next/image';
 
 export default function Home() {
 	return (
@@ -11,7 +12,13 @@ export default function Home() {
 				<meta name='viewport' content='width=device-width, initial-scale=1' />
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
-			<Flex flexDir='column' gap={4} p={4}>
+			<Flex flexDir='column'>
+				<Image
+					src='/senad-palic-Qcefx5xENeA-unsplash.jpg'
+					alt='banner image of anime portraits'
+					width={5751}
+					height={3834}
+				/>
 				<Heading>Elevated x Otaku</Heading>
 				<Text maxW='50%' alignSelf='center'>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

@@ -9,6 +9,7 @@ import {
 	Input,
 	Select,
 	Textarea,
+	useColorModeValue,
 	useToast,
 	VStack,
 } from '@chakra-ui/react';
@@ -22,11 +23,10 @@ const subjectOptions = [
 	},
 	{
 		value: 'podcast-collab-guest',
-		label: 'Podcast Collaborations / Guest Suggestions',
+		label: 'Podcast Collaborations / Guest Inquiries',
 	},
 	{ value: 'endorsements', label: 'Brand or Product Endorsements' },
-	{ value: 'anime', label: 'Anime recommendation' },
-	{ value: 'business', label: 'Business inquiry' },
+	{ value: 'general', label: 'General / Other' },
 ];
 
 const ContactPage: NextPage = () => {
@@ -92,7 +92,7 @@ const ContactPage: NextPage = () => {
 	return (
 		<Flex minH='100vh' justify='center' align='center'>
 			<VStack as='form' onSubmit={handleSubmit}>
-				<Heading>Send us a message</Heading>
+				<Heading>Send me a message</Heading>
 				<Flex flexDir={['column', null, 'row']} gap={2}>
 					<FormControl>
 						<FormLabel>Email</FormLabel>
@@ -132,6 +132,10 @@ const ContactPage: NextPage = () => {
 					variant='outline'
 					isLoading={loading}
 					loadingText='Sending...'
+					_hover={{
+						bg: useColorModeValue('black', 'white'),
+						color: useColorModeValue('white', 'black'),
+					}}
 				>
 					Send
 				</Button>
