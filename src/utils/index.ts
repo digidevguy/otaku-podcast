@@ -42,3 +42,10 @@ export async function getStrapiImages() {
 	const data = await res.json();
 	return { images: data.data };
 }
+
+export async function getStrapiImage(id: string) {
+	const res = await fetch(getStrapiURL(`/api/photos/${id}?populate=*`));
+
+	const data = await res.json();
+	return { image: data.data };
+}

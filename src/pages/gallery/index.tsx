@@ -3,7 +3,6 @@ import { Image } from '@/types';
 import { getStrapiImages } from '@/utils';
 import { Flex, Heading } from '@chakra-ui/react';
 import { GetStaticProps, NextPage } from 'next';
-import { useEffect, useState } from 'react';
 
 // TODO create a media page that pulls in all the media from the database and displays it in a grid
 

@@ -1,3 +1,5 @@
+import { ParsedUrlQuery } from 'querystring';
+
 export interface Article {
 	id: number;
 	attributes: {
@@ -7,6 +9,8 @@ export interface Article {
 			data: {
 				attributes: {
 					url: string;
+					height: number;
+					width: number;
 				};
 			};
 		};
@@ -25,8 +29,14 @@ export interface Image {
 			data: {
 				attributes: {
 					url: string;
+					height: number;
+					width: number;
 				};
 			};
 		};
 	};
+}
+
+export interface IParams extends ParsedUrlQuery {
+	id: string;
 }

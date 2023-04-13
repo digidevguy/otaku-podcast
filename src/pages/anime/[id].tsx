@@ -10,14 +10,10 @@ import {
 } from '@chakra-ui/react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { ParsedUrlQuery } from 'querystring';
-import { useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import ChakraUIRenderer from 'chakra-ui-markdown-renderer';
 import format from 'date-fns/format';
-
-interface IParams extends ParsedUrlQuery {
-	id: string;
-}
+import { IParams } from '@/types';
 
 export const getStaticPaths: GetStaticPaths = async () => {
 	const { articles }: { articles: Article[] } = await getArticles();
@@ -46,9 +42,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 export default function BlogDetailPage({ article }: { article: Article }) {
-	useEffect(() => {
-		console.log(article);
-	}, [article]);
 	return (
 		<>
 			<Flex flexDir='column'>
