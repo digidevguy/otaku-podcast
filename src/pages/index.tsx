@@ -13,12 +13,14 @@ export default function Home() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<Flex flexDir='column'>
-				<Image
-					src='/senad-palic-Qcefx5xENeA-unsplash.jpg'
-					alt='banner image of anime portraits'
-					width={5751}
-					height={3834}
-				/>
+				<Flex pos='relative' maxH='100vh'>
+					<Image
+						src='/senad-palic-Qcefx5xENeA-unsplash.jpg'
+						alt='banner image of anime portraits'
+						width={5751}
+						height={3834}
+					/>
+				</Flex>
 				<Heading>Elevated x Otaku</Heading>
 				<Text maxW='50%' alignSelf='center'>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
