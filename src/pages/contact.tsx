@@ -90,7 +90,7 @@ const ContactPage: NextPage = () => {
 	};
 
 	return (
-		<Flex minH='100vh' justify='center' align='center'>
+		<Flex minH='80vh' justify='center' pt={20} px={4}>
 			<VStack as='form' onSubmit={handleSubmit}>
 				<Heading>Send me a message</Heading>
 				<Flex flexDir={['column', null, 'row']} gap={2}>
@@ -127,9 +127,11 @@ const ContactPage: NextPage = () => {
 						The message field cannot be empty.
 					</FormErrorMessage>
 				</FormControl>
+				{/* TODO: Adjust button styling */}
 				<Button
 					type='submit'
-					variant='outline'
+					variant={useColorModeValue('outline', 'solid')}
+					colorScheme={useColorModeValue('blackAlpha', 'whiteAlpha')}
 					isLoading={loading}
 					loadingText='Sending...'
 					_hover={{

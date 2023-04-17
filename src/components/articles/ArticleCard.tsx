@@ -1,26 +1,21 @@
 import {
 	Flex,
+	Divider,
 	Heading,
-	Image,
-	Link,
 	Text,
 	useColorModeValue,
 } from '@chakra-ui/react';
-import NextLink from 'next/link';
 import { format } from 'date-fns';
-import { useEffect } from 'react';
 import ReadButton from './ReadButton';
 
 interface ArticleCardProps {
 	title: string;
-	image: string;
+	content: string;
 	createdAt: string;
 	id: number;
 }
 
-const ArticleCard = ({ title, image, createdAt, id }: ArticleCardProps) => {
-	useEffect(() => console.log(image), [image]);
-
+const ArticleCard = ({ title, content, createdAt, id }: ArticleCardProps) => {
 	return (
 		<Flex
 			flexDir='column'
@@ -31,15 +26,18 @@ const ArticleCard = ({ title, image, createdAt, id }: ArticleCardProps) => {
 			overflow='hidden'
 			boxShadow={useColorModeValue('md', 'none')}
 			maxW='lg'
+			alignItems='start'
+			p={3}
 		>
-			<Image src={`http://localhost:1337${image}`} alt={title} />
-			<Flex flexDir='column' alignSelf='start' gap={2} p={4} w='full'>
-				<Flex flexDir='column'>
-					<Heading textAlign='left'>{title}</Heading>
-					<Text>{format(new Date(createdAt), 'MMMM do yyyy')}</Text>
-				</Flex>
-				<ReadButton id={id} />
+			<Flex flexDir='column'>
+				<Heading textAlign='left'>{title}</Heading>
+				<Text>{format(new Date(createdAt), 'MMMM do yyyy')}</Text>
 			</Flex>
+			<Divider />
+			<Text px={2} noOfLines={3} my={4}>
+				{content}
+			</Text>
+			<ReadButton id={id} />
 		</Flex>
 	);
 };

@@ -8,8 +8,6 @@ const HeroSection = () => {
 			pos='relative'
 			w='full'
 			flexDir='column'
-			// h='auto'
-			// minH='100vh'
 			py={['10%', '15%', '20%']}
 			overflow='hidden'
 		>

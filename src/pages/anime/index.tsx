@@ -19,40 +19,23 @@ export const getStaticProps: GetStaticProps = async () => {
 const BlogListPage: NextPage<{ articles: Article[] }> = ({ articles }) => {
 	return (
 		<>
-			<Flex flexDir='column' align='center'>
-				<Box pos='relative' overflow='hidden' h={['250px', '350px']} w='full'>
-					<Image
-						src='/gracia-dharma-qTlbO6mkQH0-unsplash.jpg'
-						alt='Anime pics'
-						fill
-						style={{ objectFit: 'cover' }}
-					/>
-					<Box
-						bg='black'
-						pos='absolute'
-						top={0}
-						bottom={0}
-						right={0}
-						left={0}
-						opacity={0.35}
-					/>
-					<Heading
-						color='white'
-						pos='absolute'
-						top='50%'
-						left='25%'
-						borderBottom='1px'
-					>
-						Anime Recommendations
-					</Heading>
-				</Box>
-				<SimpleGrid px={4} py={16} spacing={4} maxW='1000px' columns={[1, 2]}>
+			<Flex flexDir='column' align='center' minH='80vh'>
+				<Heading as='h1' size='2xl' py={10}>
+					Anime Recommendations
+				</Heading>
+				<SimpleGrid
+					px={4}
+					py={16}
+					spacing={4}
+					maxW='1000px'
+					columns={[1, null, 2]}
+				>
 					{articles.map((article) => (
 						<ArticleCard
 							key={article.id}
 							id={article.id}
 							title={article.attributes.title}
-							image={article.attributes.image.data.attributes.url}
+							content={article.attributes.content}
 							createdAt={article.attributes.createdAt}
 						/>
 					))}

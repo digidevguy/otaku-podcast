@@ -4,7 +4,7 @@ import { NextPage } from 'next';
 
 const PodcastLibPage: NextPage = () => {
 	return (
-		<Flex flexDir='column' p={2} align='center'>
+		<Flex flexDir='column' p={10} align='center' minH='80vh'>
 			<VStack maxW='1000px'>
 				<Heading>Podcast Library</Heading>
 				<Text>

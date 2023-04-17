@@ -7,6 +7,8 @@ const Player = () => {
 		script.type = 'text/javascript';
 		script.src =
 			'https://www.buzzsprout.com/2104973.js?container_id=buzzsprout-large-player&player=large';
+		// script.src =
+		// 	'https://www.buzzsprout.com/2104973?client_source=large_player&iframe=true&referrer=https%3A%2F%2Fwww.buzzsprout.com%2F2104973%2Fpodcast%2Fembed';
 		script.async = true;
 		document.body.appendChild(script);
 		return () => {
