@@ -1,7 +1,7 @@
 import { Article } from '@/types';
 import { getArticles } from '@/utils';
 import Image from 'next/image';
-import { Box, Flex, Text, SimpleGrid } from '@chakra-ui/react';
+import { Box, Flex, Text, SimpleGrid, Heading } from '@chakra-ui/react';
 import { GetStaticProps, NextPage } from 'next';
 import ArticleCard from '@/components/articles/ArticleCard';
 
@@ -27,17 +27,26 @@ const BlogListPage: NextPage<{ articles: Article[] }> = ({ articles }) => {
 						fill
 						style={{ objectFit: 'cover' }}
 					/>
+					<Box
+						bg='black'
+						pos='absolute'
+						top={0}
+						bottom={0}
+						right={0}
+						left={0}
+						opacity={0.35}
+					/>
+					<Heading
+						color='white'
+						pos='absolute'
+						top='50%'
+						left='25%'
+						borderBottom='1px'
+					>
+						Anime Recommendations
+					</Heading>
 				</Box>
-				<Text p={2} maxW='1000px'>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-					eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-					minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-					aliquip ex ea commodo consequat. Duis aute irure dolor in
-					reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-					pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-					culpa qui officia deserunt mollit anim id est laborum.
-				</Text>
-				<SimpleGrid p={4} spacing={4} maxW='1000px' columns={[1, 2]}>
+				<SimpleGrid px={4} py={16} spacing={4} maxW='1000px' columns={[1, 2]}>
 					{articles.map((article) => (
 						<ArticleCard
 							key={article.id}

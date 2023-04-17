@@ -1,7 +1,8 @@
+import HeroSection from '@/components/landing/Hero';
+import IntroSection from '@/components/landing/Intro';
 import Recommendations from '@/components/landing/Recommendations';
-import { Button, Flex, Heading, Text } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 import Head from 'next/head';
-import Image from 'next/image';
 
 export default function Home() {
 	return (
@@ -13,25 +14,9 @@ export default function Home() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<Flex flexDir='column'>
-				<Flex pos='relative' maxH='100vh'>
-					<Image
-						src='/senad-palic-Qcefx5xENeA-unsplash.jpg'
-						alt='banner image of anime portraits'
-						width={5751}
-						height={3834}
-					/>
-				</Flex>
-				<Heading>Elevated x Otaku</Heading>
-				<Text maxW='50%' alignSelf='center'>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-					eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-					minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-					aliquip ex ea commodo consequat. Duis aute irure dolor in
-					reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-					pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-					culpa qui officia deserunt mollit anim id est laborum.
-				</Text>
-				<Recommendations />
+				<HeroSection />
+				<IntroSection />
+				{/* <Recommendations /> */}
 			</Flex>
 		</>
 	);
