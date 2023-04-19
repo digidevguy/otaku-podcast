@@ -15,7 +15,15 @@ const Player = () => {
 			document.body.removeChild(script);
 		};
 	}, []);
-	return <Box id='buzzsprout-large-player' w='full' />;
+	return (
+		<Box
+			id='buzzsprout-large-player'
+			w={['90%', 'full']}
+			rounded={10}
+			overflow='hidden'
+			maxW='1000px'
+		/>
+	);
 };
 
 export default Player;
