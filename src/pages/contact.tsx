@@ -1,4 +1,3 @@
-import { useForm } from '@/hooks/useForm';
 import {
 	Button,
 	Flex,
@@ -14,7 +13,7 @@ import {
 	VStack,
 } from '@chakra-ui/react';
 import { NextPage } from 'next';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const subjectOptions = [
 	{
@@ -35,9 +34,9 @@ const ContactPage: NextPage = () => {
 		subject: '',
 		content: '',
 		errors: { email: '', subject: '', content: '' },
-		emailValid: false,
-		subjectValid: false,
-		contentValid: false,
+		emailInvalid: false,
+		subjectInvalid: false,
+		contentInvalid: false,
 	});
 	const { email, subject, content } = formData;
 
@@ -61,45 +60,99 @@ const ContactPage: NextPage = () => {
 		e.preventDefault();
 		setLoading(true);
 
-		try {
-			const res = await fetch('/api/contact-mail', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify(formData),
-			});
+		// const email = formData.email.trim();
+		// const subject = formData.subject.trim();
+		// const content = formData.content.trim();
 
-			toast({
-				title: 'Success',
-				description: 'Your message has been sent',
-				status: 'success',
-				duration: 5000,
-				isClosable: true,
+		if (!email) {
+			setFormData({
+				...formData,
+				errors: { ...formData.errors, email: 'Email is required' },
+				// emailInvalid: true,
 			});
-		} catch (error: any) {
-			toast({
-				title: 'Error',
-				description: error.message,
-				status: 'error',
-				duration: 5000,
-				isClosable: true,
-			});
+			setLoading(false);
+			return;
 		}
+
+		if (!email.includes('@')) {
+			setFormData({
+				...formData,
+				errors: { ...formData.errors, email: 'Email is invalid' },
+				emailInvalid: true,
+			});
+			setLoading(false);
+			return;
+		}
+
+		if (!subject) {
+			setFormData({
+				...formData,
+				errors: { ...formData.errors, subject: 'Subject is required' },
+				subjectInvalid: true,
+			});
+			setLoading(false);
+			return;
+		}
+
+		if (!content) {
+			setFormData({
+				...formData,
+				errors: { ...formData.errors, content: 'Message is required' },
+				contentInvalid: true,
+			});
+			setLoading(false);
+			return;
+		}
+
+		// try {
+		// 	const res = await fetch('/api/contact-mail', {
+		// 		method: 'POST',
+		// 		headers: {
+		// 			'Content-Type': 'application/json',
+		// 		},
+		// 		body: JSON.stringify(formData),
+		// 	});
+
+		// 	toast({
+		// 		title: 'Success',
+		// 		description: 'Your message has been sent',
+		// 		status: 'success',
+		// 		duration: 5000,
+		// 		isClosable: true,
+		// 	});
+		// } catch (error: any) {
+		// 	toast({
+		// 		title: 'Error',
+		// 		description: error.message,
+		// 		status: 'error',
+		// 		duration: 5000,
+		// 		isClosable: true,
+		// 	});
+		// }
 		setLoading(false);
+
+		setFormData({
+			email: '',
+			subject: '',
+			content: '',
+			errors: { email: '', subject: '', content: '' },
+			emailInvalid: false,
+			subjectInvalid: false,
+			contentInvalid: false,
+		});
 	};
 
 	return (
 		<Flex minH='80vh' justify='center' pt={20} px={4}>
-			<VStack as='form' onSubmit={handleSubmit}>
+			<VStack as='form' onSubmit={handleSubmit} spacing={4}>
 				<Heading>Send me a message</Heading>
 				<Flex flexDir={['column', null, 'row']} gap={2}>
-					<FormControl>
+					<FormControl isInvalid={formData.emailInvalid}>
 						<FormLabel>Email</FormLabel>
 						<Input name='email' value={email} onChange={handleInputChange} />
-						<FormErrorMessage>Email is required.</FormErrorMessage>
+						<FormErrorMessage>{formData.errors.email}</FormErrorMessage>
 					</FormControl>
-					<FormControl>
+					<FormControl isInvalid={formData.subjectInvalid}>
 						<FormLabel>Subject</FormLabel>
 						<Select
 							name='subject'
@@ -113,25 +166,25 @@ const ContactPage: NextPage = () => {
 								</option>
 							))}
 						</Select>
-						<FormErrorMessage>Please select an option.</FormErrorMessage>
+						<FormErrorMessage>{formData.errors.subject}</FormErrorMessage>
 					</FormControl>
 				</Flex>
-				<FormControl>
+				<FormControl isInvalid={formData.contentInvalid}>
 					<FormLabel>Message</FormLabel>
 					<Textarea
 						name='content'
 						value={content}
 						onChange={handleInputChange}
 					/>
-					<FormErrorMessage>
-						The message field cannot be empty.
-					</FormErrorMessage>
+					<FormErrorMessage>{formData.errors.content}</FormErrorMessage>
 				</FormControl>
 				{/* TODO: Adjust button styling */}
 				<Button
+					w='xs'
 					type='submit'
 					variant={useColorModeValue('outline', 'solid')}
-					colorScheme={useColorModeValue('blackAlpha', 'whiteAlpha')}
+					color={useColorModeValue('black', 'white')}
+					// bg={useColorModeValue('white', 'black')}
 					isLoading={loading}
 					loadingText='Sending...'
 					_hover={{
