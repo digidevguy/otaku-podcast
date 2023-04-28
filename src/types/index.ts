@@ -37,6 +37,18 @@ export interface Image {
 	};
 }
 
+export interface Track {
+	id: number;
+	artist: string;
+	title: string;
+	artwork_url: string;
+	audio_url: string;
+	description: string;
+	duration: number;
+	episode_number: number;
+	published_at: string;
+}
+
 export interface IParams extends ParsedUrlQuery {
 	id: string;
 }

@@ -1,3 +1,4 @@
+import NativePlayer from '@/components/podcast/NativePlayer';
 import Player from '@/components/podcast/Player';
 import { podcast } from '@/libs/podcast';
 import {
@@ -30,7 +31,8 @@ const PodcastLibPage: NextPage = () => {
 					pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
 					culpa qui officia deserunt mollit anim id est laborum.
 				</Text>
-				<Player />
+				{/* <Player /> */}
+				<NativePlayer />
 				<Divider />
 				<Flex
 					h={['45vh', '15vh']}

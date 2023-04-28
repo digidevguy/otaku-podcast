@@ -6,7 +6,7 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
 		<>
 			<NavBar />
 			{children}
-			<Footer />
+			{/* <Footer /> */}
 		</>
 	);
 };
