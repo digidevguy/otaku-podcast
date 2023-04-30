@@ -43,8 +43,8 @@ const Controls = ({
 	const repeat = useCallback(() => {
 		const currentTime = audioRef.current?.currentTime.toString();
 		setTimeProgress(+currentTime!);
-		progressBarRef.current!.value = currentTime!;
-		progressBarRef.current!.style.setProperty(
+		progressBarRef.current.value = currentTime!;
+		progressBarRef.current.style.setProperty(
 			'--seek-before-width',
 			`${(progressBarRef.current.value! / duration) * 100}%`
 		);
