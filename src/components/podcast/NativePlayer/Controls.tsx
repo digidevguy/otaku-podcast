@@ -24,7 +24,6 @@ type ControlsProps = {
 	handleNext: () => void;
 };
 
-// TODO: Start adding onClick events to handle track navigation
 const Controls = ({
 	audioRef,
 	progressBarRef,

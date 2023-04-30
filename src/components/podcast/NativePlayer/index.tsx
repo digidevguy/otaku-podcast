@@ -1,10 +1,12 @@
 import { Track } from '@/types';
 import { useEffect, useState, useRef } from 'react';
-
 import DisplayTrack from './DisplayTrack';
 import Controls from './Controls';
 import ProgressBar from './ProgressBar';
 
+// TODO: Add a loading skeleton component
+// TODO: Replace base elements with Chakra UI components
+// TODO: Add styling to the player
 const NativePlayer = () => {
 	const [tracks, setTracks] = useState<Track[]>([]);
 
@@ -28,7 +30,6 @@ const NativePlayer = () => {
 		}
 	};
 
-	// make GET request to api to get tracks and save to state
 	useEffect(() => {
 		const fetchTracks = async () => {
 			const res = await fetch('/api/get-podcasts');
