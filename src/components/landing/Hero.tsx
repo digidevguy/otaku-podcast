@@ -13,10 +13,10 @@ const HeroSection = () => {
 		>
 			<Box pos='absolute' top={0} left={0}>
 				<Image
-					src='/shubham-dhage-MpL4w1vb798-unsplash.jpg'
+					src='/assets/images/EOBanner.png'
 					alt='banner-img'
-					width={3840}
-					height={2160}
+					width={1920}
+					height={1080}
 					// style={{
 					// 	position: 'absolute',
 					// 	top: 0,
@@ -35,12 +35,9 @@ const HeroSection = () => {
 				zIndex={1}
 				color='white'
 			>
-				<Heading as='h1' size={['lg', '2xl']}>
-					Elevated x Otaku
-				</Heading>
 				<Text maxW={['90%', '75%', '50%']} fontSize={['xs', 'sm', 'lg']}>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-					eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					Your favorite anime-themed self-improvement podcast for freaks, geeks,
+					and lost souls
 				</Text>
 				<Button
 					display={['none', 'inherit']}

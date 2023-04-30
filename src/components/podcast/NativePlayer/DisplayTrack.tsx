@@ -7,6 +7,7 @@ type DisplayTrackProps = {
 	audioRef: React.MutableRefObject<HTMLAudioElement | null>;
 	progressBarRef: React.MutableRefObject<HTMLInputElement | null>;
 	setDuration: React.Dispatch<React.SetStateAction<string>>;
+	handleNext: () => void;
 };
 
 const DisplayTrack = ({
@@ -14,6 +15,7 @@ const DisplayTrack = ({
 	audioRef,
 	progressBarRef,
 	setDuration,
+	handleNext,
 }: DisplayTrackProps) => {
 	const onLoadedMetadata = () => {
 		const seconds: string = audioRef.current?.duration.toString()!;
@@ -27,6 +29,7 @@ const DisplayTrack = ({
 				src={track.audio_url}
 				ref={audioRef}
 				onLoadedMetadata={onLoadedMetadata}
+				onEnded={handleNext}
 			/>
 			<div className='image'>
 				{track.artwork_url ? (
