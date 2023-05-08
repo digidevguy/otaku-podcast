@@ -1,5 +1,5 @@
 import { Track } from '@/types';
-import { Icon, Image } from '@chakra-ui/react';
+import { Box, Flex, Heading, Icon, Image, Stack, Text } from '@chakra-ui/react';
 import { HiMusicNote } from 'react-icons/hi';
 
 type DisplayTrackProps = {
@@ -24,26 +24,32 @@ const DisplayTrack = ({
 	};
 
 	return (
-		<div>
+		<Stack
+			direction={['column', 'row']}
+			spacing={4}
+			align='center'
+			p={2}
+			w={['sm', 'lg', '2xl']}
+		>
 			<audio
 				src={track.audio_url}
 				ref={audioRef}
 				onLoadedMetadata={onLoadedMetadata}
 				onEnded={handleNext}
 			/>
-			<div className='image'>
+			<Box maxW='200px' rounded={10} overflow='hidden' alignSelf='center'>
 				{track.artwork_url ? (
-					<Image src={track.artwork_url} alt={track.title} boxSize='xs' />
+					<Image src={track.artwork_url} alt={track.title} />
 				) : (
 					<div>
 						<Icon as={HiMusicNote} />
 					</div>
 				)}
-			</div>
-			<div className='track-info'>
-				<p className='title'>{track.title}</p>
-			</div>
-		</div>
+			</Box>
+			<Heading as='h2' size='lg' textAlign='center'>
+				{track.title}
+			</Heading>
+		</Stack>
 	);
 };
 

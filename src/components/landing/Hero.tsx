@@ -1,44 +1,44 @@
-import { Box, Button, Flex, Heading, Text } from '@chakra-ui/react';
+import { Box, Button, Flex, Heading } from '@chakra-ui/react';
 import Image from 'next/image';
 
-// TODO: Fix the image to be responsive
 const HeroSection = () => {
 	return (
 		<Flex
 			pos='relative'
 			w='full'
 			flexDir='column'
-			py={['10%', '15%', '20%']}
+			py={['20%', '15%', '15%']}
 			overflow='hidden'
+			justifySelf='center'
+			alignSelf='center'
 		>
-			<Box pos='absolute' top={0} left={0}>
+			<Box pos='absolute' top={0} left={0} right={0} bottom={0}>
 				<Image
 					src='/assets/images/EOBanner.png'
 					alt='banner-img'
-					width={1920}
-					height={1080}
-					// style={{
-					// 	position: 'absolute',
-					// 	top: 0,
-					// 	left: 0,
-					// 	right: 0,
-					// 	bottom: 0,
-					// }}
+					fill
+					// width={1920}
+					// height={1080}
+					style={{
+						objectFit: 'cover',
+					}}
+				/>
+				<Box
+					bg='black'
+					opacity={0.15}
+					pos='absolute'
+					top={0}
+					left={0}
+					right={0}
+					bottom={0}
 				/>
 			</Box>
-			<Flex
-				pos='relative'
-				flexDir='column'
-				w='88%'
-				mx='auto'
-				gap={2}
-				zIndex={1}
-				color='white'
-			>
-				<Text maxW={['90%', '75%', '50%']} fontSize={['xs', 'sm', 'lg']}>
+			<Flex pos='relative' flexDir='column' gap={2} zIndex={1} color='white'>
+				{/* <Heading maxW={['90%', '75%', '50%']} size={['xs', 'sm', 'lg']}> */}
+				<Heading size={['xs', 'sm', 'lg']}>
 					Your favorite anime-themed self-improvement podcast for freaks, geeks,
 					and lost souls
-				</Text>
+				</Heading>
 				<Button
 					display={['none', 'inherit']}
 					maxW={['25%', null, '30%']}

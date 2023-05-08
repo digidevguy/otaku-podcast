@@ -23,6 +23,9 @@ const BlogListPage: NextPage<{ articles: Article[] }> = ({ articles }) => {
 				<Heading as='h1' size='2xl' py={10}>
 					Anime Recommendations
 				</Heading>
+				<Text>
+					Hungry for more? Check out our anime recommendations and blog
+				</Text>
 				<SimpleGrid
 					px={4}
 					py={16}

@@ -9,6 +9,15 @@ import {
 	IoVolumeHigh,
 	IoVolumeOff,
 } from 'react-icons/io5';
+import {
+	ButtonGroup,
+	Flex,
+	IconButton,
+	Slider,
+	SliderThumb,
+	SliderFilledTrack,
+	SliderTrack,
+} from '@chakra-ui/react';
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { Track } from '@/types';
 
@@ -99,43 +108,66 @@ const Controls = ({
 	}, [volume, audioRef, muteVolume]);
 
 	return (
-		<div className='controls=wrapper'>
-			<div className='controls'>
-				<button onClick={handlePrev}>
-					<IoPlaySkipBackSharp />
-				</button>
-				<button onClick={skipBack}>
-					<IoPlayBackSharp />
-				</button>
-				<button onClick={togglePlaying}>
-					{isPlaying ? <IoPauseSharp /> : <IoPlaySharp />}
-				</button>
-				<button onClick={skipForward}>
-					<IoPlayForwardSharp />
-				</button>
-				<button onClick={handleNext}>
-					<IoPlaySkipForwardSharp />
-				</button>
-			</div>
-			<div className='volume'>
-				<button onClick={() => setMuteVolume((prev) => !prev)}>
-					{muteVolume || volume < 5 ? (
-						<IoVolumeOff />
-					) : volume < 40 ? (
-						<IoVolumeLow />
-					) : (
-						<IoVolumeHigh />
-					)}
-				</button>
-				<input
-					type='range'
+		<Flex flexDir='column' gap={3}>
+			<ButtonGroup alignSelf='center' p={2} variant='ghost'>
+				<IconButton
+					icon={<IoPlaySkipBackSharp />}
+					aria-label='Skip to previous'
+					onClick={handlePrev}
+				/>
+				<IconButton
+					icon={<IoPlayBackSharp />}
+					aria-label='Skip backward'
+					onClick={skipBack}
+				/>
+				<IconButton
+					icon={isPlaying ? <IoPauseSharp /> : <IoPlaySharp />}
+					aria-label={isPlaying ? 'Pause' : 'Play'}
+					onClick={togglePlaying}
+				/>
+				<IconButton
+					icon={<IoPlayForwardSharp />}
+					aria-label='Skip forward'
+					onClick={skipForward}
+				/>
+				<IconButton
+					icon={<IoPlaySkipForwardSharp />}
+					aria-label='Skip to next'
+					onClick={handleNext}
+				/>
+			</ButtonGroup>
+			<Flex gap={4} p={2}>
+				<IconButton
+					variant='ghost'
+					icon={
+						muteVolume || volume < 5 ? (
+							<IoVolumeOff />
+						) : volume < 40 ? (
+							<IoVolumeLow />
+						) : (
+							<IoVolumeHigh />
+						)
+					}
+					aria-label={muteVolume ? 'Unmute' : 'Mute'}
+					onClick={() => setMuteVolume((prev) => !prev)}
+				/>
+				<Slider
+					aria-label='Volume'
 					min={0}
 					max={100}
+					defaultValue={60}
 					value={volume}
-					onChange={(e) => setVolume(+e.target.value)}
-				/>
-			</div>
-		</div>
+					onChange={(val) => {
+						setVolume(val);
+					}}
+				>
+					<SliderTrack>
+						<SliderFilledTrack />
+					</SliderTrack>
+					<SliderThumb />
+				</Slider>
+			</Flex>
+		</Flex>
 	);
 };
 

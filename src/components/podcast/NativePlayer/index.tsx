@@ -1,4 +1,5 @@
 import { Track } from '@/types';
+import { Flex } from '@chakra-ui/react';
 import { useEffect, useState, useRef } from 'react';
 import DisplayTrack from './DisplayTrack';
 import Controls from './Controls';
@@ -43,10 +44,13 @@ const NativePlayer = () => {
 	if (tracks.length === 0) return <p>Loading...</p>;
 	return (
 		<div>
-			<div>
+			<Flex flexDir='column' gap={4}>
 				<DisplayTrack
 					track={tracks[trackIndex]}
 					{...{ audioRef, progressBarRef, setDuration, handleNext }}
+				/>
+				<ProgressBar
+					{...{ audioRef, progressBarRef, timeProgress, duration }}
 				/>
 				<Controls
 					{...{
@@ -61,10 +65,7 @@ const NativePlayer = () => {
 						handleNext,
 					}}
 				/>
-				<ProgressBar
-					{...{ audioRef, progressBarRef, timeProgress, duration }}
-				/>
-			</div>
+			</Flex>
 		</div>
 	);
 };

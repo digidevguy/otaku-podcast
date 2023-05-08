@@ -1,3 +1,13 @@
+import {
+	Flex,
+	Input,
+	Progress,
+	Slider,
+	SliderTrack,
+	SliderFilledTrack,
+	SliderThumb,
+} from '@chakra-ui/react';
+
 type ProgressBarProps = {
 	audioRef: React.MutableRefObject<HTMLAudioElement | null>;
 	progressBarRef: React.MutableRefObject<HTMLInputElement | null>;
@@ -22,16 +32,28 @@ const ProgressBar = ({
 	};
 
 	return (
-		<div className='progress'>
+		<Flex className='progress' gap={4} p={2}>
 			<span className='time current'>{formatTime(timeProgress)}</span>
-			<input
+			<Slider
+				// ref={progressBarRef}
+				value={+progressBarRef.current?.value!}
+				onChange={handleProgressChange}
+				defaultValue={0}
+				// max={+progressBarRef.current?.max!}
+			>
+				<SliderTrack>
+					<SliderFilledTrack />
+				</SliderTrack>
+				<SliderThumb />
+			</Slider>
+			{/* <input
 				type='range'
 				ref={progressBarRef}
 				defaultValue={'0'}
 				onChange={handleProgressChange}
-			/>
+			/> */}
 			<span className='time'>{formatTime(duration)}</span>
-		</div>
+		</Flex>
 	);
 };
 

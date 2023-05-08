@@ -79,7 +79,7 @@ const NavBar: React.FC = () => {
 						display={['inherit', null, 'none']}
 					/>
 					<Link href='/'>
-						<Heading>Navbar</Heading>
+						<Heading>Elevated X Otaku</Heading>
 					</Link>
 				</Stack>
 				<Stack direction='row'>
@@ -91,7 +91,7 @@ const NavBar: React.FC = () => {
 						))}
 					</ButtonGroup>
 					<IconButton
-						icon={<SunIcon />}
+						icon={useColorModeValue(<MoonIcon />, <SunIcon />)}
 						aria-label='Toggle Dark Mode'
 						variant='ghost'
 						onClick={toggleColorMode}

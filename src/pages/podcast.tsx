@@ -1,4 +1,5 @@
 import NativePlayer from '@/components/podcast/NativePlayer';
+import PodcastList from '@/components/podcast/PodcastList';
 import { podcast } from '@/libs/podcast';
 import {
 	Button,
@@ -18,19 +19,18 @@ import { NextPage } from 'next';
 const PodcastLibPage: NextPage = () => {
 	const iconColor = useColorModeValue('gray.500', 'gray.200');
 	return (
-		<Flex flexDir='column' p={10} align='center'>
+		<Flex flexDir='column' p={[2, 10]} align='center'>
 			<VStack maxW='1100px' spacing={4}>
 				<Heading>Podcast Library</Heading>
-				<Text>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-					eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-					minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-					aliquip ex ea commodo consequat. Duis aute irure dolor in
-					reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-					pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-					culpa qui officia deserunt mollit anim id est laborum.
+				<Text p={2}>
+					Check out the ElevatedXOtaku Podcast - the self-improvement podcast
+					created for anime and manga fans that delivers empowering,
+					entertaining, and insightful messages about love, life, and mental
+					health through the lense of your favorite shows. Who knows, you may
+					even catch a JoJo&apos;s reference.
 				</Text>
-				<NativePlayer />
+				{/* <NativePlayer /> */}
+				<PodcastList />
 				<Divider />
 				<Flex
 					h={['45vh', '15vh']}

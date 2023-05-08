@@ -1,4 +1,4 @@
-import { FaEnvelope, FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
+import { FaEnvelope, FaInstagram, FaTiktok, FaTwitter } from 'react-icons/fa';
 
 export const social = [
 	{
@@ -7,13 +7,13 @@ export const social = [
 		icon: <FaTwitter />,
 	},
 	{
-		label: 'Facebook',
-		href: 'https://www.facebook.com/',
-		icon: <FaFacebook />,
+		label: 'Tiktok',
+		href: 'https://www.tiktok.com/@elevatedxotaku?_t=8btLRMEvh7u&_r=1',
+		icon: <FaTiktok />,
 	},
 	{
 		label: 'Instagram',
-		href: 'https://www.instagram.com/',
+		href: 'https://twitter.com/ElevatedxOtaku?t=MQoJDQhAoHNfeAm5EdI1cA&s=09',
 		icon: <FaInstagram />,
 	},
 	{
