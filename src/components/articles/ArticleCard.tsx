@@ -33,8 +33,8 @@ const ArticleCard = ({ title, content, createdAt, id }: ArticleCardProps) => {
 				<Heading textAlign='left'>{title}</Heading>
 				<Text>{format(new Date(createdAt), 'MMMM do yyyy')}</Text>
 			</Flex>
-			<Divider />
-			<Text px={2} noOfLines={3} my={4}>
+			<Divider mt={2} />
+			<Text px={2} noOfLines={3} my={2}>
 				{content}
 			</Text>
 			<ReadButton id={id} />

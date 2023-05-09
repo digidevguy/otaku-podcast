@@ -10,6 +10,7 @@ const ReadButton = ({ id }: ReadButtonProps) => {
 	const router = useRouter();
 	return (
 		<Button
+			bottom={0}
 			maxW='12vh'
 			variant='outline'
 			borderColor={useColorModeValue('black', 'white')}
