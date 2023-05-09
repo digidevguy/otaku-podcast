@@ -103,7 +103,7 @@ const ContactPage: NextPage = () => {
 			setLoading(false);
 			return;
 		}
-
+		// TODO: Adjust validation logic and uncomment fetch request
 		// try {
 		// 	const res = await fetch('/api/contact-mail', {
 		// 		method: 'POST',
