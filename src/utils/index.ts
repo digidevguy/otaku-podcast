@@ -21,7 +21,9 @@ export function getStrapiMedia(url = '') {
 }
 
 export async function getArticles() {
-	const res = await fetch('http://0.0.0.0:1337/api/articles?populate=image');
+	const res = await fetch(
+		`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/articles?populate=image`
+	);
 
 	const articles = await res.json();
 	return { articles: articles.data, count: articles.meta.pagination.total };
@@ -29,7 +31,7 @@ export async function getArticles() {
 
 export async function getArticle(id: string) {
 	const res = await fetch(
-		`http://0.0.0.0:1337/api/articles/${id}?populate=image`
+		`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/articles/${id}?populate=image`
 	);
 
 	const article: AProps = await res.json();
@@ -59,5 +61,7 @@ export const imageLoader = ({
 	width: number;
 	quality?: number;
 }) => {
-	return `http://localhost:1337${src}?w=${width}&q=${quality || 75}`;
+	return `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/${src}?w=${width}&q=${
+		quality || 75
+	}`;
 };

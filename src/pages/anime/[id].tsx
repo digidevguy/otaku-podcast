@@ -57,7 +57,7 @@ export default function BlogDetailPage({ article }: { article: Article }) {
 					</Flex>
 					<Box w={['full', null, '50%']}>
 						<Image
-							loader={imageLoader}
+							// loader={imageLoader}
 							src={article.attributes.image.data.attributes.url}
 							alt={article.attributes.title}
 							width={article.attributes.image.data.attributes.width}
