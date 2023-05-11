@@ -14,7 +14,7 @@ const HeroSection = () => {
 		>
 			<Box pos='absolute' top={0} left={0} right={0} bottom={0}>
 				<Image
-					src='/assets/images/EOBanner.png'
+					src='/assets/images/banner.png'
 					alt='banner-img'
 					fill
 					// width={1920}

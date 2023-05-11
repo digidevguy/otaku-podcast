@@ -16,12 +16,16 @@ import {
 	useDisclosure,
 	useColorMode,
 	useColorModeValue,
+	Box,
 } from '@chakra-ui/react';
 import Link from 'next/link';
 import { HamburgerIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { navigation } from '../../libs/navigation';
 import { social } from '../../libs/social';
 import NavButton from './NavButton';
+import Image from 'next/image';
+
+import logoImg from '../../../public/assets/images/logo with subtitle.png';
 
 const NavBar: React.FC = () => {
 	const { isOpen, onOpen, onClose } = useDisclosure();
@@ -78,9 +82,11 @@ const NavBar: React.FC = () => {
 						onClick={onOpen}
 						display={['inherit', null, 'none']}
 					/>
-					<Link href='/'>
-						<Heading>Elevated X Otaku</Heading>
-					</Link>
+					<Flex boxSize='xs' align='center' maxH={20}>
+						<Link href='/'>
+							<Image src={logoImg} alt='Logo' />
+						</Link>
+					</Flex>
 				</Stack>
 				<Stack direction='row'>
 					<ButtonGroup variant='outline' display={['none', null, 'inherit']}>
