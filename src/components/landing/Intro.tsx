@@ -1,4 +1,6 @@
 import { Flex, Text } from '@chakra-ui/react';
+import Image from 'next/image';
+import avatarPic from '../../../public/assets/images/avatar + logo.jpg';
 
 const IntroSection = () => {
 	return (
@@ -9,6 +11,7 @@ const IntroSection = () => {
 				cosplay inspiration, or simply a community of like-minded nerds and
 				geeks - you’ve come to the right place!
 			</Text>
+			<Image src={avatarPic} alt='avatar' />
 		</Flex>
 	);
 };

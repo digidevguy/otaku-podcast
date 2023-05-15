@@ -82,7 +82,7 @@ const NavBar: React.FC = () => {
 						onClick={onOpen}
 						display={['inherit', null, 'none']}
 					/>
-					<Flex boxSize='xs' align='center' maxH={20}>
+					<Flex align='center' maxW='33%'>
 						<Link href='/'>
 							<Image src={logoImg} alt='Logo' />
 						</Link>
