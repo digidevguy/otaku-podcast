@@ -1,5 +1,5 @@
 import { NextPage } from 'next';
-import { Box, Center, Flex, Heading, HStack } from '@chakra-ui/react';
+import { Box, Flex, Heading, HStack } from '@chakra-ui/react';
 
 const ColorChoicePage: NextPage = () => {
 	return (

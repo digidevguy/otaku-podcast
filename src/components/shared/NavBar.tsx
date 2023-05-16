@@ -71,8 +71,8 @@ const NavBar: React.FC = () => {
 				top={0}
 				pos='sticky'
 				zIndex='sticky'
-				bg={colorMode === 'light' ? 'white' : 'gray.800'}
-				boxShadow='sm'
+				bg={colorMode === 'light' ? 'brand.100' : 'brand.700'}
+				boxShadow='md'
 			>
 				<Stack spacing={3} direction='row' align='center'>
 					<IconButton

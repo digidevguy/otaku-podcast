@@ -1,5 +1,7 @@
-import { extendTheme } from '@chakra-ui/react';
-import { theme as chakraTheme } from '@chakra-ui/react';
+import { ThemeConfig, extendTheme } from '@chakra-ui/react';
+import { theme as chakraTheme, useColorModeValue } from '@chakra-ui/react';
+import { mode } from '@chakra-ui/theme-tools';
+import type { StyleFunctionProps } from '@chakra-ui/styled-system';
 
 const fonts = {
 	...chakraTheme.fonts,
@@ -22,12 +24,23 @@ const brandColors = {
 	},
 };
 
-const overrides = {
-	...chakraTheme,
-	fonts,
-	colors: brandColors,
+const config: ThemeConfig = {
+	initialColorMode: 'light',
+	useSystemColorMode: false,
 };
 
-const customTheme = extendTheme(overrides);
+const customTheme = extendTheme({
+	...chakraTheme,
+	fonts,
+	config,
+	colors: brandColors,
+	styles: {
+		global: (props: StyleFunctionProps) => ({
+			body: {
+				bg: mode('brand.100', 'brand.700')(props),
+			},
+		}),
+	},
+});
 
 export default customTheme;
