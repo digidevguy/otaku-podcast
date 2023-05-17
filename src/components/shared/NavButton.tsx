@@ -7,7 +7,6 @@ type NavButtonProps = {
 const NavButton = ({ label }: NavButtonProps) => {
 	return (
 		<Button
-			as='a'
 			variant='ghost'
 			_hover={{
 				bg: useColorModeValue('black', 'white'),

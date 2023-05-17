@@ -1,4 +1,4 @@
-import { Flex, Heading, VStack, Text } from '@chakra-ui/react';
+import { Flex, Heading, Stack, Text } from '@chakra-ui/react';
 
 const testText = 'Whereas recognition of the inherent dignity';
 
@@ -26,13 +26,17 @@ const fontArr = [
 
 const FontChoice = () => {
 	return (
-		<Flex flexDir='column' minH='80vh' p={4} justify='center'>
+		<Flex flexDir='column' minH='80vh' p={4} justify='center' align='center'>
 			<Heading alignSelf='center'>Font Choices</Heading>
-			<VStack py={4}>
+			<Stack direction='column' py={4}>
 				{fontArr.map((font) => (
-					<Text key={font}>{testText}</Text>
+					<Stack key={font} direction='row'>
+						<Text>{font}</Text>
+						<span>-</span>
+						<Text fontFamily={font}>{testText}</Text>
+					</Stack>
 				))}
-			</VStack>
+			</Stack>
 		</Flex>
 	);
 };
