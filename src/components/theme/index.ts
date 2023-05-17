@@ -5,8 +5,8 @@ import type { StyleFunctionProps } from '@chakra-ui/styled-system';
 
 const fonts = {
 	...chakraTheme.fonts,
-	body: 'Open Sans, sans-serif',
-	heading: 'Bebas Neue, cursive',
+	body: 'Merriweather, serif',
+	heading: 'Open Sans, sans-serif',
 };
 
 const brandColors = {
