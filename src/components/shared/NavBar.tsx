@@ -9,7 +9,6 @@ import {
 	DrawerHeader,
 	DrawerOverlay,
 	Flex,
-	Heading,
 	Link as ChakraLink,
 	Stack,
 	IconButton,
