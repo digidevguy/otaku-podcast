@@ -1,31 +1,28 @@
-import { Box, Button, Flex, Heading } from '@chakra-ui/react';
+import {
+	Box,
+	Button,
+	Container,
+	Flex,
+	Heading,
+	useColorModeValue,
+} from '@chakra-ui/react';
 import Image from 'next/image';
+import bannerImg from '../../../public/assets/images/banner.png';
 
 const HeroSection = () => {
 	return (
 		<Flex
 			pos='relative'
+			bg={useColorModeValue('brand.100', 'brand.700')}
+			flexDir={['column', 'row']}
 			w='full'
-			flexDir='column'
-			py={['20%', '15%', '15%']}
-			overflow='hidden'
-			justifySelf='center'
-			alignSelf='center'
+			align='center'
 		>
-			<Box pos='absolute' top={0} left={0} right={0} bottom={0}>
-				<Image
-					src='/assets/images/banner.png'
-					alt='banner-img'
-					fill
-					// width={1920}
-					// height={1080}
-					style={{
-						objectFit: 'cover',
-					}}
-				/>
+			<Box pos='relative'>
+				<Image src={bannerImg} alt='banner-img' />
 				<Box
 					bg='black'
-					opacity={0.25}
+					opacity={0.1}
 					pos='absolute'
 					top={0}
 					left={0}
@@ -33,19 +30,21 @@ const HeroSection = () => {
 					bottom={0}
 				/>
 			</Box>
-			<Flex pos='relative' flexDir='column' gap={2} zIndex={1} color='white'>
-				{/* <Heading maxW={['90%', '75%', '50%']} size={['xs', 'sm', 'lg']}> */}
-				<Heading size={['xs', 'sm', 'lg']}>
-					Your favorite anime-themed self-improvement podcast for freaks, geeks,
-					and lost souls
-				</Heading>
-				<Button
-					display={['none', 'inherit']}
-					maxW={['25%', null, '30%']}
-					colorScheme=' blue'
-				>
-					Subscribe
-				</Button>
+			<Flex h='full' flexDir='column' pl='4.16vw'>
+				<Container maxW='30.7vw'>
+					<Heading size={['xs', 'sm', 'lg']} my='1.7vw'>
+						Your favorite anime-themed self-improvement podcast for freaks,
+						geeks, and lost souls
+					</Heading>
+					<Button
+						// display={['none', 'inherit']}
+						// maxW={['25%', null, '30%']}
+						colorScheme=' blue'
+						// p={6}
+					>
+						Subscribe
+					</Button>
+				</Container>
 			</Flex>
 		</Flex>
 	);

@@ -68,10 +68,10 @@ const NavBar: React.FC = () => {
 				align='center'
 				justify='space-between'
 				top={0}
-				pos='sticky'
-				zIndex='sticky'
-				// bg={colorMode === 'light' ? 'brand.100' : 'brand.700'}
-				boxShadow='md'
+				// pos='sticky'
+				// zIndex='sticky'
+				bg={colorMode === 'light' ? 'brand.100' : 'brand.700'}
+				// boxShadow='md'
 			>
 				<Stack spacing={3} direction='row' align='center'>
 					<IconButton
