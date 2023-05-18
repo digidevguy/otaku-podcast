@@ -1,4 +1,4 @@
-import { Button, Divider, Flex, Heading, Text, VStack } from '@chakra-ui/react';
+import { Flex, Heading, Text, VStack } from '@chakra-ui/react';
 import { NextPage } from 'next';
 
 const AboutPage: NextPage = () => {
@@ -12,7 +12,7 @@ const AboutPage: NextPage = () => {
 					<Heading as='h2' size='lg'>
 						What is Elevated x Otaku?
 					</Heading>
-					<Text fontFamily='Open Sans'>
+					<Text>
 						The Elevated X Otaku Podcast is a passion project born from the
 						desire to merge the worlds of anime and self-improvement in a way
 						that&apos;s both informative and fun. In each episode we&apos;ll
@@ -26,7 +26,7 @@ const AboutPage: NextPage = () => {
 					<Heading as='h3' size='md'>
 						Our Mission Statement
 					</Heading>
-					<Text fontFamily='Open Sans'>
+					<Text>
 						The Elevated X Otaku podcast is a self-improvement podcast created
 						for anime and manga fans that delivers insightful, empowering, and
 						entertaining messages about life, love, and mental health through
@@ -37,7 +37,7 @@ const AboutPage: NextPage = () => {
 					<Heading as='h2' size='lg'>
 						The Why
 					</Heading>
-					<Text fontFamily='Open Sans'>
+					<Text>
 						Real fans know that anime is more than just &ldquo;Japanese
 						cartoons&rdquo;. Through its complex characters, harrowing
 						adventures, and impactful messages, so many of us have embraced it
@@ -47,10 +47,10 @@ const AboutPage: NextPage = () => {
 						comfort, spark motivation, and build a community that actively helps
 						us grow and prepare for the real world.
 					</Text>
-					<Text alignSelf='center' fontWeight='bold' fontFamily='Open Sans'>
-						And that&apos;s where the EXO podcast comes in!
+					<Text alignSelf='center' fontWeight='bold'>
+						And that&apos;s where the E x O podcast comes in!
 					</Text>
-					<Text fontFamily='Open Sans'>
+					<Text>
 						Just like the medium we&apos;re inspired by, the EXO podcast exists
 						to make your life...better! It was initially created to dig through
 						the millions of episodes of anime out there to find nuggets of
@@ -67,7 +67,7 @@ const AboutPage: NextPage = () => {
 					<Heading as='h2' size='lg'>
 						The Who
 					</Heading>
-					<Text fontFamily='Open Sans'>
+					<Text>
 						Hi, there! My name is Tiffany, and I&apos;ll be your host during
 						these audio adventures. I&apos;m guessing this is the part where I
 						should stare off into the distance to trigger a flashback scene…
@@ -78,7 +78,7 @@ const AboutPage: NextPage = () => {
 						<Text ml={4}>~ ~</Text>
 						<Text ml={6}>~ ~</Text>
 					</Flex>
-					<Text fontFamily='Open Sans'>
+					<Text>
 						My love of anime first started before I even knew what anime was,
 						with a Miyazaki film called Kiki&apos;s Delivery Service. As a
 						little girl I didn&apos;t know the difference between that movie and
@@ -98,7 +98,7 @@ const AboutPage: NextPage = () => {
 						then on whenever I saw cartoons in that art style I just HAD to
 						watch them!
 					</Text>
-					<Text fontFamily='Open Sans'>
+					<Text>
 						Time skip to me continuing on my anime journey and learning about
 						things like the strength of &ldquo;girl power&rdquo; from Sailor
 						Moon, the art of perseverance from Pokémon, and how to be a total
@@ -109,7 +109,7 @@ const AboutPage: NextPage = () => {
 						framework and an outlet for understanding and dealing with the
 						unfamiliar territory of maturing.
 					</Text>
-					<Text fontFamily='Open Sans'>
+					<Text>
 						And that brings us to present day Tiffany! I stand (sit) before you
 						now, a fully formed otaku with 100+ anime under my belt, and the
 						values that each one of those shows has taught me. Values like

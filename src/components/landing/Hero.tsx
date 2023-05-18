@@ -25,7 +25,7 @@ const HeroSection = () => {
 				/>
 				<Box
 					bg='black'
-					opacity={0.15}
+					opacity={0.25}
 					pos='absolute'
 					top={0}
 					left={0}

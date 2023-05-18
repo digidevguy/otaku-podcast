@@ -12,7 +12,7 @@ export default function Document() {
 					crossOrigin=''
 				/>
 				<link
-					href='https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Dancing+Script&family=Dosis&family=Exo+2&family=Inconsolata&family=Indie+Flower&family=Lobster&family=Lora&family=Merriweather&family=Mukta&family=Nunito&family=Open+Sans&family=Oswald&family=Playfair+Display&family=Raleway&family=Roboto&family=Slabo+27px&family=Teko&family=Titillium+Web&display=swap'
+					href='https://fonts.googleapis.com/css2?family=Roboto&family=Signika&display=swap'
 					rel='stylesheet'
 				/>
 			</Head>

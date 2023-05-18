@@ -5,8 +5,8 @@ import type { StyleFunctionProps } from '@chakra-ui/styled-system';
 
 const fonts = {
 	...chakraTheme.fonts,
-	body: 'Merriweather, serif',
-	heading: 'Open Sans, sans-serif',
+	body: 'Roboto, sans-serif',
+	heading: 'Signika, sans-serif',
 };
 
 const brandColors = {
@@ -37,7 +37,7 @@ const customTheme = extendTheme({
 	styles: {
 		global: (props: StyleFunctionProps) => ({
 			body: {
-				bg: mode('brand.100', 'brand.700')(props),
+				// bg: mode('brand.100', 'brand.700')(props),
 			},
 		}),
 	},
