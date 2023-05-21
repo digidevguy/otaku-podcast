@@ -19,21 +19,20 @@ const ArticleCard = ({ title, content, createdAt, id }: ArticleCardProps) => {
 	return (
 		<Flex
 			flexDir='column'
-			border={useColorModeValue('none', '1px')}
-			borderColor={useColorModeValue('none', 'gray.600')}
+			border={useColorModeValue('1px', '1px')}
+			borderColor={useColorModeValue('gray.200', 'gray.600')}
 			pos='relative'
 			rounded='lg'
-			overflow='hidden'
 			boxShadow={useColorModeValue('md', 'none')}
 			maxW='lg'
 			alignItems='start'
 			p={3}
 		>
 			<Flex flexDir='column'>
-				<Heading textAlign='left'>{title}</Heading>
+				<Heading>{title}</Heading>
 				<Text>{format(new Date(createdAt), 'MMMM do yyyy')}</Text>
 			</Flex>
-			<Divider mt={2} />
+			<Divider mt={2} borderColor={useColorModeValue('gray.700', 'gray.300')} />
 			<Text px={2} noOfLines={3} my={2}>
 				{content}
 			</Text>

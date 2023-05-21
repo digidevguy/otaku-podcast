@@ -17,7 +17,11 @@ const Footer: React.FC = () => {
 	const iconColor = useColorModeValue('gray.500', 'gray.200');
 
 	return (
-		<Flex bg={useColorModeValue('gray.700', 'gray.500')} justify='center'>
+		<Flex
+			bg={useColorModeValue('gray.700', 'gray.500')}
+			justify='center'
+			py={4}
+		>
 			<Stack
 				// flexDir={['column', null, 'row']}
 				direction={['column', null, 'row']}

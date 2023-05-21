@@ -33,12 +33,12 @@ const PodcastLibPage: NextPage = () => {
 				<PodcastList />
 				<Divider />
 				<Flex
-					h={['45vh', '15vh']}
+					// h={['45vh', '15vh']}
 					gap={4}
 					align='center'
 					flexDir={['column', null, 'row']}
 				>
-					<Flex flexDir='column' gap={2}>
+					<VStack spacing={2}>
 						<Text>Want to be kept up to date on new episodes?</Text>
 						<Heading as='h2' size='lg'>
 							Subscribe to the podcast using your favorite service
@@ -58,23 +58,24 @@ const PodcastLibPage: NextPage = () => {
 								/>
 							))}
 						</Stack>
-					</Flex>
+					</VStack>
 					<Divider
 						orientation={useBreakpointValue({
 							sm: 'horizontal',
 							md: 'vertical',
 							lg: 'vertical',
 						})}
+						w='10vh'
 					/>
-					<Flex flexDir='column' gap={2}>
+					<VStack spacing={2}>
 						<Text>Do you have a recommendation?</Text>
-						<Heading as='h2' size='lg'>
-							Send your throughts and recommendations
+						<Heading as='h2' size='md'>
+							Send your thoughts and recommendations
 						</Heading>
-						<Button size='lg' w='200px' colorScheme='blue' alignSelf='center'>
+						<Button w='200px' alignSelf='center'>
 							Send
 						</Button>
-					</Flex>
+					</VStack>
 				</Flex>
 			</VStack>
 		</Flex>

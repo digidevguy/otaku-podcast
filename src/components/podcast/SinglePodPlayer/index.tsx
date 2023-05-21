@@ -17,16 +17,17 @@ type SinglePodPlayerProps = {
 const SinglePodPlayer = ({ track }: SinglePodPlayerProps) => {
 	return (
 		<Stack
-			direction={['column', 'row']}
+			direction={['column', null, 'row']}
 			spacing={4}
 			p={4}
 			boxShadow='sm'
 			rounded={20}
 			border='1px'
 			borderColor='gray.100'
+			w={['full', null, '80%']}
 		>
 			<Box
-				w={['250px', '150px']}
+				w={['250px', null, '150px']}
 				rounded={10}
 				overflow='hidden'
 				alignSelf='center'
@@ -37,14 +38,14 @@ const SinglePodPlayer = ({ track }: SinglePodPlayerProps) => {
 				<Heading size='md' textAlign='center'>
 					{track.title}
 				</Heading>
-				<Text
+				{/* <Text
 					maxW={['xs', 'xl']}
 					textAlign={['center', 'inherit']}
 					noOfLines={3}
 					whiteSpace='pre-wrap'
 				>
 					{track.description}
-				</Text>
+				</Text> */}
 				<Box>
 					<audio style={{ width: '100%' }} src={track.audio_url} controls />
 				</Box>

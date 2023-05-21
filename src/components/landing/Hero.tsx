@@ -16,7 +16,7 @@ const HeroSection = () => {
 		<Grid
 			as='section'
 			pos='relative'
-			bg={useColorModeValue('brand.100', 'brand.700')}
+			// bg={useColorModeValue('brand.100', 'brand.700')}
 			gridColumnGap='0px'
 			gridRowGap='0px'
 			// gridTemplateRows='23.95vw 5.902vw 13.125vw'
@@ -68,10 +68,10 @@ const HeroSection = () => {
 						</Text>
 					</Box>
 					<Button
-						// display={['none', 'inherit']}
-						// maxW={['25%', null, '30%']}
-						colorScheme=' blue'
-						// p={6}
+					// display={['none', 'inherit']}
+					// maxW={['25%', null, '30%']}
+
+					// p={6}
 					>
 						Subscribe
 					</Button>

@@ -1,6 +1,6 @@
 import HeroSection from '@/components/landing/Hero';
 import IntroSection from '@/components/landing/Intro';
-import Recommendations from '@/components/landing/Recommendations';
+import CallToAction from '@/components/landing/CallToAction';
 import { Flex } from '@chakra-ui/react';
 import Head from 'next/head';
 
@@ -16,7 +16,7 @@ export default function Home() {
 			<Flex flexDir='column'>
 				<HeroSection />
 				<IntroSection />
-				{/* <Recommendations /> */}
+				<CallToAction />
 			</Flex>
 		</>
 	);

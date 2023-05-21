@@ -51,11 +51,11 @@ const AboutPage: NextPage = () => {
 						And that&apos;s where the E x O podcast comes in!
 					</Text>
 					<Text>
-						Just like the medium we&apos;re inspired by, the EXO podcast exists
-						to make your life...better! It was initially created to dig through
-						the millions of episodes of anime out there to find nuggets of
-						inspiration that you can apply to your everyday life, but now it is
-						evolving into a positive and supportive community. Whether
+						Just like the medium we&apos;re inspired by, the E x O podcast
+						exists to make your life...better! It was initially created to dig
+						through the millions of episodes of anime out there to find nuggets
+						of inspiration that you can apply to your everyday life, but now it
+						is evolving into a positive and supportive community. Whether
 						you&apos;re struggling with self-esteem, wanting to learn how to get
 						out of your comfort zone, searching for yourself, or wanting to
 						connect with others, the Elevated X Otaku is here for you with years

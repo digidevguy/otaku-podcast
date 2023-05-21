@@ -34,24 +34,26 @@ const IntroSection = () => {
 					gridTemplateColumns='1fr'
 					gridAutoColumns='1fr'
 					justifyItems='end'
+					py={2}
 				>
 					<Heading
 						as='h2'
 						size='2xl'
 						justifySelf='start'
-						mt='1.6vw'
-						mb='3vw'
+						// mt='1.6vw'
+						// mb='3vw'
 						lineHeight='100%'
 						fontSize={['7vw', '2.916vw']}
 					>
 						Placeholder
 					</Heading>
 					<Text
-						maxW={[null, '28.6vw']}
+						// maxW={[null, '28.6vw']}
 						alignSelf='center'
-						mx='auto'
+						// mx='auto'
 						lineHeight='125%'
-						fontSize={['4.266vw', '1.388vw']}
+						fontSize={[null, 'md']}
+						py={4}
 					>
 						Whether you&apos;re looking for a podcast that seamlessly blends
 						life lessons with your favorite anime, recommendations for your next

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Flex, Stack } from '@chakra-ui/react';
+import { Flex, Stack, VStack } from '@chakra-ui/react';
 import { Track } from '@/types';
 import SinglePodPlayer from './SinglePodPlayer';
 
@@ -17,11 +17,11 @@ const PodcastList = () => {
 	}, []);
 
 	return (
-		<Stack direction='column' spacing={4}>
+		<VStack spacing={2} maxW={['full', 'md', 'xl']}>
 			{tracks.map((track) => (
 				<SinglePodPlayer key={track.id} track={track} />
 			))}
-		</Stack>
+		</VStack>
 	);
 };
 
