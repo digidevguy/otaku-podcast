@@ -66,6 +66,9 @@ const IntroSection = () => {
 					w='40vw'
 					height='auto'
 					pos='relative'
+					rounded={10}
+					overflow='hidden'
+					m={4}
 				>
 					<Image src={deathNotePic} alt='Death Note' />
 				</Box>

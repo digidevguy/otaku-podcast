@@ -46,7 +46,7 @@ const HeroSection = () => {
 				h='full'
 				flexDir='column'
 				justifyContent='center'
-				alignItems={['flex-start', 'center']}
+				alignItems={['center', 'flex-start']}
 				// pl={[0, '4.166vw']}
 				gridArea={['2 / 1 / 3 / 3', 'span 3 / span 1 / span 3 / span 1']}
 				pt={['6.666vw', '0']}
@@ -56,18 +56,13 @@ const HeroSection = () => {
 					textAlign='center'
 					flexDir='column'
 					alignItems='center'
-					display='flex'
 					pos='relative'
-					fontSize='1.388vw'
 					lineHeight='125%'
+					p={4}
 				>
 					<Heading fontSize={['8vw', '2.916vw']}>Placeholder</Heading>
-					<Box
-						maxW='80.8vw'
-						m={['4.266vw auto 5.866vw', '1.7vw 0']}
-						fontSize={['4.266vw', '1.388vw']}
-					>
-						<Text>
+					<Box maxW='80.8vw' m={['4.266vw auto 5.866vw', '1.7vw 0']}>
+						<Text fontSize={['md']}>
 							Your favorite anime-themed self-improvement podcast for freaks,
 							geeks, and lost souls
 						</Text>
