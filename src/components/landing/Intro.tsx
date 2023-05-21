@@ -20,9 +20,7 @@ const IntroSection = () => {
 				display='grid'
 				gridColumnGap={0}
 				gridRowGap={0}
-				// gridRowGap='6.4vw'
 				gridTemplateRows='auto'
-				// gridTemplateColumns='repeat(2, 1fr)'
 				gridAutoColumns='1fr'
 				alignItems='center'
 				mx='auto'

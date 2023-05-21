@@ -3,7 +3,9 @@ import {
 	Button,
 	Container,
 	Flex,
+	Grid,
 	Heading,
+	Text,
 	useColorModeValue,
 } from '@chakra-ui/react';
 import Image from 'next/image';
@@ -11,14 +13,24 @@ import bannerImg from '../../../public/assets/images/banner.png';
 
 const HeroSection = () => {
 	return (
-		<Flex
+		<Grid
+			as='section'
 			pos='relative'
 			bg={useColorModeValue('brand.100', 'brand.700')}
-			flexDir={['column', 'row']}
+			gridColumnGap='0px'
+			gridRowGap='0px'
+			// gridTemplateRows='23.95vw 5.902vw 13.125vw'
+			// gridTemplateColumns='auto 44.3vw 15.4vw'
+			gridTemplateRows='minmax(72.533w, 0.25fr) 74vw'
+			gridTemplateColumns='67.4666vw 32.266vw'
+			overflow='hidden'
 			w='full'
-			align='center'
 		>
-			<Box pos='relative'>
+			<Box
+				pos='relative'
+				gridArea={['1 / 1 / 2 / 3', '1 / 1 / 2 / 2']}
+				textAlign='center'
+			>
 				<Image src={bannerImg} alt='banner-img' />
 				<Box
 					bg='black'
@@ -30,12 +42,36 @@ const HeroSection = () => {
 					bottom={0}
 				/>
 			</Box>
-			<Flex h='full' flexDir='column' pl='4.16vw'>
-				<Container maxW='30.7vw'>
-					<Heading size={['xs', 'sm', 'lg']} my='1.7vw'>
-						Your favorite anime-themed self-improvement podcast for freaks,
-						geeks, and lost souls
-					</Heading>
+			<Flex
+				h='full'
+				flexDir='column'
+				justifyContent='center'
+				alignItems={['flex-start', 'center']}
+				// pl={[0, '4.166vw']}
+				gridArea={['2 / 1 / 3 / 3', 'span 3 / span 1 / span 3 / span 1']}
+				pt={['6.666vw', '0']}
+				pb={['8vw', '0']}
+			>
+				<Flex
+					textAlign='center'
+					flexDir='column'
+					alignItems='center'
+					display='flex'
+					pos='relative'
+					fontSize='1.388vw'
+					lineHeight='125%'
+				>
+					<Heading fontSize={['8vw', '2.916vw']}>Placeholder</Heading>
+					<Box
+						maxW='80.8vw'
+						m={['4.266vw auto 5.866vw', '1.7vw 0']}
+						fontSize={['4.266vw', '1.388vw']}
+					>
+						<Text>
+							Your favorite anime-themed self-improvement podcast for freaks,
+							geeks, and lost souls
+						</Text>
+					</Box>
 					<Button
 						// display={['none', 'inherit']}
 						// maxW={['25%', null, '30%']}
@@ -44,9 +80,9 @@ const HeroSection = () => {
 					>
 						Subscribe
 					</Button>
-				</Container>
+				</Flex>
 			</Flex>
-		</Flex>
+		</Grid>
 	);
 
 	// <Flex pos='relative' maxH='100vh'>
