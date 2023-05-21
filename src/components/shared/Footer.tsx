@@ -21,25 +21,25 @@ const Footer: React.FC = () => {
 			<Stack
 				// flexDir={['column', null, 'row']}
 				direction={['column', null, 'row']}
-				p={[0, 2, 4]}
+				p={[2, 2, 4]}
 				justify='space-around'
 				bg={useColorModeValue('gray.700', 'gray.500')}
 				color='white'
 				align='center'
-				h={[null, null, '30vh']}
+				// h={[null, null, '30vh']}
 				maxW='75%'
 			>
 				<Stack direction='column' spacing={2}>
-					<Text>SIGN UP FOR UPDATES</Text>
+					<Text textTransform='uppercase'>Sign up for updates</Text>
 					<Heading size={['md', 'lg']} p={2}>
 						Subscribe to the show, stay up to date
 					</Heading>
-					<Text size='sm' p={2}>
+					<Text p={2}>
 						Subscribe view your favorite platform today - you{'\u2019'}ll get
 						notified for all new episodes.
 					</Text>
 				</Stack>
-				<SimpleGrid columns={[3, 4]} p={2} spacing={[2, null, 4]} minW='25%'>
+				<SimpleGrid columns={[3, 4]} p={2} spacing={[2, null, 4]}>
 					{podcast.map(({ label, href, icon }) => (
 						<IconButton
 							key={label}
@@ -63,8 +63,14 @@ const Footer: React.FC = () => {
 						lg: 'vertical',
 					})}
 				/>
-				<Stack spacing={1} textAlign='center' maxW='30%'>
-					<Heading as='h3' size='md' p={2}>
+				<Stack
+					spacing={1}
+					textAlign='center'
+					maxW='30%'
+					dir='column'
+					align='center'
+				>
+					<Heading as='h3' size='md'>
 						Join us on social media!
 					</Heading>
 					<Stack direction='row' p={[1]} spacing={4}>
