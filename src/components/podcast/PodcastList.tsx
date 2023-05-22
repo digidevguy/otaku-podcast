@@ -17,7 +17,7 @@ const PodcastList = () => {
 	}, []);
 
 	return (
-		<VStack spacing={2} maxW={['full', 'md', 'xl']}>
+		<VStack spacing={2} maxW={['full', 'md', '4xl']}>
 			{tracks.map((track) => (
 				<SinglePodPlayer key={track.id} track={track} />
 			))}
