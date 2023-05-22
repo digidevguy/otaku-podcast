@@ -43,7 +43,7 @@ const IntroSection = () => {
 						// mt='1.6vw'
 						// mb='3vw'
 						lineHeight='100%'
-						fontSize={['7vw', '2.916vw']}
+						// fontSize={['7vw', '2.916vw']}
 					>
 						Placeholder
 					</Heading>

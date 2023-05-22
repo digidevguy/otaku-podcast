@@ -60,7 +60,7 @@ const HeroSection = () => {
 					lineHeight='125%'
 					p={4}
 				>
-					<Heading fontSize={['8vw', '2.916vw']}>Placeholder</Heading>
+					<Heading size={['xl', 'lg']}>Placeholder</Heading>
 					<Box maxW='80.8vw' m={['4.266vw auto 5.866vw', '1.7vw 0']}>
 						<Text fontSize={['md']}>
 							Your favorite anime-themed self-improvement podcast for freaks,

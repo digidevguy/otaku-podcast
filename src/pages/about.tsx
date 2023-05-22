@@ -1,4 +1,4 @@
-import { Flex, Heading, Text, VStack } from '@chakra-ui/react';
+import { Divider, Flex, Heading, HStack, Text, VStack } from '@chakra-ui/react';
 import { NextPage } from 'next';
 
 const AboutPage: NextPage = () => {
@@ -10,7 +10,7 @@ const AboutPage: NextPage = () => {
 				</Heading>
 				<VStack as='section' align='flex-start'>
 					<Heading as='h2' size='lg'>
-						What is Elevated x Otaku?
+						The What
 					</Heading>
 					<Text>
 						The Elevated X Otaku Podcast is a passion project born from the
@@ -22,17 +22,21 @@ const AboutPage: NextPage = () => {
 						with bingeable anime recommendations.
 					</Text>
 				</VStack>
-				<VStack as='section' align='flex-start'>
-					<Heading as='h3' size='md'>
-						Our Mission Statement
-					</Heading>
+				<HStack as='section' spacing={4} h={['25vh', '10vh', '5vh']}>
+					<Divider
+						orientation='vertical'
+						borderColor='black'
+						ml={8}
+						borderWidth={3}
+					/>
 					<Text>
 						The Elevated X Otaku podcast is a self-improvement podcast created
 						for anime and manga fans that delivers insightful, empowering, and
 						entertaining messages about life, love, and mental health through
 						the lense of your favorite fandoms.
 					</Text>
-				</VStack>
+				</HStack>
+				<Divider borderColor='black' />
 				<VStack as='section' align='flex-start'>
 					<Heading as='h2' size='lg'>
 						The Why
@@ -63,6 +67,7 @@ const AboutPage: NextPage = () => {
 						mood light and goofy.
 					</Text>
 				</VStack>
+				<Divider borderColor='blackAlpha' />
 				<VStack as='section' align='flex-start'>
 					<Heading as='h2' size='lg'>
 						The Who

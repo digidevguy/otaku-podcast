@@ -37,7 +37,7 @@ const customTheme = extendTheme({
 	styles: {
 		global: (props: StyleFunctionProps) => ({
 			body: {
-				// bg: mode('brand.100', 'brand.700')(props),
+				bgGradient: mode('linear(to-r,blue.200,green.400', 'brand.700')(props),
 			},
 		}),
 	},
