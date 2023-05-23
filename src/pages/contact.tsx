@@ -154,7 +154,7 @@ const ContactPage: NextPage = () => {
 			p={[null, 4]}
 			minH='80vh'
 		>
-			<Flex flexDir='column' maxW='md'>
+			<Flex flexDir='column' maxW='md' p={2}>
 				<Heading>Title</Heading>
 				<Text>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -167,7 +167,7 @@ const ContactPage: NextPage = () => {
 					pariatur.
 				</Text>
 			</Flex>
-			<Flex pos='relative' p={[null, 8, 20]} my={10}>
+			<Flex pos='relative' p={[null, 8, 16]} my={10}>
 				<Image
 					src={backgroundImg}
 					alt=''
@@ -186,7 +186,7 @@ const ContactPage: NextPage = () => {
 					onSubmit={handleSubmit}
 					spacing={4}
 					zIndex={1}
-					bg={useColorModeValue('whiteAlpha.900', 'gray.600')}
+					bg={useColorModeValue('white', 'gray.600')}
 					py={6}
 					px={6}
 					maxW={['full', null, 'lg']}
@@ -195,12 +195,18 @@ const ContactPage: NextPage = () => {
 					{/* <Flex flexDir={['column', null, 'row']} gap={2}> */}
 					<FormControl isInvalid={formData.emailInvalid}>
 						<FormLabel>Email</FormLabel>
-						<Input name='email' value={email} onChange={handleInputChange} />
+						<Input
+							variant='filled'
+							name='email'
+							value={email}
+							onChange={handleInputChange}
+						/>
 						<FormErrorMessage>{formData.errors.email}</FormErrorMessage>
 					</FormControl>
 					<FormControl isInvalid={formData.subjectInvalid}>
 						<FormLabel>Subject</FormLabel>
 						<Select
+							variant='filled'
 							name='subject'
 							value={subject}
 							onChange={handleInputChange}
@@ -218,6 +224,7 @@ const ContactPage: NextPage = () => {
 					<FormControl isInvalid={formData.contentInvalid}>
 						<FormLabel>Message</FormLabel>
 						<Textarea
+							variant='filled'
 							name='content'
 							value={content}
 							onChange={handleInputChange}
@@ -226,6 +233,7 @@ const ContactPage: NextPage = () => {
 					</FormControl>
 					{/* TODO: Adjust button styling */}
 					<Button
+						bg={useColorModeValue('blue.400', 'blue.200')}
 						w='xs'
 						type='submit'
 						variant={useColorModeValue('outline', 'solid')}
