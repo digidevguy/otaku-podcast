@@ -7,13 +7,16 @@ import {
 	Heading,
 	Input,
 	Select,
+	Text,
 	Textarea,
 	useColorModeValue,
 	useToast,
 	VStack,
 } from '@chakra-ui/react';
 import { NextPage } from 'next';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import backgroundImg from '../../public/assets/images/tokyoluv-CsMNgdHXzFs-unsplash.jpg';
 
 const subjectOptions = [
 	{
@@ -143,10 +146,53 @@ const ContactPage: NextPage = () => {
 	};
 
 	return (
-		<Flex minH='80vh' justify='center' pt={20} px={4}>
-			<VStack as='form' onSubmit={handleSubmit} spacing={4}>
-				<Heading>Send me a message</Heading>
-				<Flex flexDir={['column', null, 'row']} gap={2}>
+		<Flex
+			flexDir={['column', null, 'row']}
+			justify='center'
+			align='center'
+			gap={4}
+			p={[null, 4]}
+			minH='80vh'
+		>
+			<Flex flexDir='column' maxW='md'>
+				<Heading>Title</Heading>
+				<Text>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+					eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					<br />
+					<br />
+					Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+					nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+					reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+					pariatur.
+				</Text>
+			</Flex>
+			<Flex pos='relative' p={[null, 8, 20]} my={10}>
+				<Image
+					src={backgroundImg}
+					alt=''
+					fill
+					style={{
+						position: 'absolute',
+						top: 0,
+						bottom: 0,
+						left: 0,
+						right: 0,
+						objectFit: 'cover',
+					}}
+				/>
+				<VStack
+					as='form'
+					onSubmit={handleSubmit}
+					spacing={4}
+					zIndex={1}
+					bg={useColorModeValue('whiteAlpha.900', 'gray.600')}
+					py={6}
+					px={6}
+					maxW={['full', null, 'lg']}
+				>
+					<Heading>Send me a message</Heading>
+					{/* <Flex flexDir={['column', null, 'row']} gap={2}> */}
 					<FormControl isInvalid={formData.emailInvalid}>
 						<FormLabel>Email</FormLabel>
 						<Input name='email' value={email} onChange={handleInputChange} />
@@ -168,33 +214,34 @@ const ContactPage: NextPage = () => {
 						</Select>
 						<FormErrorMessage>{formData.errors.subject}</FormErrorMessage>
 					</FormControl>
-				</Flex>
-				<FormControl isInvalid={formData.contentInvalid}>
-					<FormLabel>Message</FormLabel>
-					<Textarea
-						name='content'
-						value={content}
-						onChange={handleInputChange}
-					/>
-					<FormErrorMessage>{formData.errors.content}</FormErrorMessage>
-				</FormControl>
-				{/* TODO: Adjust button styling */}
-				<Button
-					w='xs'
-					type='submit'
-					variant={useColorModeValue('outline', 'solid')}
-					color={useColorModeValue('black', 'white')}
-					// bg={useColorModeValue('white', 'black')}
-					isLoading={loading}
-					loadingText='Sending...'
-					_hover={{
-						bg: useColorModeValue('black', 'white'),
-						color: useColorModeValue('white', 'black'),
-					}}
-				>
-					Send
-				</Button>
-			</VStack>
+					{/* </Flex> */}
+					<FormControl isInvalid={formData.contentInvalid}>
+						<FormLabel>Message</FormLabel>
+						<Textarea
+							name='content'
+							value={content}
+							onChange={handleInputChange}
+						/>
+						<FormErrorMessage>{formData.errors.content}</FormErrorMessage>
+					</FormControl>
+					{/* TODO: Adjust button styling */}
+					<Button
+						w='xs'
+						type='submit'
+						variant={useColorModeValue('outline', 'solid')}
+						color={useColorModeValue('black', 'white')}
+						// bg={useColorModeValue('white', 'black')}
+						isLoading={loading}
+						loadingText='Sending...'
+						_hover={{
+							bg: useColorModeValue('black', 'white'),
+							color: useColorModeValue('white', 'black'),
+						}}
+					>
+						Send
+					</Button>
+				</VStack>
+			</Flex>
 		</Flex>
 	);
 };
