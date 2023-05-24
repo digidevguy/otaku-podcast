@@ -1,4 +1,3 @@
-import NativePlayer from '@/components/podcast/NativePlayer';
 import PodcastList from '@/components/podcast/PodcastList';
 import { podcast } from '@/libs/podcast';
 import {
@@ -22,7 +21,13 @@ const PodcastLibPage: NextPage = () => {
 		<Flex flexDir='column' p={[2, 10]} align='center'>
 			<VStack maxW='1100px' spacing={4}>
 				<Heading>Podcast Library</Heading>
-				<Text p={2}>
+				<Text
+					p={2}
+					border='1px solid'
+					borderColor={useColorModeValue('gray.200', 'gray.600')}
+					boxShadow={['none', 'md']}
+					rounded='md'
+				>
 					Check out the ElevatedXOtaku Podcast - the self-improvement podcast
 					created for anime and manga fans that delivers empowering,
 					entertaining, and insightful messages about love, life, and mental
