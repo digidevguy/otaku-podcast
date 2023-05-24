@@ -3,7 +3,7 @@ import { NextPage } from 'next';
 
 const AboutPage: NextPage = () => {
 	return (
-		<Flex py={10} px={4} flexDir='column' maxW='1200px' mx='auto' minH='75vh'>
+		<>
 			<Flex flexDir='column' py={4} gap='1.25rem' mb={6}>
 				<Heading as='h1' size='2xl'>
 					About Elevated x Otaku
@@ -139,7 +139,7 @@ const AboutPage: NextPage = () => {
 					</Text>
 				</VStack>
 			</Flex>
-		</Flex>
+		</>
 	);
 };
 

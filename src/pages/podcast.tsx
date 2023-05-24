@@ -18,8 +18,8 @@ import { NextPage } from 'next';
 const PodcastLibPage: NextPage = () => {
 	const iconColor = useColorModeValue('gray.500', 'gray.200');
 	return (
-		<Flex flexDir='column' p={[2, 10]} align='center'>
-			<VStack maxW='1100px' spacing={4}>
+		<>
+			<VStack maxW='1100px' spacing={4} p={[2, 10]}>
 				<Heading>Podcast Library</Heading>
 				<Text
 					p={2}
@@ -83,7 +83,7 @@ const PodcastLibPage: NextPage = () => {
 					</VStack>
 				</Flex>
 			</VStack>
-		</Flex>
+		</>
 	);
 };
 
