@@ -11,7 +11,10 @@ const IntroSection = () => {
 			flexDir={['column', 'row']}
 			justifyContent='center'
 			alignItems='center'
-			pt={['10.133vw', 0]}
+			pt={['10.133vw', 4]}
+			py={4}
+			maxW='1200px'
+			mx='auto'
 		>
 			<Container
 				pos={['static', 'relative']}
