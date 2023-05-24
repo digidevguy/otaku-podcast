@@ -1,6 +1,6 @@
 import Footer from '../Footer';
 import NavBar from '../NavBar';
-import { Flex, useColorModeValue } from '@chakra-ui/react';
+import { Container, Flex, useColorModeValue } from '@chakra-ui/react';
 
 const AppLayout = ({ children }: { children: React.ReactNode }) => {
 	const bgGradient = useColorModeValue(
@@ -10,14 +10,10 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
 	return (
 		<>
 			<NavBar />
-			<Flex
-				as='main'
-				flexDir='column'
-				minH='80vh'
-				maxW='1200px'
-				bgGradient={bgGradient}
-			>
-				{children}
+			<Flex w='full' bgGradient={bgGradient}>
+				<Flex as='main' flexDir='column' minH='80vh' maxW='1200px' mx='auto'>
+					{children}
+				</Flex>
 			</Flex>
 			<Footer />
 		</>
