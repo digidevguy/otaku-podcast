@@ -7,7 +7,7 @@ const HeroSection = () => {
 		<>
 			<Box pos='relative'>
 				<Image src={bannerImg} alt='banner-img' />
-				<Box
+				{/* <Box
 					bg='black'
 					opacity={0.1}
 					pos='absolute'
@@ -15,7 +15,7 @@ const HeroSection = () => {
 					left={0}
 					right={0}
 					bottom={0}
-				/>
+				/> */}
 			</Box>
 		</>
 	);

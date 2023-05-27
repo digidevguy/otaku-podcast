@@ -15,7 +15,6 @@ import {
 	useDisclosure,
 	useColorMode,
 	useColorModeValue,
-	Box,
 } from '@chakra-ui/react';
 import Link from 'next/link';
 import { HamburgerIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';

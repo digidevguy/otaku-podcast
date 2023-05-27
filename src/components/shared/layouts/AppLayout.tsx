@@ -10,11 +10,11 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
 	return (
 		<>
 			<NavBar />
-			<Flex w='full' bgGradient={bgGradient}>
-				<Flex as='main' flexDir='column' minH='80vh' mx='auto'>
-					{children}
-				</Flex>
+			{/* <Flex w='full' bgGradient={bgGradient}> */}
+			<Flex as='main' flexDir='column' minH='80vh' mx='auto'>
+				{children}
 			</Flex>
+			{/* </Flex> */}
 			<Footer />
 		</>
 	);

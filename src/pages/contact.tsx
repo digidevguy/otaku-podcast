@@ -167,7 +167,13 @@ const ContactPage: NextPage = () => {
 						pariatur.
 					</Text>
 				</Flex>
-				<Flex pos='relative' p={[null, 8, 16]} my={10}>
+				<Flex
+					pos='relative'
+					p={[null, 8, 16]}
+					my={10}
+					rounded='md'
+					overflow='hidden'
+				>
 					<Image
 						src={backgroundImg}
 						alt=''

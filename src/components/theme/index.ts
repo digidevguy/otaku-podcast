@@ -5,8 +5,8 @@ import type { StyleFunctionProps } from '@chakra-ui/styled-system';
 
 const fonts = {
 	...chakraTheme.fonts,
-	body: 'Roboto, sans-serif',
-	heading: 'Signika, sans-serif',
+	body: 'Poppins, sans-serif',
+	heading: 'Nunito Sans, sans-serif',
 };
 
 const brandColors = {
