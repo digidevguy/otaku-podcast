@@ -1,6 +1,4 @@
-import { Button, Divider, Heading, Stack, Text } from '@chakra-ui/react';
-import Link from 'next/link';
-import YoutubeEmbed from '../../shared/YoutubeEmbed';
+import { Divider, Stack } from '@chakra-ui/react';
 import ContentCard from './ContentCard';
 
 const CallToAction = () => {
@@ -9,14 +7,15 @@ const CallToAction = () => {
 	return (
 		<Stack
 			direction={['column', 'row']}
-			mx='auto'
 			justify='center'
 			align='center'
 			spacing={4}
 			p={4}
+			bg='brand.600'
+			py={12}
 		>
 			<ContentCard
-				title='Have an idea or recommendation? I want to know!'
+				title='Have an idea or recommendation?'
 				content='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 					eiusmod tempor incididunt ut labore et dolore magna aliqua.'
 				buttonLink='/contact'

@@ -1,4 +1,4 @@
-import { Button, Heading, Stack, Text } from '@chakra-ui/react';
+import { Button, Container, Heading, Stack, Text } from '@chakra-ui/react';
 import Link from 'next/link';
 
 type ContentCardProps = {
@@ -15,9 +15,20 @@ const ContentCard = ({
 	buttonLink,
 }: ContentCardProps) => {
 	return (
-		<Stack dir='column' alignItems='center' maxW={[null, '45%', '35%']}>
-			<Heading>{title}</Heading>
-			<Text>{content}</Text>
+		<Stack
+			dir='column'
+			alignItems='center'
+			maxW={[null, 'md', 'md']}
+			border='1px'
+			borderColor='gray.200'
+			rounded='md'
+			py={8}
+			px={4}
+		>
+			<Heading as='h2' size='md'>
+				{title}
+			</Heading>
+			<Text fontSize='sm'>{content}</Text>
 			<Link href={buttonLink} passHref>
 				<Button>{buttonText}</Button>
 			</Link>
