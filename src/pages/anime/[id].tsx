@@ -35,43 +35,42 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 export default function BlogDetailPage({ article }: { article: Article }) {
+	const bgGradient = useColorModeValue(
+		'linear(to-b,brand.100,brand.400)',
+		'linear(to-b,brand.700,brand.900)'
+	);
 	return (
-		<>
-			<Flex flexDir='column'>
-				<Flex
-					align='center'
-					borderBottom='1px'
-					borderColor={useColorModeValue('gray.200', 'gray.700')}
-					flexDir={['column-reverse', null, 'row']}
-				>
-					<Flex w={['full', null, '50%']} flexDir='column' align='center'>
-						<Flex maxW='500px' flexDir='column'>
-							<Heading>{article.attributes.title}</Heading>
-							<Text color='gray.500'>
-								{format(
-									new Date(article.attributes.createdAt),
-									'MMMM do, yyyy'
-								)}
-							</Text>
-						</Flex>
+		<Flex flexDir='column' bgGradient={bgGradient}>
+			<Flex
+				align='center'
+				borderBottom='1px'
+				borderColor={useColorModeValue('gray.200', 'gray.700')}
+				flexDir={['column-reverse', null, 'row']}
+			>
+				<Flex w={['full', null, '50%']} flexDir='column' align='center'>
+					<Flex maxW='500px' flexDir='column'>
+						<Heading>{article.attributes.title}</Heading>
+						<Text color='gray.500'>
+							{format(new Date(article.attributes.createdAt), 'MMMM do, yyyy')}
+						</Text>
 					</Flex>
-					<Box w={['full', null, '50%']}>
-						<Image
-							// loader={imageLoader}
-							src={article.attributes.image.data.attributes.url}
-							alt={article.attributes.title}
-							width={article.attributes.image.data.attributes.width}
-							height={article.attributes.image.data.attributes.height}
-							priority
-						/>
-					</Box>
 				</Flex>
-				<Flex flexDir='column' p={2} maxW='850px' mx='auto'>
-					<ReactMarkdown components={ChakraUIRenderer()} skipHtml>
-						{article.attributes.content}
-					</ReactMarkdown>
-				</Flex>
+				<Box w={['full', null, '50%']}>
+					<Image
+						// loader={imageLoader}
+						src={article.attributes.image.data.attributes.url}
+						alt={article.attributes.title}
+						width={article.attributes.image.data.attributes.width}
+						height={article.attributes.image.data.attributes.height}
+						priority
+					/>
+				</Box>
 			</Flex>
-		</>
+			<Flex flexDir='column' p={2} maxW='850px' mx='auto'>
+				<ReactMarkdown components={ChakraUIRenderer()} skipHtml>
+					{article.attributes.content}
+				</ReactMarkdown>
+			</Flex>
+		</Flex>
 	);
 }

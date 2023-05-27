@@ -1,4 +1,4 @@
-import { Divider, Stack } from '@chakra-ui/react';
+import { Divider, Stack, useColorModeValue } from '@chakra-ui/react';
 import ContentCard from './ContentCard';
 
 const CallToAction = () => {
@@ -11,7 +11,7 @@ const CallToAction = () => {
 			align='center'
 			spacing={4}
 			p={4}
-			bg='brand.600'
+			bg={useColorModeValue('brand.600', 'gray.900')}
 			py={12}
 		>
 			<ContentCard

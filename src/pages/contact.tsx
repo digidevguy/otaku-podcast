@@ -45,6 +45,10 @@ const ContactPage: NextPage = () => {
 
 	const [loading, setLoading] = useState<boolean>(false);
 	const toast = useToast();
+	const bgGradient = useColorModeValue(
+		'linear(to-b,brand.100,brand.400)',
+		'linear(to-b,brand.700,brand.900)'
+	);
 
 	const handleInputChange = (
 		e:
@@ -146,118 +150,120 @@ const ContactPage: NextPage = () => {
 	};
 
 	return (
-		<>
-			<Flex
-				flexDir={['column', null, 'row']}
-				justify='center'
-				align='center'
-				gap={4}
-				p={[null, 4]}
-			>
-				<Flex flexDir='column' maxW='md' p={2}>
-					<Heading>Title</Heading>
-					<Text>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-						eiusmod tempor incididunt ut labore et dolore magna aliqua.
-						<br />
-						<br />
-						Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-						nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-						reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-						pariatur.
-					</Text>
-				</Flex>
-				<Flex
-					pos='relative'
-					p={[null, 8, 16]}
-					my={10}
-					rounded='md'
-					overflow='hidden'
-				>
-					<Image
-						src={backgroundImg}
-						alt=''
-						fill
-						style={{
-							position: 'absolute',
-							top: 0,
-							bottom: 0,
-							left: 0,
-							right: 0,
-							objectFit: 'cover',
-						}}
-					/>
-					<VStack
-						as='form'
-						onSubmit={handleSubmit}
-						spacing={4}
-						zIndex={1}
-						bg={useColorModeValue('white', 'gray.600')}
-						py={6}
-						px={6}
-						maxW={['full', null, 'lg']}
-					>
-						<Heading>Send me a message</Heading>
-						{/* <Flex flexDir={['column', null, 'row']} gap={2}> */}
-						<FormControl isInvalid={formData.emailInvalid}>
-							<FormLabel>Email</FormLabel>
-							<Input
-								variant='filled'
-								name='email'
-								value={email}
-								onChange={handleInputChange}
-							/>
-							<FormErrorMessage>{formData.errors.email}</FormErrorMessage>
-						</FormControl>
-						<FormControl isInvalid={formData.subjectInvalid}>
-							<FormLabel>Subject</FormLabel>
-							<Select
-								variant='filled'
-								name='subject'
-								value={subject}
-								onChange={handleInputChange}
-								placeholder='Please select an option'
-							>
-								{subjectOptions.map((option) => (
-									<option key={option.label} value={option.value}>
-										{option.label}
-									</option>
-								))}
-							</Select>
-							<FormErrorMessage>{formData.errors.subject}</FormErrorMessage>
-						</FormControl>
-						{/* </Flex> */}
-						<FormControl isInvalid={formData.contentInvalid}>
-							<FormLabel>Message</FormLabel>
-							<Textarea
-								variant='filled'
-								name='content'
-								value={content}
-								onChange={handleInputChange}
-							/>
-							<FormErrorMessage>{formData.errors.content}</FormErrorMessage>
-						</FormControl>
-						{/* TODO: Adjust button styling */}
-						<Button
-							bg={useColorModeValue('blue.400', 'blue.200')}
-							w='xs'
-							type='submit'
-							variant={useColorModeValue('outline', 'solid')}
-							color={useColorModeValue('black', 'white')}
-							// bg={useColorModeValue('white', 'black')}
-							isLoading={loading}
-							loadingText='Sending...'
-							_hover={{
-								bg: useColorModeValue('black', 'white'),
-								color: useColorModeValue('white', 'black'),
-							}}
-						>
-							Send
-						</Button>
-					</VStack>
-				</Flex>
+		<Flex
+			flexDir={['column', null, 'row']}
+			justify='center'
+			align='center'
+			gap={4}
+			p={[null, 4]}
+			minH='80vh'
+			bgGradient={bgGradient}
+		>
+			<Flex flexDir='column' maxW='md' p={2}>
+				<Heading as='h2' size='xl' mb={2.5}>
+					Title
+				</Heading>
+				<Text>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+					eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					<br />
+					<br />
+					Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+					nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+					reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+					pariatur.
+				</Text>
 			</Flex>
-		</>
+			<Flex
+				pos='relative'
+				p={[null, 8, 16]}
+				my={10}
+				rounded='md'
+				overflow='hidden'
+			>
+				<Image
+					src={backgroundImg}
+					alt=''
+					fill
+					style={{
+						position: 'absolute',
+						top: 0,
+						bottom: 0,
+						left: 0,
+						right: 0,
+						objectFit: 'cover',
+					}}
+				/>
+				<VStack
+					as='form'
+					onSubmit={handleSubmit}
+					spacing={4}
+					zIndex={1}
+					bg={useColorModeValue('white', 'gray.600')}
+					py={6}
+					px={6}
+					maxW={['full', null, 'lg']}
+				>
+					<Heading>Send me a message</Heading>
+					{/* <Flex flexDir={['column', null, 'row']} gap={2}> */}
+					<FormControl isInvalid={formData.emailInvalid}>
+						<FormLabel>Email</FormLabel>
+						<Input
+							variant='filled'
+							name='email'
+							value={email}
+							onChange={handleInputChange}
+						/>
+						<FormErrorMessage>{formData.errors.email}</FormErrorMessage>
+					</FormControl>
+					<FormControl isInvalid={formData.subjectInvalid}>
+						<FormLabel>Subject</FormLabel>
+						<Select
+							variant='filled'
+							name='subject'
+							value={subject}
+							onChange={handleInputChange}
+							placeholder='Please select an option'
+						>
+							{subjectOptions.map((option) => (
+								<option key={option.label} value={option.value}>
+									{option.label}
+								</option>
+							))}
+						</Select>
+						<FormErrorMessage>{formData.errors.subject}</FormErrorMessage>
+					</FormControl>
+					{/* </Flex> */}
+					<FormControl isInvalid={formData.contentInvalid}>
+						<FormLabel>Message</FormLabel>
+						<Textarea
+							variant='filled'
+							name='content'
+							value={content}
+							onChange={handleInputChange}
+						/>
+						<FormErrorMessage>{formData.errors.content}</FormErrorMessage>
+					</FormControl>
+					{/* TODO: Adjust button styling */}
+					<Button
+						bg={useColorModeValue('blue.400', 'blue.200')}
+						w='xs'
+						type='submit'
+						variant={useColorModeValue('outline', 'solid')}
+						color={useColorModeValue('black', 'white')}
+						// bg={useColorModeValue('white', 'black')}
+						isLoading={loading}
+						loadingText='Sending...'
+						_hover={{
+							bg: useColorModeValue('black', 'white'),
+							color: useColorModeValue('white', 'black'),
+						}}
+					>
+						Send
+					</Button>
+				</VStack>
+			</Flex>
+		</Flex>
 	);
 };
 

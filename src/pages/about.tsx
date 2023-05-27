@@ -1,13 +1,29 @@
-import { Divider, Flex, Heading, HStack, Text, VStack } from '@chakra-ui/react';
+import {
+	Divider,
+	Flex,
+	Heading,
+	HStack,
+	Text,
+	useColorModeValue,
+	VStack,
+} from '@chakra-ui/react';
 import { NextPage } from 'next';
 
 const AboutPage: NextPage = () => {
+	const bgGradient = useColorModeValue(
+		'linear(to-b,brand.100,brand.400)',
+		'linear(to-b,brand.700,brand.900)'
+	);
 	return (
 		<>
-			<Flex flexDir='column' py={4} gap='1.25rem' mb={6}>
-				<Heading as='h1' size='2xl'>
-					About Elevated x Otaku
-				</Heading>
+			<Flex
+				flexDir='column'
+				pt={4}
+				px={6}
+				gap='1.25rem'
+				bgGradient={bgGradient}
+				pb={8}
+			>
 				<VStack as='section' align='flex-start'>
 					<Heading as='h2' size='lg'>
 						The What

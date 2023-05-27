@@ -1,7 +1,14 @@
 import { Article } from '@/types';
 import { getArticles } from '@/utils';
 import Image from 'next/image';
-import { Box, Flex, Text, SimpleGrid, Heading } from '@chakra-ui/react';
+import {
+	Box,
+	Flex,
+	Text,
+	SimpleGrid,
+	Heading,
+	useColorModeValue,
+} from '@chakra-ui/react';
 import { GetStaticProps, NextPage } from 'next';
 import ArticleCard from '@/components/articles/ArticleCard';
 
@@ -17,9 +24,14 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 const BlogListPage: NextPage<{ articles: Article[] }> = ({ articles }) => {
+	const bgGradient = useColorModeValue(
+		'linear(to-b,brand.100,brand.400)',
+		'linear(to-b,brand.700,brand.900)'
+	);
+
 	return (
 		<>
-			<Flex flexDir='column' align='center' minH='80vh'>
+			<Flex flexDir='column' align='center' minH='80vh' bgGradient={bgGradient}>
 				<Heading as='h1' size='2xl' py={10}>
 					Anime Recommendations
 				</Heading>

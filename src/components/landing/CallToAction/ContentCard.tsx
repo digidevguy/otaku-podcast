@@ -1,4 +1,10 @@
-import { Button, Container, Heading, Stack, Text } from '@chakra-ui/react';
+import {
+	Button,
+	Heading,
+	Stack,
+	Text,
+	useColorModeValue,
+} from '@chakra-ui/react';
 import Link from 'next/link';
 
 type ContentCardProps = {
@@ -19,16 +25,18 @@ const ContentCard = ({
 			dir='column'
 			alignItems='center'
 			maxW={[null, 'md', 'md']}
-			border='1px'
-			borderColor='gray.200'
 			rounded='md'
 			py={8}
 			px={4}
+			bg={useColorModeValue('brand.400', 'gray.700')}
+			boxShadow='sm'
 		>
 			<Heading as='h2' size='md'>
 				{title}
 			</Heading>
-			<Text fontSize='sm'>{content}</Text>
+			<Text fontSize='sm' maxW='sm'>
+				{content}
+			</Text>
 			<Link href={buttonLink} passHref>
 				<Button>{buttonText}</Button>
 			</Link>
