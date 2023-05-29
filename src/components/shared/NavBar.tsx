@@ -24,10 +24,11 @@ import NavButton from './NavButton';
 import Image from 'next/image';
 
 import logoImg from '../../../public/assets/images/logo with subtitle.png';
+import { setTimeout } from 'timers';
 
 const NavBar: React.FC = () => {
 	const { isOpen, onOpen, onClose } = useDisclosure();
-	const { colorMode, toggleColorMode } = useColorMode();
+	const { toggleColorMode } = useColorMode();
 
 	return (
 		<>
@@ -37,10 +38,16 @@ const NavBar: React.FC = () => {
 					<DrawerCloseButton />
 					<DrawerHeader>Elevated X Otaku</DrawerHeader>
 					<DrawerBody>
-						<Stack spacing={3} direction='column'>
+						<Stack spacing={3} direction='column' align='center'>
 							{navigation.map(({ label, href }) => (
-								<Link href={href} key={label}>
-									<Button variant='ghost'>{label}</Button>
+								<Link href={href} key={label} style={{ width: '100%' }}>
+									<Button
+										variant='ghost'
+										w='full'
+										onClick={() => setTimeout(onClose, 200)}
+									>
+										{label}
+									</Button>
 								</Link>
 							))}
 						</Stack>
@@ -62,16 +69,7 @@ const NavBar: React.FC = () => {
 					</DrawerFooter>
 				</DrawerContent>
 			</Drawer>
-			<Flex
-				p={[2, 4]}
-				align='center'
-				justify='space-between'
-				top={0}
-				// pos='sticky'
-				// zIndex='sticky'
-				bg={colorMode === 'light' ? 'brand.100' : 'brand.700'}
-				// boxShadow='md'
-			>
+			<Flex p={[2, 4]} align='center' justify='space-between' top={0}>
 				<Stack spacing={3} direction='row' align='center'>
 					<IconButton
 						icon={<HamburgerIcon />}

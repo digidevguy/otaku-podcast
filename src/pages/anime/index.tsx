@@ -1,13 +1,13 @@
 import { Article } from '@/types';
 import { getArticles } from '@/utils';
-import Image from 'next/image';
 import {
-	Box,
 	Flex,
 	Text,
 	SimpleGrid,
 	Heading,
 	useColorModeValue,
+	Divider,
+	VStack,
 } from '@chakra-ui/react';
 import { GetStaticProps, NextPage } from 'next';
 import ArticleCard from '@/components/articles/ArticleCard';
@@ -31,13 +31,16 @@ const BlogListPage: NextPage<{ articles: Article[] }> = ({ articles }) => {
 
 	return (
 		<>
-			<Flex flexDir='column' align='center' minH='80vh' bgGradient={bgGradient}>
-				<Heading as='h1' size='2xl' py={10}>
-					Anime Recommendations
-				</Heading>
-				<Text>
-					Hungry for more? Check out our anime recommendations and blog
-				</Text>
+			<Flex as='section' flexDir='column' align='center' minH='80vh' px={2}>
+				<VStack textAlign='center' spacing={4} pt={4}>
+					<Heading as='h1' size='2xl'>
+						Anime Recommendations
+					</Heading>
+					<Text>
+						Hungry for more? Check out our anime recommendations and blog
+					</Text>
+					<Divider />
+				</VStack>
 				<SimpleGrid
 					px={4}
 					py={16}

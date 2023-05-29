@@ -21,7 +21,7 @@ const AboutPage: NextPage = () => {
 				flexDir='column'
 				pt={4}
 				px={6}
-				bgGradient={bgGradient}
+				// bgGradient={bgGradient}
 				pb={8}
 				minH='80vh'
 			>

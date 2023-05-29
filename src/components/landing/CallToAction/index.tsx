@@ -45,7 +45,7 @@ const CallToAction = () => {
 			align='center'
 			spacing={4}
 			p={4}
-			bg={useColorModeValue('brand.400', 'gray.900')}
+			// bg={useColorModeValue('brand.400', 'gray.900')}
 			py={12}
 		>
 			{cardContent.map((card) => (

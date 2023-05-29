@@ -31,7 +31,7 @@ const Footer: React.FC = () => {
 				color='white'
 				align='center'
 				// h={[null, null, '30vh']}
-				maxW='75%'
+				maxW={['full', null, '90%']}
 			>
 				<Stack direction='column' spacing={2}>
 					<Text textTransform='uppercase'>Sign up for updates</Text>
@@ -43,7 +43,7 @@ const Footer: React.FC = () => {
 						notified for all new episodes.
 					</Text>
 				</Stack>
-				<SimpleGrid columns={[3, 4]} p={2} spacing={[2, null, 4]}>
+				<SimpleGrid columns={[6, null, 2]} p={2} spacing={[2, null, 4]}>
 					{podcast.map(({ label, href, icon }) => (
 						<IconButton
 							key={label}
@@ -70,14 +70,14 @@ const Footer: React.FC = () => {
 				<Stack
 					spacing={1}
 					textAlign='center'
-					maxW='30%'
+					maxW={['90%', null, '30%']}
 					dir='column'
 					align='center'
 				>
 					<Heading as='h3' size='md'>
 						Join us on social media!
 					</Heading>
-					<Stack direction='row' p={[1]} spacing={4}>
+					<Stack direction='row' p={1} spacing={2}>
 						{social.map(({ label, href, icon }) => (
 							<IconButton
 								key={label}

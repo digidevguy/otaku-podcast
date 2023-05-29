@@ -19,26 +19,14 @@ const HeroSection = () => {
 		'linear(to-b,brand.700,brand.900)'
 	);
 	return (
-		<Flex
-			as='section'
-			bgGradient={bgGradient}
-			alignContent='center'
-			justifyContent='center'
-		>
-			<Stack direction={['column', 'row']}>
+		<Flex as='section' alignContent='center' justifyContent='center' px={4}>
+			<Stack direction={['column', 'row']} align='center' pt={[4, 0]}>
 				<Stack justify='center' align='center' maxW='sm'>
-					{/* <Heading as='h1' textAlign='center' size='xl' mb={1} fontWeight={500}>
-						Hi I'm Tiffany and I need anal in my life!
-					</Heading>
-					<Heading as='h2' textAlign='center' size='lg' fontWeight={500}>
-						Yes I'm serious!
-					</Heading> */}
 					<Text
 						fontFamily='Carter One, cursive'
 						textAlign='center'
-						fontSize='2xl'
+						fontSize={['sm', 'md', 'xl']}
 						fontWeight={300}
-						mb={4}
 					>
 						Looking for a place that seamlessly blends life lessons with your
 						favorite anime, recommendations for your next binge session, cosplay
@@ -47,7 +35,9 @@ const HeroSection = () => {
 						<br />
 						You&apos;ve come to the right place!
 					</Text>
-					<Image src={swoop} alt='swoop' />
+					<Flex w={['3xs', '2xs', 'xs']}>
+						<Image src={swoop} alt='swoop' />
+					</Flex>
 				</Stack>
 				<Box pos='relative' alignSelf='center'>
 					<Image

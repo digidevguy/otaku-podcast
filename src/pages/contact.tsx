@@ -155,14 +155,13 @@ const ContactPage: NextPage = () => {
 			justify='center'
 			align='center'
 			gap={4}
-			p={[null, 4]}
+			px={4}
 			minH='80vh'
-			bgGradient={bgGradient}
 		>
-			<Heading>Let&apos;s do anal!</Heading>
+			<Heading>Send me a message</Heading>
 			<Flex
 				pos='relative'
-				p={[null, 8, 16]}
+				p={[null, 12, 20]}
 				my={10}
 				rounded='md'
 				overflow='hidden'
@@ -185,13 +184,12 @@ const ContactPage: NextPage = () => {
 					onSubmit={handleSubmit}
 					spacing={4}
 					zIndex={1}
-					bg={useColorModeValue('brand.400', 'gray.600')}
+					bg={useColorModeValue('gray.300', 'gray.600')}
 					py={6}
 					px={6}
 					maxW={['full', null, 'lg']}
+					rounded='md'
 				>
-					<Heading>Send me a message</Heading>
-					{/* <Flex flexDir={['column', null, 'row']} gap={2}> */}
 					<FormControl isInvalid={formData.emailInvalid}>
 						<FormLabel>Email</FormLabel>
 						<Input

@@ -28,7 +28,7 @@ const PodcastLibPage: NextPage = () => {
 				spacing={4}
 				p={[2, 10]}
 				mx='auto'
-				bgGradient={bgGradient}
+				// bgGradient={bgGradient}
 			>
 				<Heading>Podcast Library</Heading>
 				<Text

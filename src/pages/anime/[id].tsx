@@ -1,6 +1,13 @@
 import { Article } from '@/types';
 import { getArticle, getArticles, imageLoader } from '@/utils';
-import { Box, Flex, Heading, Text, useColorModeValue } from '@chakra-ui/react';
+import {
+	Box,
+	Flex,
+	Heading,
+	Text,
+	VStack,
+	useColorModeValue,
+} from '@chakra-ui/react';
 import Image from 'next/image';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import ReactMarkdown from 'react-markdown';
@@ -40,24 +47,23 @@ export default function BlogDetailPage({ article }: { article: Article }) {
 		'linear(to-b,brand.700,brand.900)'
 	);
 	return (
-		<Flex flexDir='column' bgGradient={bgGradient}>
+		<Flex flexDir='column'>
 			<Flex
 				align='center'
 				borderBottom='1px'
 				borderColor={useColorModeValue('gray.200', 'gray.700')}
 				flexDir={['column-reverse', null, 'row']}
 			>
-				<Flex w={['full', null, '50%']} flexDir='column' align='center'>
+				<VStack w={['full', null, '50%']} py={[3, null, 0]}>
 					<Flex maxW='500px' flexDir='column'>
 						<Heading>{article.attributes.title}</Heading>
 						<Text color='gray.500'>
 							{format(new Date(article.attributes.createdAt), 'MMMM do, yyyy')}
 						</Text>
 					</Flex>
-				</Flex>
+				</VStack>
 				<Box w={['full', null, '50%']}>
 					<Image
-						// loader={imageLoader}
 						src={article.attributes.image.data.attributes.url}
 						alt={article.attributes.title}
 						width={article.attributes.image.data.attributes.width}
@@ -66,7 +72,7 @@ export default function BlogDetailPage({ article }: { article: Article }) {
 					/>
 				</Box>
 			</Flex>
-			<Flex flexDir='column' p={2} maxW='850px' mx='auto'>
+			<Flex flexDir='column' p={4} maxW='1000px' mx='auto'>
 				<ReactMarkdown components={ChakraUIRenderer()} skipHtml>
 					{article.attributes.content}
 				</ReactMarkdown>

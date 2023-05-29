@@ -34,9 +34,8 @@ const ContentCard = ({
 		<Flex
 			flexDir='column'
 			w={[null, 'sm', 'md']}
-			// h={[null, 'sm', 'md']}
 			rounded='md'
-			bg={useColorModeValue('brand.600', 'gray.700')}
+			// bg={useColorModeValue('brand.600', 'gray.700')}
 			boxShadow='sm'
 			overflow='hidden'
 		>
