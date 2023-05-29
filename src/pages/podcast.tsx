@@ -1,4 +1,5 @@
 import PodcastList from '@/components/podcast/PodcastList';
+import LoadingCard from '@/components/shared/LoadingCard';
 import { podcast } from '@/libs/podcast';
 import {
 	Button,
@@ -55,21 +56,25 @@ const PodcastLibPage: NextPage = () => {
 						<Heading as='h2' size='md'>
 							Subscribe using your favorite service
 						</Heading>
-						<Stack direction='row' p={2} spacing={4} justify='center'>
-							{podcast.map(({ label, href, icon }) => (
-								<IconButton
-									key={label}
-									as={Link}
-									icon={icon}
-									aria-label={label}
-									href={href}
-									variant='ghost'
-									color={iconColor}
-									target='_blank'
-									isExternal
-								/>
-							))}
-						</Stack>
+						{!podcast ? (
+							[...Array(4)].map((_, i) => <LoadingCard key={i} />)
+						) : (
+							<Stack direction='row' p={2} spacing={4} justify='center'>
+								{podcast.map(({ label, href, icon }) => (
+									<IconButton
+										key={label}
+										as={Link}
+										icon={icon}
+										aria-label={label}
+										href={href}
+										variant='ghost'
+										color={iconColor}
+										target='_blank'
+										isExternal
+									/>
+								))}
+							</Stack>
+						)}
 					</VStack>
 					<Divider
 						orientation={useBreakpointValue({

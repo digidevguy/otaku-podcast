@@ -13,6 +13,7 @@ import {
 } from '@chakra-ui/react';
 import { GetStaticProps, NextPage } from 'next';
 import ArticleCard from '@/components/articles/ArticleCard';
+import LoadingCard from '@/components/shared/LoadingCard';
 
 export const getStaticProps: GetStaticProps = async () => {
 	const { articles }: { articles: Article[] } = await getArticles();
@@ -44,17 +45,7 @@ const BlogListPage: NextPage<{ articles: Article[] }> = ({ articles }) => {
 					<Divider />
 				</VStack>
 				{!articles ? (
-					[...Array(4)].map((_, i) => (
-						<VStack key={i} w='lg' p={6} boxShadow='md'>
-							<SkeletonCircle size='10' alignSelf='start' />
-							<SkeletonText
-								w='full'
-								noOfLines={3}
-								spacing='4'
-								skeletonHeight={4}
-							/>
-						</VStack>
-					))
+					[...Array(4)].map((_, i) => <LoadingCard key={i} />)
 				) : (
 					<SimpleGrid
 						px={4}
