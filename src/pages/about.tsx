@@ -2,12 +2,12 @@ import {
 	Divider,
 	Flex,
 	Heading,
-	HStack,
+	Stack,
 	Text,
 	useColorModeValue,
-	VStack,
 } from '@chakra-ui/react';
 import { NextPage } from 'next';
+import Image from 'next/image';
 import irlImg from '../../public/assets/images/irl-photo.jpg';
 
 const AboutPage: NextPage = () => {
@@ -25,8 +25,8 @@ const AboutPage: NextPage = () => {
 				pb={8}
 				minH='80vh'
 			>
-				<VStack maxW='1200px' mx='auto' spacing={4}>
-					<VStack as='section' align='flex-start'>
+				<Stack direction='column' maxW='1200px' mx='auto' spacing={4}>
+					<Stack as='section' direction='column' align='flex-start'>
 						<Heading as='h2' size='lg'>
 							The What
 						</Heading>
@@ -39,8 +39,13 @@ const AboutPage: NextPage = () => {
 							&ldquo;Anime Convention Etiquette&rdquo; while pairing each lesson
 							with bingeable anime recommendations.
 						</Text>
-					</VStack>
-					<HStack as='section' spacing={4} h={['25vh', '10vh', '5vh']}>
+					</Stack>
+					<Stack
+						as='section'
+						direction='row'
+						spacing={4}
+						h={['25vh', '10vh', '5vh']}
+					>
 						<Divider
 							orientation='vertical'
 							borderColor='black'
@@ -53,9 +58,9 @@ const AboutPage: NextPage = () => {
 							entertaining messages about life, love, and mental health through
 							the lense of your favorite fandoms.
 						</Text>
-					</HStack>
+					</Stack>
 					<Divider borderColor='black' />
-					<VStack as='section' align='flex-start'>
+					<Stack as='section' direction='column' align='flex-start'>
 						<Heading as='h2' size='lg'>
 							The Why
 						</Heading>
@@ -84,23 +89,36 @@ const AboutPage: NextPage = () => {
 							with years of study, firsthand experience, and a dash of comedy to
 							keep the mood light and goofy.
 						</Text>
-					</VStack>
+					</Stack>
 					<Divider borderColor='blackAlpha' />
-					<VStack as='section' align='flex-start'>
-						<Heading as='h2' size='lg'>
-							The Who
-						</Heading>
-						<Text>
-							Hi, there! My name is Tiffany, and I&apos;ll be your host during
-							these audio adventures. I&apos;m guessing this is the part where I
-							should stare off into the distance to trigger a flashback scene…
-						</Text>
-						<Flex flexDir='column'>
-							<Text>~ ~</Text>
-							<Text ml={2}>~ ~</Text>
-							<Text ml={4}>~ ~</Text>
-							<Text ml={6}>~ ~</Text>
-						</Flex>
+					<Stack as='section' direction='column' align='flex-start'>
+						<Stack
+							direction={['column-reverse', null, 'row']}
+							spacing={4}
+							align='center'
+							justify={['center', null, 'space-between']}
+						>
+							<Stack direction='column' maxW={['full', null, '50%']}>
+								<Heading as='h2' size='lg'>
+									The Who
+								</Heading>
+								<Text>
+									Hi, there! My name is Tiffany, and I&apos;ll be your host
+									during these audio adventures. I&apos;m guessing this is the
+									part where I should stare off into the distance to trigger a
+									flashback scene…
+								</Text>
+								<Flex flexDir='column'>
+									<Text>~ ~</Text>
+									<Text ml={2}>~ ~</Text>
+									<Text ml={4}>~ ~</Text>
+									<Text ml={6}>~ ~</Text>
+								</Flex>
+							</Stack>
+							<Flex boxSize={['sm', null, 'xs']} rounded='md' overflow='hidden'>
+								<Image src={irlImg} alt='Tiffany' />
+							</Flex>
+						</Stack>
 						<Text>
 							My love of anime first started before I even knew what anime was,
 							with a Miyazaki film called Kiki&apos;s Delivery Service. As a
@@ -154,8 +172,8 @@ const AboutPage: NextPage = () => {
 							geeks, and weebs subscribe to the podcast, follow me on my
 							socials, or just pop in and say hi!
 						</Text>
-					</VStack>
-				</VStack>
+					</Stack>
+				</Stack>
 			</Flex>
 		</>
 	);
