@@ -20,7 +20,7 @@ const HeroSection = () => {
 	);
 	return (
 		<Flex as='section' alignContent='center' justifyContent='center' px={4}>
-			<Stack direction={['column', 'row']} align='center' pt={[4, 0]}>
+			<Stack direction={['column', null, 'row']} align='center' pt={[4, 0]}>
 				<Stack justify='center' align='center' maxW='sm'>
 					<Text
 						fontFamily='Carter One, cursive'

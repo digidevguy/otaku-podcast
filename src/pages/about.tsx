@@ -31,7 +31,7 @@ const AboutPage: NextPage = () => {
 							The What
 						</Heading>
 						<Text>
-							The Elevated X Otaku Podcast is a passion project born from the
+							The ElevatedXOtaku Podcast is a passion project born from the
 							desire to merge the worlds of anime and self-improvement in a way
 							that&apos;s both informative and fun. In each episode we&apos;ll
 							cover topics like, &ldquo;An Otaku&apos;s Guide to Making
@@ -48,7 +48,7 @@ const AboutPage: NextPage = () => {
 							borderWidth={3}
 						/>
 						<Text>
-							The Elevated X Otaku podcast is a self-improvement podcast created
+							The ElevatedXOtaku podcast is a self-improvement podcast created
 							for anime and manga fans that delivers insightful, empowering, and
 							entertaining messages about life, love, and mental health through
 							the lense of your favorite fandoms.
@@ -70,19 +70,19 @@ const AboutPage: NextPage = () => {
 							actively helps us grow and prepare for the real world.
 						</Text>
 						<Text alignSelf='center' fontWeight='bold'>
-							And that&apos;s where the E x O podcast comes in!
+							And that&apos;s where the ExO podcast comes in!
 						</Text>
 						<Text>
-							Just like the medium we&apos;re inspired by, the E x O podcast
+							Just like the medium we&apos;re inspired by, the ExO podcast
 							exists to make your life...better! It was initially created to dig
 							through the millions of episodes of anime out there to find
 							nuggets of inspiration that you can apply to your everyday life,
 							but now it is evolving into a positive and supportive community.
 							Whether you&apos;re struggling with self-esteem, wanting to learn
 							how to get out of your comfort zone, searching for yourself, or
-							wanting to connect with others, the Elevated X Otaku is here for
-							you with years of study, firsthand experience, and a dash of
-							comedy to keep the mood light and goofy.
+							wanting to connect with others, the ElevatedXOtaku is here for you
+							with years of study, firsthand experience, and a dash of comedy to
+							keep the mood light and goofy.
 						</Text>
 					</VStack>
 					<Divider borderColor='blackAlpha' />
@@ -127,7 +127,7 @@ const AboutPage: NextPage = () => {
 							Moon, the art of perseverance from Pokémon, and how to be a total
 							badass from Dragon Ball Z. And as I continued to grow up and
 							experienced new joys, new struggles, and new challenges in life,
-							anime was right there – growing alongside me; With shows like
+							anime was right there U+002d growing alongside me; With shows like
 							Cowboy Bebop, Fruits Basket, and Full Metal Alchemist helping to
 							give me a framework and an outlet for understanding and dealing
 							with the unfamiliar territory of maturing.
@@ -138,22 +138,21 @@ const AboutPage: NextPage = () => {
 							the values that each one of those shows has taught me. Values like
 							patience (…I&apos;m still perfecting that one), humility,
 							friendship, determination, and above all else - the desire to help
-							people. Hence, the reason for the EXO podcast and EXO community.
+							people. Hence, the reason for the ExO podcast and ExO community.
 							The thing that makes me happiest in life is knowing that I&apos;ve
-							helped, entertained, or made a difference in the lives of others –
-							especially those who, like me, may have been ostracized, shut out,
-							or looked down on. I&apos;ve accumulated a lot of knowledge
-							throughout my studies in psychology, diving head first into life,
-							and picking myself up again and again as I set out to explore this
-							world and everything it has to offer. The least I can do is to
-							share that knowledge in hopes that it helps even one other person
-							while they&apos;re on their hero&apos;s journey.{' '}
+							helped, entertained, or made a difference in the lives of others
+							U+002d especially those who, like me, may have been ostracized,
+							shut out, or looked down on. I&apos;ve accumulated a lot of
+							knowledge throughout my studies in psychology, diving head first
+							into life, and picking myself up again and again as I set out to
+							explore this world and everything it has to offer. The least I can
+							do is to share that knowledge in hopes that it helps even one
+							other person while they&apos;re on their hero&apos;s journey.
 						</Text>
 						<Text>
-							{' '}
 							If you want to become a part of this growing community of freaks,
 							geeks, and weebs subscribe to the podcast, follow me on my
-							socials, or just pop in and say hi!{' '}
+							socials, or just pop in and say hi!
 						</Text>
 					</VStack>
 				</VStack>
