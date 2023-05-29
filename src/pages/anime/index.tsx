@@ -1,12 +1,14 @@
 import { Article } from '@/types';
 import { getArticles } from '@/utils';
 import {
-	Flex,
-	Text,
-	SimpleGrid,
-	Heading,
-	useColorModeValue,
 	Divider,
+	Flex,
+	Heading,
+	Text,
+	SkeletonCircle,
+	SkeletonText,
+	SimpleGrid,
+	useColorModeValue,
 	VStack,
 } from '@chakra-ui/react';
 import { GetStaticProps, NextPage } from 'next';
@@ -41,23 +43,37 @@ const BlogListPage: NextPage<{ articles: Article[] }> = ({ articles }) => {
 					</Text>
 					<Divider />
 				</VStack>
-				<SimpleGrid
-					px={4}
-					py={16}
-					spacing={4}
-					maxW='1000px'
-					columns={[1, null, 2]}
-				>
-					{articles.map((article) => (
-						<ArticleCard
-							key={article.id}
-							id={article.id}
-							title={article.attributes.title}
-							content={article.attributes.content}
-							createdAt={article.attributes.createdAt}
-						/>
-					))}
-				</SimpleGrid>
+				{!articles ? (
+					[...Array(4)].map((_, i) => (
+						<VStack key={i} w='lg' p={6} boxShadow='md'>
+							<SkeletonCircle size='10' alignSelf='start' />
+							<SkeletonText
+								w='full'
+								noOfLines={3}
+								spacing='4'
+								skeletonHeight={4}
+							/>
+						</VStack>
+					))
+				) : (
+					<SimpleGrid
+						px={4}
+						py={16}
+						spacing={4}
+						maxW='1000px'
+						columns={[1, null, 2]}
+					>
+						{articles.map((article) => (
+							<ArticleCard
+								key={article.id}
+								id={article.id}
+								title={article.attributes.title}
+								content={article.attributes.content}
+								createdAt={article.attributes.createdAt}
+							/>
+						))}
+					</SimpleGrid>
+				)}
 			</Flex>
 		</>
 	);
