@@ -151,7 +151,7 @@ const ContactPage: NextPage = () => {
 
 	return (
 		<Flex
-			flexDir={['column', null, 'row']}
+			flexDir='column'
 			justify='center'
 			align='center'
 			gap={4}
@@ -159,21 +159,7 @@ const ContactPage: NextPage = () => {
 			minH='80vh'
 			bgGradient={bgGradient}
 		>
-			<Flex flexDir='column' maxW='md' p={2}>
-				<Heading as='h2' size='xl' mb={2.5}>
-					Title
-				</Heading>
-				<Text>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-					eiusmod tempor incididunt ut labore et dolore magna aliqua.
-					<br />
-					<br />
-					Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-					nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-					reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-					pariatur.
-				</Text>
-			</Flex>
+			<Heading>Let&apos;s do anal!</Heading>
 			<Flex
 				pos='relative'
 				p={[null, 8, 16]}
@@ -199,7 +185,7 @@ const ContactPage: NextPage = () => {
 					onSubmit={handleSubmit}
 					spacing={4}
 					zIndex={1}
-					bg={useColorModeValue('white', 'gray.600')}
+					bg={useColorModeValue('brand.400', 'gray.600')}
 					py={6}
 					px={6}
 					maxW={['full', null, 'lg']}

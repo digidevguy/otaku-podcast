@@ -4,7 +4,7 @@ const IntroVid = () => {
 	return (
 		<Container py={[10, null, 16]}>
 			<Heading as='h2' mb={5} textAlign='center'>
-				Placeholder Title
+				ExO Podcast Trailer
 			</Heading>
 			<Box overflow='hidden' pos='relative' pb='56.25%' rounded={10}>
 				<iframe

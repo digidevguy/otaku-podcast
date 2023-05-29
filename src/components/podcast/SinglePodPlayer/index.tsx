@@ -34,10 +34,8 @@ const SinglePodPlayer = ({ track }: SinglePodPlayerProps) => {
 			>
 				<Image src={track.artwork_url} alt={track.title} />
 			</Box>
-			<Stack direction='column' justify='space-between' w='full'>
-				<Heading size='md' textAlign='center'>
-					{track.title}
-				</Heading>
+			<Stack direction='column' justify='space-around' w='full'>
+				<Heading size='md'>{track.title}</Heading>
 				{/* <Text
 					maxW={['xs', 'xl']}
 					textAlign={['center', 'inherit']}

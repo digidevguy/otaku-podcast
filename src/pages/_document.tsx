@@ -15,8 +15,16 @@ export default function Document() {
 					href='https://fonts.googleapis.com/css2?family=Roboto&family=Signika&display=swap'
 					rel='stylesheet'
 				/> */}
-				<link
+				{/* <link
 					href='https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&family=Poppins:wght@300&display=swap'
+					rel='stylesheet'
+				/> */}
+				{/* <link
+					href='https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap'
+					rel='stylesheet'
+				/> */}
+				<link
+					href='https://fonts.googleapis.com/css2?family=Carter+One&family=Rubik:wght@300;400;500&display=swap'
 					rel='stylesheet'
 				/>
 			</Head>

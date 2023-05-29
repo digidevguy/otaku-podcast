@@ -2,6 +2,7 @@ import {
 	Box,
 	Button,
 	Container,
+	Divider,
 	Flex,
 	Heading,
 	Stack,
@@ -9,7 +10,8 @@ import {
 	useColorModeValue,
 } from '@chakra-ui/react';
 import Image from 'next/image';
-import heroImg from '../../../public/assets/images/erin_on_demand_creator_to_ceo.png';
+import swoop from '../../../public/assets/images/swoop.png';
+import explainImg from '../../../public/assets/images/exo-explain.png';
 
 const HeroSection = () => {
 	const bgGradient = useColorModeValue(
@@ -25,31 +27,33 @@ const HeroSection = () => {
 		>
 			<Stack direction={['column', 'row']}>
 				<Stack justify='center' align='center' maxW='sm'>
-					<Heading as='h1' textAlign='center' size='lg' mb={1}>
-						H1 placeholder
+					{/* <Heading as='h1' textAlign='center' size='xl' mb={1} fontWeight={500}>
+						Hi I'm Tiffany and I need anal in my life!
 					</Heading>
-					<Heading as='h2' textAlign='center' size='md'>
-						H2 placeholder
-					</Heading>
-					<Text textAlign='center' fontSize='sm'>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-						ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-						aliquip ex ea commodo consequat.
+					<Heading as='h2' textAlign='center' size='lg' fontWeight={500}>
+						Yes I'm serious!
+					</Heading> */}
+					<Text
+						fontFamily='Carter One, cursive'
+						textAlign='center'
+						fontSize='2xl'
+						fontWeight={300}
+						mb={4}
+					>
+						Looking for a place that seamlessly blends life lessons with your
+						favorite anime, recommendations for your next binge session, cosplay
+						inspiration, or simply a community of like-minded nerds and geeks?
 						<br />
 						<br />
-						Duis aute irure dolor in reprehenderit in voluptate velit esse
-						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-						cupidatat non proident, sunt in culpa qui officia deserunt mollit
-						anim id est laborum.
+						You&apos;ve come to the right place!
 					</Text>
-					<Button>Join me</Button>
+					<Image src={swoop} alt='swoop' />
 				</Stack>
 				<Box pos='relative' alignSelf='center'>
 					<Image
-						src={heroImg}
+						src={explainImg}
 						alt='Hero-img'
-						style={{ maxHeight: '40vh', width: 'auto' }}
+						style={{ maxHeight: '60vh', width: 'auto' }}
 					/>
 				</Box>
 			</Stack>

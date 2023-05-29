@@ -1,10 +1,12 @@
 import {
 	Button,
+	Flex,
 	Heading,
-	Stack,
 	Text,
+	VStack,
 	useColorModeValue,
 } from '@chakra-ui/react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 type ContentCardProps = {
@@ -12,6 +14,10 @@ type ContentCardProps = {
 	content: string;
 	buttonText: string;
 	buttonLink: string;
+	imgLink: string;
+	imgWidth: number;
+	imgHeight: number;
+	imgAlt: string;
 };
 
 const ContentCard = ({
@@ -19,28 +25,38 @@ const ContentCard = ({
 	content,
 	buttonText,
 	buttonLink,
+	imgLink,
+	imgWidth,
+	imgHeight,
+	imgAlt,
 }: ContentCardProps) => {
 	return (
-		<Stack
-			dir='column'
-			alignItems='center'
-			maxW={[null, 'md', 'md']}
+		<Flex
+			flexDir='column'
+			w={[null, 'sm', 'md']}
+			// h={[null, 'sm', 'md']}
 			rounded='md'
-			py={8}
-			px={4}
-			bg={useColorModeValue('brand.400', 'gray.700')}
+			bg={useColorModeValue('brand.600', 'gray.700')}
 			boxShadow='sm'
+			overflow='hidden'
 		>
-			<Heading as='h2' size='md'>
-				{title}
-			</Heading>
-			<Text fontSize='sm' maxW='sm'>
-				{content}
-			</Text>
-			<Link href={buttonLink} passHref>
-				<Button>{buttonText}</Button>
-			</Link>
-		</Stack>
+			<Image src={imgLink} width={imgWidth} height={imgHeight} alt={imgAlt} />
+			<VStack
+				p={4}
+				alignItems='center'
+				justify={['center', null, 'space-around']}
+			>
+				<Heading as='h2' size='md'>
+					{title}
+				</Heading>
+				<Text fontSize='sm' maxW='sm'>
+					{content}
+				</Text>
+				<Link href={buttonLink} passHref>
+					<Button>{buttonText}</Button>
+				</Link>
+			</VStack>
+		</Flex>
 	);
 };
 

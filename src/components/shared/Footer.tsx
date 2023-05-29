@@ -39,7 +39,7 @@ const Footer: React.FC = () => {
 						Subscribe to the show, stay up to date
 					</Heading>
 					<Text p={2}>
-						Subscribe view your favorite platform today - you{'\u2019'}ll get
+						Subscribe on your favorite platform today - you{'\u2019'}ll get
 						notified for all new episodes.
 					</Text>
 				</Stack>
