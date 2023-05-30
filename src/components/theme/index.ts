@@ -12,15 +12,9 @@ const fonts = {
 const brandColors = {
 	...chakraTheme.colors,
 	brand: {
-		100: '#FBCBD6',
-		200: '#F3A783',
-		300: '#CEA9CB',
-		400: '#B4C7F2',
-		500: '#AA6176',
-		600: '#7B87AA',
-		700: '#525D7C',
-		800: '#46291A',
-		900: '#1F1109',
+		100: '#008EFE',
+		200: '#4BBCFD',
+		300: '#99E6FE',
 	},
 };
 
