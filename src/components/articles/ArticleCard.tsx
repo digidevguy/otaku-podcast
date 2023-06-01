@@ -21,12 +21,14 @@ const ArticleCard = ({ title, content, createdAt, id }: ArticleCardProps) => {
 			flexDir='column'
 			border={useColorModeValue('1px', '1px')}
 			borderColor={useColorModeValue('gray.200', 'gray.600')}
+			bg={useColorModeValue('brand.100', 'gray.700')}
 			pos='relative'
 			rounded='lg'
 			boxShadow={useColorModeValue('md', 'none')}
 			maxW='lg'
 			alignItems='start'
-			p={3}
+			py={3}
+			px={4}
 		>
 			<Flex flexDir='column'>
 				<Heading>{title}</Heading>

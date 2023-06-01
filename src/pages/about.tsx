@@ -12,19 +12,12 @@ import irlImg from '../../public/assets/images/irl-photo.jpg';
 
 const AboutPage: NextPage = () => {
 	const bgGradient = useColorModeValue(
-		'linear(to-b,brand.100,brand.400)',
-		'linear(to-b,brand.700,brand.900)'
+		'linear(to-b,brand.100,brand.300)',
+		'none'
 	);
 	return (
 		<>
-			<Flex
-				flexDir='column'
-				pt={4}
-				px={6}
-				// bgGradient={bgGradient}
-				pb={8}
-				minH='80vh'
-			>
+			<Flex flexDir='column' py={10} px={6} bgGradient={bgGradient}>
 				<Stack direction='column' maxW='1200px' mx='auto' spacing={4}>
 					<Stack as='section' direction='column' align='flex-start'>
 						<Heading as='h2' size='lg'>

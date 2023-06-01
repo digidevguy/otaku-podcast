@@ -1,13 +1,10 @@
 import { Track } from '@/types';
 import {
-	Divider,
 	Stack,
-	Text,
 	Heading,
 	Image,
-	Flex,
 	Box,
-	Button,
+	useColorModeValue,
 } from '@chakra-ui/react';
 
 type SinglePodPlayerProps = {
@@ -20,14 +17,15 @@ const SinglePodPlayer = ({ track }: SinglePodPlayerProps) => {
 			direction={['column', null, 'row']}
 			spacing={4}
 			p={4}
-			boxShadow='sm'
+			boxShadow='md'
 			rounded={20}
-			border='1px'
 			borderColor='gray.100'
-			w={['full', null, '80%']}
+			// w={['full', null, '80%']}
+			w={['full', null, 'xl']}
+			bg={useColorModeValue('brand.300', 'gray.700')}
 		>
 			<Box
-				w={['250px', null, '150px']}
+				w={['200px', null, '150px']}
 				rounded={10}
 				overflow='hidden'
 				alignSelf='center'
@@ -35,29 +33,10 @@ const SinglePodPlayer = ({ track }: SinglePodPlayerProps) => {
 				<Image src={track.artwork_url} alt={track.title} />
 			</Box>
 			<Stack direction='column' justify='space-around' w='full'>
-				<Heading size='md'>{track.title}</Heading>
-				{/* <Text
-					maxW={['xs', 'xl']}
-					textAlign={['center', 'inherit']}
-					noOfLines={3}
-					whiteSpace='pre-wrap'
-				>
-					{track.description}
-				</Text> */}
+				<Heading size={['sm', null, 'sm']}>{track.title}</Heading>
 				<Box>
 					<audio style={{ width: '100%' }} src={track.audio_url} controls />
 				</Box>
-				{/* <Flex h='50px' w='full'>
-					<audio src={track.audio_url} />
-					<Box
-						h='50px'
-						w='50%'
-						bg='blue.700'
-						justifyContent='center'
-						alignItems='center'
-					/>
-					<Divider orientation='vertical' h='50px' bg='white' />
-				</Flex> */}
 			</Stack>
 		</Stack>
 	);

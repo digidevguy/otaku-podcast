@@ -74,7 +74,7 @@ const NavBar: React.FC = () => {
 				align='center'
 				justify='space-between'
 				top={0}
-				bg={useColorModeValue('brand.200', 'gray.800')}
+				bg={useColorModeValue('brand.100', 'gray.800')}
 			>
 				<Stack spacing={3} direction='row' align='center'>
 					<IconButton

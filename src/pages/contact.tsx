@@ -46,8 +46,8 @@ const ContactPage: NextPage = () => {
 	const [loading, setLoading] = useState<boolean>(false);
 	const toast = useToast();
 	const bgGradient = useColorModeValue(
-		'linear(to-b,brand.100,brand.400)',
-		'linear(to-b,brand.700,brand.900)'
+		'linear(to-b,brand.100,brand.300)',
+		'none'
 	);
 
 	const handleInputChange = (
@@ -157,8 +157,9 @@ const ContactPage: NextPage = () => {
 			gap={4}
 			px={4}
 			minH='80vh'
+			bgGradient={bgGradient}
 		>
-			<Heading>Send me a message</Heading>
+			<Heading>Send me a message!</Heading>
 			<Flex
 				pos='relative'
 				p={[null, 12, 20]}

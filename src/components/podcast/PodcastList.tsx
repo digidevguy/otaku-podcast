@@ -1,27 +1,26 @@
 import { useEffect, useState } from 'react';
-import { Flex, Stack, VStack } from '@chakra-ui/react';
+import { SimpleGrid, Stack } from '@chakra-ui/react';
 import { Track } from '@/types';
 import SinglePodPlayer from './SinglePodPlayer';
+import LoadingCard from '../shared/LoadingCard';
 
-const PodcastList = () => {
-	const [tracks, setTracks] = useState<Track[]>([]);
+type Props = {
+	tracks: Track[];
+};
 
-	// make a async fetch request to get the podcasts
-	useEffect(() => {
-		const fetchTracks = async () => {
-			const res = await fetch('/api/get-podcasts');
-			const data = await res.json();
-			setTracks(data);
-		};
-		fetchTracks();
-	}, []);
-
+const PodcastList = ({ tracks }: Props) => {
 	return (
-		<VStack spacing={2} maxW={['full', 'md', '4xl']}>
+		<SimpleGrid
+			spacing={4}
+			alignItems='center'
+			minChildWidth={[null, null, '544px']}
+			justifyItems='center'
+			w='full'
+		>
 			{tracks.map((track) => (
 				<SinglePodPlayer key={track.id} track={track} />
 			))}
-		</VStack>
+		</SimpleGrid>
 	);
 };
 
