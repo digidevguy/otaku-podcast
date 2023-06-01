@@ -3,6 +3,7 @@ import LoadingCard from '@/components/shared/LoadingCard';
 import { podcast } from '@/libs/podcast';
 import { Track } from '@/types';
 import {
+	Box,
 	Button,
 	Divider,
 	Flex,
@@ -19,10 +20,15 @@ import { NextPage } from 'next';
 import { useEffect, useState } from 'react';
 import matterOfFact from '../../public/assets/images/gestures/matter_of_face_post_resized.png';
 import Image from 'next/image';
+import sideTextBubble from '../../public/assets/shapes/side-text-triangle.png';
+import bottomTextBubble from '../../public/assets/shapes/bottom-text-triangle.png';
 
 const PodcastLibPage: NextPage = () => {
 	const [tracks, setTracks] = useState<Track[]>([]);
 	const [isLoading, setIsLoading] = useState<boolean>(true);
+
+	const sideBubbleDisplay = useBreakpointValue({ base: 'none', md: 'block' });
+	const bottomBubbleDisplay = useBreakpointValue({ base: 'block', md: 'none' });
 
 	const iconColor = useColorModeValue('gray.500', 'gray.200');
 	const bgGradient = useColorModeValue(
@@ -46,10 +52,10 @@ const PodcastLibPage: NextPage = () => {
 		<>
 			<Stack
 				as='main'
-				justify='center'
+				justify='space-around'
 				align='center'
 				direction='column'
-				w='full'
+				// w='full'
 				spacing={4}
 				p={[2, 10]}
 				mx='auto'
@@ -57,19 +63,62 @@ const PodcastLibPage: NextPage = () => {
 				minH='80vh'
 			>
 				<Heading>Podcast Library</Heading>
-				<Text
-					p={2}
-					// boxShadow={['none', 'sm']}
-					// rounded='md'
-					maxW='xl'
-					// bg={useColorModeValue('brand.300', 'gray.700')}
+				<Stack
+					direction={['column', null, 'row']}
+					spacing={6}
+					align='center'
+					justify='center'
 				>
-					Check out the Elevated X Otaku Podcast - the self-improvement podcast
-					created for anime and manga fans that delivers empowering,
-					entertaining, and insightful messages about love, life, and mental
-					health through the lense of your favorite shows. Who knows, you may
-					even catch a JoJo&apos;s reference.
-				</Text>
+					<Flex pos='relative' maxW={['full', null, '30%']}>
+						<Text
+							p={3}
+							// boxShadow={['none', 'sm']}
+							// rounded='md'
+
+							fontSize={['sm', 'md']}
+							bg={useColorModeValue('white', 'gray.700')}
+							rounded='md'
+							zIndex={1}
+						>
+							Check out the Elevated X Otaku Podcast - the self-improvement
+							podcast created for anime and manga fans that delivers empowering,
+							entertaining, and insightful messages about love, life, and mental
+							health through the lense of your favorite shows. Who knows, you
+							may even catch a JoJo&apos;s reference.
+						</Text>
+						<Box
+							display={['none', null, 'block']}
+							pos='absolute'
+							top={45}
+							right={-2}
+							w={4}
+							zIndex={0}
+						>
+							<Image
+								src={sideTextBubble}
+								alt='Text Triangle'
+								style={{ display: sideBubbleDisplay }}
+							/>
+						</Box>
+						<Box
+							display={['block', null, 'none']}
+							pos='absolute'
+							right={225}
+							bottom={-2}
+							w={4}
+							zIndex={0}
+						>
+							<Image
+								src={bottomTextBubble}
+								alt='Text Triangle'
+								style={{ display: bottomBubbleDisplay }}
+							/>
+						</Box>
+					</Flex>
+					<Box w='25%' maxH='xl' overflow='hidden'>
+						<Image src={matterOfFact} alt='Matter of Fact Podcast Cover' />
+					</Box>
+				</Stack>
 				{isLoading ? (
 					[...Array(4)].map((_, i) => <LoadingCard key={i} />)
 				) : (
