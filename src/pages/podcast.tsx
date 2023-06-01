@@ -15,9 +15,10 @@ import {
 	useColorModeValue,
 	VStack,
 } from '@chakra-ui/react';
-import { set } from 'date-fns';
 import { NextPage } from 'next';
 import { useEffect, useState } from 'react';
+import matterOfFact from '../../public/assets/images/gestures/matter_of_face_post_resized.png';
+import Image from 'next/image';
 
 const PodcastLibPage: NextPage = () => {
 	const [tracks, setTracks] = useState<Track[]>([]);
@@ -43,13 +44,17 @@ const PodcastLibPage: NextPage = () => {
 
 	return (
 		<>
-			<VStack
+			<Stack
 				as='main'
+				justify='center'
+				align='center'
+				direction='column'
 				w='full'
 				spacing={4}
 				p={[2, 10]}
 				mx='auto'
 				bgGradient={bgGradient}
+				minH='80vh'
 			>
 				<Heading>Podcast Library</Heading>
 				<Text
@@ -122,7 +127,7 @@ const PodcastLibPage: NextPage = () => {
 						</Button>
 					</VStack>
 				</Flex>
-			</VStack>
+			</Stack>
 		</>
 	);
 };
