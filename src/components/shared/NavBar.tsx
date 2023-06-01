@@ -69,7 +69,13 @@ const NavBar: React.FC = () => {
 					</DrawerFooter>
 				</DrawerContent>
 			</Drawer>
-			<Flex p={[2, 4]} align='center' justify='space-between' top={0}>
+			<Flex
+				p={[2, 4]}
+				align='center'
+				justify='space-between'
+				top={0}
+				bg={useColorModeValue('brand.200', 'gray.800')}
+			>
 				<Stack spacing={3} direction='row' align='center'>
 					<IconButton
 						icon={<HamburgerIcon />}

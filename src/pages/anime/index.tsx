@@ -5,8 +5,6 @@ import {
 	Flex,
 	Heading,
 	Text,
-	SkeletonCircle,
-	SkeletonText,
 	SimpleGrid,
 	useColorModeValue,
 	VStack,
@@ -40,7 +38,7 @@ const BlogListPage: NextPage<{ articles: Article[] }> = ({ articles }) => {
 						Anime Recommendations
 					</Heading>
 					<Text>
-						Hungry for more? Check out our anime recommendations and blog
+						Not sure what to watch next? Check out these anime recommendations!
 					</Text>
 					<Divider />
 				</VStack>

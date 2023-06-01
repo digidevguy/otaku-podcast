@@ -12,9 +12,9 @@ const fonts = {
 const brandColors = {
 	...chakraTheme.colors,
 	brand: {
-		100: '#008EFE',
-		200: '#4BBCFD',
-		300: '#99E6FE',
+		100: '#F5E3DD',
+		200: '#F3D5D3',
+		300: '#E37D91',
 	},
 };
 
@@ -30,9 +30,9 @@ const customTheme = extendTheme({
 	colors: brandColors,
 	styles: {
 		global: (props: StyleFunctionProps) => ({
-			body: {
-				bgGradient: mode('linear(to-r,blue.200,green.400', 'brand.700')(props),
-			},
+			// body: {
+			// 	bgGradient: mode('linear(to-r,blue.200,green.400', 'brand.700')(props),
+			// },
 		}),
 	},
 });

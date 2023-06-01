@@ -115,7 +115,11 @@ const AboutPage: NextPage = () => {
 									<Text ml={6}>~ ~</Text>
 								</Flex>
 							</Stack>
-							<Flex boxSize={['sm', null, 'xs']} rounded='md' overflow='hidden'>
+							<Flex
+								boxSize={['3xs', null, '2xs']}
+								rounded='md'
+								overflow='hidden'
+							>
 								<Image src={irlImg} alt='Tiffany' />
 							</Flex>
 						</Stack>

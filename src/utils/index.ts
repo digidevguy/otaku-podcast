@@ -22,11 +22,16 @@ export function getStrapiMedia(url = '') {
 
 export async function getArticles() {
 	const res = await fetch(
-		`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/articles?populate=image`
+		`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/articles?populate=image`,
+		{
+			headers: {
+				Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
+			},
+		}
 	);
 
 	const articles = await res.json();
-	return { articles: articles.data, count: articles.meta.pagination.total };
+	return { articles: articles.data };
 }
 
 export async function getArticle(id: string) {

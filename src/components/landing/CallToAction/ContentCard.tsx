@@ -35,8 +35,8 @@ const ContentCard = ({
 			flexDir='column'
 			w={[null, 'sm', 'md']}
 			rounded='md'
-			// bg={useColorModeValue('brand.600', 'gray.700')}
-			boxShadow='sm'
+			bg={useColorModeValue('brand.300', 'gray.700')}
+			boxShadow='md'
 			overflow='hidden'
 		>
 			<Image src={imgLink} width={imgWidth} height={imgHeight} alt={imgAlt} />
@@ -44,13 +44,14 @@ const ContentCard = ({
 				p={4}
 				alignItems='center'
 				justify={['center', null, 'space-around']}
+				spacing={3}
 			>
-				<Heading as='h2' size='md'>
+				<Heading as='h2' size={['sm', 'md']} textAlign='center'>
 					{title}
 				</Heading>
-				<Text fontSize='sm' maxW='sm'>
+				{/* <Text fontSize='sm' maxW='sm'>
 					{content}
-				</Text>
+				</Text> */}
 				<Link href={buttonLink} passHref>
 					<Button>{buttonText}</Button>
 				</Link>
