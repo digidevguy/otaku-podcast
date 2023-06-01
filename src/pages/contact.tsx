@@ -151,6 +151,7 @@ const ContactPage: NextPage = () => {
 
 	return (
 		<Flex
+			as='main'
 			flexDir='column'
 			justify='center'
 			align='center'
@@ -161,6 +162,7 @@ const ContactPage: NextPage = () => {
 		>
 			<Heading>Send me a message!</Heading>
 			<Flex
+				as='section'
 				pos='relative'
 				p={[null, 12, 20]}
 				my={10}
@@ -232,7 +234,6 @@ const ContactPage: NextPage = () => {
 					{/* TODO: Adjust button styling */}
 					<Button
 						bg={useColorModeValue('blue.400', 'blue.200')}
-						w='xs'
 						type='submit'
 						variant={useColorModeValue('outline', 'solid')}
 						color={useColorModeValue('black', 'white')}
