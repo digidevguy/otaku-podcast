@@ -36,7 +36,12 @@ export async function getArticles() {
 
 export async function getArticle(id: string) {
 	const res = await fetch(
-		`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/articles/${id}?populate=image`
+		`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/articles/${id}?populate=image`,
+		{
+			headers: {
+				Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
+			},
+		}
 	);
 
 	const article: AProps = await res.json();

@@ -46,6 +46,7 @@ export default function BlogDetailPage({ article }: { article: Article }) {
 		'linear(to-b,brand.100,brand.400)',
 		'linear(to-b,brand.700,brand.900)'
 	);
+
 	return (
 		<Flex flexDir='column'>
 			<Flex

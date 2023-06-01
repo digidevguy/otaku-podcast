@@ -12,6 +12,7 @@ import {
 import { GetStaticProps, NextPage } from 'next';
 import ArticleCard from '@/components/articles/ArticleCard';
 import LoadingCard from '@/components/shared/LoadingCard';
+import { useEffect } from 'react';
 
 export const getStaticProps: GetStaticProps = async () => {
 	const { articles }: { articles: Article[] } = await getArticles();
@@ -29,6 +30,7 @@ const BlogListPage: NextPage<{ articles: Article[] }> = ({ articles }) => {
 		'linear(to-b,brand.100,brand.400)',
 		'linear(to-b,brand.700,brand.900)'
 	);
+	useEffect(() => console.log(articles), [articles]);
 
 	return (
 		<>

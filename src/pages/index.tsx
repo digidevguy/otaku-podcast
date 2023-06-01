@@ -2,7 +2,6 @@ import HeroSection from '@/components/landing/Hero';
 import IntroSection from '@/components/landing/Intro';
 import CallToAction from '@/components/landing/CallToAction';
 import Head from 'next/head';
-import IntroVid from '@/components/landing/IntroVid';
 import { Flex, useColorModeValue } from '@chakra-ui/react';
 
 export default function Home() {
@@ -20,8 +19,7 @@ export default function Home() {
 				bg={useColorModeValue('brand.100', 'gray.800')}
 			>
 				<HeroSection />
-				{/* <IntroSection /> */}
-				<IntroVid />
+				<IntroSection />
 				<CallToAction />
 			</Flex>
 		</>
