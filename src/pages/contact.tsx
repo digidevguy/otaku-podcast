@@ -170,7 +170,7 @@ const ContactPage: NextPage = () => {
 			<Flex
 				as='section'
 				pos='relative'
-				p={[null, 12, 20]}
+				p={[null, '75px', '150px']}
 				my={10}
 				rounded='md'
 				overflow='hidden'

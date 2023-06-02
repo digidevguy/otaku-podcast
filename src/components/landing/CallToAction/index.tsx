@@ -14,7 +14,7 @@ const cardContent = [
 		imgAlt: 'Woman holding the Death Note',
 	},
 	{
-		title: 'Want to see more? Check out my podcasts!',
+		title: 'Want to hear more? Check out my podcasts!',
 		content:
 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
 		buttonLink: '/podcast',
