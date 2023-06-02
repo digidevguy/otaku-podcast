@@ -34,6 +34,7 @@ const ComingSoon = () => {
 					bg={useColorModeValue('white', 'gray.700')}
 					rounded='md'
 					zIndex={1}
+					textAlign='center'
 				>
 					Don&apos;t worry!
 					<br />
