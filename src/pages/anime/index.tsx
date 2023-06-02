@@ -12,6 +12,8 @@ import {
 import { GetStaticProps, NextPage } from 'next';
 import ArticleCard from '@/components/articles/ArticleCard';
 import LoadingCard from '@/components/shared/LoadingCard';
+import thinkingAvatar from '../../../public/assets/images/gestures/think_pose_resized.png';
+import SpeakingAvatar from '@/components/shared/SpeakingAvatar';
 
 export const getStaticProps: GetStaticProps = async () => {
 	const { articles }: { articles: Article[] } = await getArticles();
@@ -25,11 +27,6 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 const BlogListPage: NextPage<{ articles: Article[] }> = ({ articles }) => {
-	const bgGradient = useColorModeValue(
-		'linear(to-b,brand.100,brand.300)',
-		'none'
-	);
-
 	return (
 		<>
 			<Flex
@@ -44,9 +41,12 @@ const BlogListPage: NextPage<{ articles: Article[] }> = ({ articles }) => {
 					<Heading as='h1' size='2xl'>
 						Anime Recommendations
 					</Heading>
-					<Text px={2}>
-						Not sure what to watch next? Check out these anime recommendations!
-					</Text>
+					<SpeakingAvatar
+						avatar={thinkingAvatar}
+						content='Not sure what to watch next? Check out these anime recommendations!'
+						alt='Thinking avatar'
+					/>
+
 					<Divider />
 				</VStack>
 				{!articles ? (
@@ -55,7 +55,6 @@ const BlogListPage: NextPage<{ articles: Article[] }> = ({ articles }) => {
 					<SimpleGrid
 						as='section'
 						px={4}
-						py={16}
 						spacing={4}
 						maxW='1000px'
 						columns={[1, null, 2]}
