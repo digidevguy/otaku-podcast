@@ -37,7 +37,7 @@ const BlogListPage: NextPage<{ articles: Article[] }> = ({ articles }) => {
 				flexDir='column'
 				align='center'
 				px={2}
-				bgGradient={bgGradient}
+				bg={useColorModeValue('brand.100', 'gray.800')}
 				minH='80vh'
 			>
 				<VStack textAlign='center' spacing={4} pt={4}>

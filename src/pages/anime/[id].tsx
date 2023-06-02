@@ -42,13 +42,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 export default function BlogDetailPage({ article }: { article: Article }) {
-	const bgGradient = useColorModeValue(
-		'linear(to-b,brand.100,brand.400)',
-		'linear(to-b,brand.700,brand.900)'
-	);
-
 	return (
-		<Flex flexDir='column'>
+		<Flex flexDir='column' bg={useColorModeValue('brand.100', 'gray.800')}>
 			<Flex
 				align='center'
 				borderBottom='1px'
