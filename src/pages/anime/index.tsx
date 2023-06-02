@@ -14,6 +14,7 @@ import ArticleCard from '@/components/articles/ArticleCard';
 import LoadingCard from '@/components/shared/LoadingCard';
 import thinkingAvatar from '../../../public/assets/images/gestures/think_pose_resized.png';
 import SpeakingAvatar from '@/components/shared/SpeakingAvatar';
+import ComingSoon from '@/components/shared/ComingSoon';
 
 export const getStaticProps: GetStaticProps = async () => {
 	const { articles }: { articles: Article[] } = await getArticles();
@@ -41,15 +42,16 @@ const BlogListPage: NextPage<{ articles: Article[] }> = ({ articles }) => {
 					<Heading as='h1' size='2xl'>
 						Anime Recommendations
 					</Heading>
-					<SpeakingAvatar
+					<ComingSoon />
+					{/* <SpeakingAvatar
 						avatar={thinkingAvatar}
 						content='Not sure what to watch next? Check out these anime recommendations!'
 						alt='Thinking avatar'
-					/>
+					/> */}
 
 					<Divider />
 				</VStack>
-				{!articles ? (
+				{/* {!articles ? (
 					[...Array(4)].map((_, i) => <LoadingCard key={i} />)
 				) : (
 					<SimpleGrid
@@ -69,7 +71,7 @@ const BlogListPage: NextPage<{ articles: Article[] }> = ({ articles }) => {
 							/>
 						))}
 					</SimpleGrid>
-				)}
+				)} */}
 			</Flex>
 		</>
 	);
