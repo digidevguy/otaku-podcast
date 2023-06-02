@@ -10,9 +10,9 @@ const ReadButton = ({ id }: ReadButtonProps) => {
 	const router = useRouter();
 	return (
 		<Button
-			variant='outline'
-			borderColor={useColorModeValue('black', 'white')}
 			rightIcon={<ArrowForwardIcon />}
+			bg={useColorModeValue('brand.400', 'gray.500')}
+			color='white'
 			_hover={{
 				bg: useColorModeValue('black', 'white'),
 				color: useColorModeValue('white', 'black'),

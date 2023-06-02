@@ -21,7 +21,7 @@ const ArticleCard = ({ title, content, createdAt, id }: ArticleCardProps) => {
 			flexDir='column'
 			border={useColorModeValue('1px', '1px')}
 			borderColor={useColorModeValue('gray.200', 'gray.600')}
-			bg={useColorModeValue('brand.100', 'gray.700')}
+			bg={useColorModeValue('white', 'gray.700')}
 			pos='relative'
 			rounded='lg'
 			boxShadow={useColorModeValue('md', 'none')}

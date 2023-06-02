@@ -12,12 +12,17 @@ import irlImg from '../../public/assets/images/irl-photo.jpg';
 
 const AboutPage: NextPage = () => {
 	const bgGradient = useColorModeValue(
-		'linear(to-b,brand.100,brand.300)',
+		'linear(to-b,brand.100,brand.400)',
 		'none'
 	);
 	return (
 		<>
-			<Flex flexDir='column' py={10} px={6} bgGradient={bgGradient}>
+			<Flex
+				flexDir='column'
+				py={10}
+				px={6}
+				bg={useColorModeValue('brand.100', 'gray.800')}
+			>
 				<Stack direction='column' maxW='1200px' mx='auto' spacing={4}>
 					<Stack as='section' direction='column' align='flex-start'>
 						<Heading as='h2' size='lg'>
@@ -108,12 +113,14 @@ const AboutPage: NextPage = () => {
 									<Text ml={6}>~ ~</Text>
 								</Flex>
 							</Stack>
-							<Flex
-								boxSize={['3xs', null, '2xs']}
-								rounded='md'
-								overflow='hidden'
-							>
-								<Image src={irlImg} alt='Tiffany' />
+							<Flex w='full' justify='center'>
+								<Flex
+									boxSize={['3xs', null, '2xs']}
+									rounded='md'
+									overflow='hidden'
+								>
+									<Image src={irlImg} alt='Tiffany' />
+								</Flex>
 							</Flex>
 						</Stack>
 						<Text>

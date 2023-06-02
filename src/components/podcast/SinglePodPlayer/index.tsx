@@ -22,7 +22,7 @@ const SinglePodPlayer = ({ track }: SinglePodPlayerProps) => {
 			borderColor='gray.100'
 			// w={['full', null, '80%']}
 			w={['full', null, 'xl']}
-			bg={useColorModeValue('brand.300', 'gray.700')}
+			bg={useColorModeValue('white', 'gray.700')}
 		>
 			<Box
 				w={['200px', null, '150px']}

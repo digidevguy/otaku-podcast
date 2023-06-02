@@ -17,6 +17,7 @@ import { NextPage } from 'next';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import backgroundImg from '../../public/assets/images/tokyoluv-CsMNgdHXzFs-unsplash.jpg';
+import { set } from 'date-fns';
 
 const subjectOptions = [
 	{
@@ -36,7 +37,6 @@ const ContactPage: NextPage = () => {
 		email: '',
 		subject: '',
 		content: '',
-		errors: { email: '', subject: '', content: '' },
 		emailInvalid: false,
 		subjectInvalid: false,
 		contentInvalid: false,
@@ -60,12 +60,20 @@ const ContactPage: NextPage = () => {
 		setFormData({
 			...formData,
 			[name]: value,
+			[`${name}Invalid`]: false,
 		});
 	};
 
 	const handleSubmit = async (e: React.FormEvent<HTMLDivElement>) => {
 		e.preventDefault();
 		setLoading(true);
+
+		setFormData({
+			...formData,
+			emailInvalid: false,
+			subjectInvalid: false,
+			contentInvalid: false,
+		});
 
 		// const email = formData.email.trim();
 		// const subject = formData.subject.trim();
@@ -74,8 +82,7 @@ const ContactPage: NextPage = () => {
 		if (!email) {
 			setFormData({
 				...formData,
-				errors: { ...formData.errors, email: 'Email is required' },
-				// emailInvalid: true,
+				emailInvalid: true,
 			});
 			setLoading(false);
 			return;
@@ -84,7 +91,7 @@ const ContactPage: NextPage = () => {
 		if (!email.includes('@')) {
 			setFormData({
 				...formData,
-				errors: { ...formData.errors, email: 'Email is invalid' },
+
 				emailInvalid: true,
 			});
 			setLoading(false);
@@ -94,7 +101,7 @@ const ContactPage: NextPage = () => {
 		if (!subject) {
 			setFormData({
 				...formData,
-				errors: { ...formData.errors, subject: 'Subject is required' },
+
 				subjectInvalid: true,
 			});
 			setLoading(false);
@@ -104,49 +111,47 @@ const ContactPage: NextPage = () => {
 		if (!content) {
 			setFormData({
 				...formData,
-				errors: { ...formData.errors, content: 'Message is required' },
+
 				contentInvalid: true,
 			});
 			setLoading(false);
 			return;
 		}
 		// TODO: Adjust validation logic and uncomment fetch request
-		// try {
-		// 	const res = await fetch('/api/contact-mail', {
-		// 		method: 'POST',
-		// 		headers: {
-		// 			'Content-Type': 'application/json',
-		// 		},
-		// 		body: JSON.stringify(formData),
-		// 	});
+		try {
+			const res = await fetch('/api/contact-mail', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(formData),
+			});
 
-		// 	toast({
-		// 		title: 'Success',
-		// 		description: 'Your message has been sent',
-		// 		status: 'success',
-		// 		duration: 5000,
-		// 		isClosable: true,
-		// 	});
-		// } catch (error: any) {
-		// 	toast({
-		// 		title: 'Error',
-		// 		description: error.message,
-		// 		status: 'error',
-		// 		duration: 5000,
-		// 		isClosable: true,
-		// 	});
-		// }
+			toast({
+				title: 'Success',
+				description: 'Your message has been sent',
+				status: 'success',
+				duration: 5000,
+				isClosable: true,
+			});
+			setFormData({
+				email: '',
+				subject: '',
+				content: '',
+				emailInvalid: false,
+				subjectInvalid: false,
+				contentInvalid: false,
+			});
+		} catch (error: any) {
+			toast({
+				title: 'Error',
+				description: error.message,
+				status: 'error',
+				duration: 5000,
+				isClosable: true,
+			});
+		}
 		setLoading(false);
-
-		setFormData({
-			email: '',
-			subject: '',
-			content: '',
-			errors: { email: '', subject: '', content: '' },
-			emailInvalid: false,
-			subjectInvalid: false,
-			contentInvalid: false,
-		});
 	};
 
 	return (
@@ -158,7 +163,8 @@ const ContactPage: NextPage = () => {
 			gap={4}
 			px={4}
 			minH='80vh'
-			bgGradient={bgGradient}
+			// bgGradient={bgGradient}
+			bg={useColorModeValue('brand.100', 'gray.800')}
 		>
 			<Heading>Send me a message!</Heading>
 			<Flex
@@ -201,7 +207,9 @@ const ContactPage: NextPage = () => {
 							value={email}
 							onChange={handleInputChange}
 						/>
-						<FormErrorMessage>{formData.errors.email}</FormErrorMessage>
+						<FormErrorMessage>
+							Email is invalid, please try again.
+						</FormErrorMessage>
 					</FormControl>
 					<FormControl isInvalid={formData.subjectInvalid}>
 						<FormLabel>Subject</FormLabel>
@@ -218,9 +226,8 @@ const ContactPage: NextPage = () => {
 								</option>
 							))}
 						</Select>
-						<FormErrorMessage>{formData.errors.subject}</FormErrorMessage>
+						<FormErrorMessage>Subject must not be blank.</FormErrorMessage>
 					</FormControl>
-					{/* </Flex> */}
 					<FormControl isInvalid={formData.contentInvalid}>
 						<FormLabel>Message</FormLabel>
 						<Textarea
@@ -229,15 +236,14 @@ const ContactPage: NextPage = () => {
 							value={content}
 							onChange={handleInputChange}
 						/>
-						<FormErrorMessage>{formData.errors.content}</FormErrorMessage>
+						<FormErrorMessage>Please include a message.</FormErrorMessage>
 					</FormControl>
-					{/* TODO: Adjust button styling */}
 					<Button
-						bg={useColorModeValue('blue.400', 'blue.200')}
+						w='200px'
+						bg={useColorModeValue('brand.300', 'gray.500')}
 						type='submit'
 						variant={useColorModeValue('outline', 'solid')}
-						color={useColorModeValue('black', 'white')}
-						// bg={useColorModeValue('white', 'black')}
+						// color='white'
 						isLoading={loading}
 						loadingText='Sending...'
 						_hover={{

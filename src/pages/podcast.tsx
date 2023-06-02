@@ -13,6 +13,7 @@ import {
 	Stack,
 	Text,
 	useBreakpointValue,
+	useColorMode,
 	useColorModeValue,
 	VStack,
 } from '@chakra-ui/react';
@@ -20,12 +21,13 @@ import { NextPage } from 'next';
 import { useEffect, useState } from 'react';
 import matterOfFact from '../../public/assets/images/gestures/matter_of_face_post_resized.png';
 import Image from 'next/image';
-import sideTextBubble from '../../public/assets/shapes/side-text-triangle.png';
-import bottomTextBubble from '../../public/assets/shapes/bottom-text-triangle.png';
+import darkTriangle from '../../public/assets/shapes/dark-triangle.png';
+import whiteTriangle from '../../public/assets/shapes/white-triangle.png';
 
 const PodcastLibPage: NextPage = () => {
 	const [tracks, setTracks] = useState<Track[]>([]);
 	const [isLoading, setIsLoading] = useState<boolean>(true);
+	const { colorMode } = useColorMode();
 
 	const sideBubbleDisplay = useBreakpointValue({ base: 'none', md: 'block' });
 	const bottomBubbleDisplay = useBreakpointValue({ base: 'block', md: 'none' });
@@ -72,9 +74,6 @@ const PodcastLibPage: NextPage = () => {
 					<Flex pos='relative' maxW={['full', null, '30%']}>
 						<Text
 							p={3}
-							// boxShadow={['none', 'sm']}
-							// rounded='md'
-
 							fontSize={['sm', 'md']}
 							bg={useColorModeValue('white', 'gray.700')}
 							rounded='md'
@@ -94,29 +93,63 @@ const PodcastLibPage: NextPage = () => {
 							w={4}
 							zIndex={0}
 						>
-							<Image
-								src={sideTextBubble}
-								alt='Text Triangle'
-								style={{ display: sideBubbleDisplay }}
-							/>
+							{colorMode === 'light' ? (
+								<Image
+									src={whiteTriangle}
+									alt='Text Triangle'
+									style={{
+										display: sideBubbleDisplay,
+										transform: 'rotate(-90deg)',
+									}}
+									priority
+								/>
+							) : (
+								<Image
+									src={darkTriangle}
+									alt='Text Triangle'
+									style={{
+										display: sideBubbleDisplay,
+										transform: 'rotate(-90deg)',
+									}}
+									priority
+								/>
+							)}
 						</Box>
 						<Box
 							display={['block', null, 'none']}
 							pos='absolute'
 							right={225}
-							bottom={-2}
+							bottom={-3}
 							w={4}
 							zIndex={0}
 						>
-							<Image
-								src={bottomTextBubble}
-								alt='Text Triangle'
-								style={{ display: bottomBubbleDisplay }}
-							/>
+							{colorMode === 'light' ? (
+								<Image
+									src={whiteTriangle}
+									alt='Text Triangle'
+									style={{
+										display: bottomBubbleDisplay,
+									}}
+									priority
+								/>
+							) : (
+								<Image
+									src={darkTriangle}
+									alt='Text Triangle'
+									style={{
+										display: bottomBubbleDisplay,
+									}}
+									priority
+								/>
+							)}
 						</Box>
 					</Flex>
 					<Box w='25%' maxH='xl' overflow='hidden'>
-						<Image src={matterOfFact} alt='Matter of Fact Podcast Cover' />
+						<Image
+							src={matterOfFact}
+							alt='Matter of Fact Podcast Cover'
+							priority
+						/>
 					</Box>
 				</Stack>
 				{isLoading ? (
@@ -171,7 +204,11 @@ const PodcastLibPage: NextPage = () => {
 						<Heading as='h2' size='md'>
 							Send your thoughts and recommendations
 						</Heading>
-						<Button w='200px' alignSelf='center'>
+						<Button
+							w='200px'
+							alignSelf='center'
+							bg={useColorModeValue('brand.300', 'gray.600')}
+						>
 							Send
 						</Button>
 					</VStack>

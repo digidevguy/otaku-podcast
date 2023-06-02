@@ -35,7 +35,7 @@ const ContentCard = ({
 			flexDir='column'
 			w={[null, 'sm', 'md']}
 			rounded='md'
-			bg={useColorModeValue('brand.300', 'gray.700')}
+			bg={useColorModeValue('white', 'gray.700')}
 			boxShadow='md'
 			overflow='hidden'
 		>
@@ -53,7 +53,9 @@ const ContentCard = ({
 					{content}
 				</Text> */}
 				<Link href={buttonLink} passHref>
-					<Button>{buttonText}</Button>
+					<Button bg={useColorModeValue('brand.300', 'gray.500')}>
+						{buttonText}
+					</Button>
 				</Link>
 			</VStack>
 		</Flex>
