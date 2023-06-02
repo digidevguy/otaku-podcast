@@ -3,7 +3,6 @@ import LoadingCard from '@/components/shared/LoadingCard';
 import { podcast } from '@/libs/podcast';
 import { Track } from '@/types';
 import {
-	Box,
 	Button,
 	Divider,
 	Flex,
@@ -13,30 +12,19 @@ import {
 	Stack,
 	Text,
 	useBreakpointValue,
-	useColorMode,
 	useColorModeValue,
 	VStack,
 } from '@chakra-ui/react';
 import { NextPage } from 'next';
 import { useEffect, useState } from 'react';
 import matterOfFact from '../../public/assets/images/gestures/matter_of_face_post_resized.png';
-import Image from 'next/image';
-import darkTriangle from '../../public/assets/shapes/dark-triangle.png';
-import whiteTriangle from '../../public/assets/shapes/white-triangle.png';
+import SpeakingAvatar from '@/components/shared/SpeakingAvatar';
 
 const PodcastLibPage: NextPage = () => {
 	const [tracks, setTracks] = useState<Track[]>([]);
 	const [isLoading, setIsLoading] = useState<boolean>(true);
-	const { colorMode } = useColorMode();
-
-	const sideBubbleDisplay = useBreakpointValue({ base: 'none', md: 'block' });
-	const bottomBubbleDisplay = useBreakpointValue({ base: 'block', md: 'none' });
 
 	const iconColor = useColorModeValue('gray.500', 'gray.200');
-	const bgGradient = useColorModeValue(
-		'linear(to-b,brand.100,brand.200)',
-		'none'
-	);
 
 	// make a async fetch request to get the podcasts
 	useEffect(() => {
@@ -57,101 +45,22 @@ const PodcastLibPage: NextPage = () => {
 				justify='space-around'
 				align='center'
 				direction='column'
-				// w='full'
 				spacing={4}
 				p={[2, 10]}
 				mx='auto'
-				bgGradient={bgGradient}
 				minH='80vh'
+				bg={useColorModeValue('brand.100', 'gray.800')}
 			>
 				<Heading>Podcast Library</Heading>
-				<Stack
-					direction={['column', null, 'row']}
-					spacing={6}
-					align='center'
-					justify='center'
-				>
-					<Flex pos='relative' maxW={['full', null, '30%']}>
-						<Text
-							p={3}
-							fontSize={['sm', 'md']}
-							bg={useColorModeValue('white', 'gray.700')}
-							rounded='md'
-							zIndex={1}
-						>
-							Check out the Elevated X Otaku Podcast - the self-improvement
-							podcast created for anime and manga fans that delivers empowering,
-							entertaining, and insightful messages about love, life, and mental
-							health through the lense of your favorite shows. Who knows, you
-							may even catch a JoJo&apos;s reference.
-						</Text>
-						<Box
-							display={['none', null, 'block']}
-							pos='absolute'
-							top={45}
-							right={-2}
-							w={4}
-							zIndex={0}
-						>
-							{colorMode === 'light' ? (
-								<Image
-									src={whiteTriangle}
-									alt='Text Triangle'
-									style={{
-										display: sideBubbleDisplay,
-										transform: 'rotate(-90deg)',
-									}}
-									priority
-								/>
-							) : (
-								<Image
-									src={darkTriangle}
-									alt='Text Triangle'
-									style={{
-										display: sideBubbleDisplay,
-										transform: 'rotate(-90deg)',
-									}}
-									priority
-								/>
-							)}
-						</Box>
-						<Box
-							display={['block', null, 'none']}
-							pos='absolute'
-							right={225}
-							bottom={-3}
-							w={4}
-							zIndex={0}
-						>
-							{colorMode === 'light' ? (
-								<Image
-									src={whiteTriangle}
-									alt='Text Triangle'
-									style={{
-										display: bottomBubbleDisplay,
-									}}
-									priority
-								/>
-							) : (
-								<Image
-									src={darkTriangle}
-									alt='Text Triangle'
-									style={{
-										display: bottomBubbleDisplay,
-									}}
-									priority
-								/>
-							)}
-						</Box>
-					</Flex>
-					<Box w='25%' maxH='xl' overflow='hidden'>
-						<Image
-							src={matterOfFact}
-							alt='Matter of Fact Podcast Cover'
-							priority
-						/>
-					</Box>
-				</Stack>
+				<SpeakingAvatar
+					avatar={matterOfFact}
+					content="Check out the Elevated X Otaku Podcast - the self-improvement podcast
+					created for anime and manga fans that delivers empowering,
+					entertaining, and insightful messages about love, life, and mental
+					health through the lense of your favorite shows. Who knows, you may
+					even catch a JoJo's reference."
+					alt='Matter of Fact Speaking Avatar'
+				/>
 				{isLoading ? (
 					[...Array(4)].map((_, i) => <LoadingCard key={i} />)
 				) : (
