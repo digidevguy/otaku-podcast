@@ -10,8 +10,11 @@ const handler: NextApiHandler = async (
 		const { email, subject, content } = req.body;
 
 		const msg = {
-			to: 'matthew@mattlittrell.dev',
-			from: 'info@mattlittrell.dev',
+			to: {
+				email: process.env.TO_MAIL_ADDRESS,
+				name: 'Posessor of great breasts',
+			},
+			from: { email: process.env.FROM_MAIL_ADDRESS, name: 'De best dev EVA!' },
 			subject: subject,
 			text: content,
 			html: `<p>${content}</p>
