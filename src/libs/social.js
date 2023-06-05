@@ -3,7 +3,7 @@ import { FaEnvelope, FaInstagram, FaTiktok, FaTwitter } from 'react-icons/fa';
 export const social = [
 	{
 		label: 'Twitter',
-		href: 'https://twitter.com/',
+		href: 'https://twitter.com/ElevatedxOtaku?t=MQoJDQhAoHNfeAm5EdI1cA&s=09',
 		icon: <FaTwitter />,
 	},
 	{
@@ -13,12 +13,12 @@ export const social = [
 	},
 	{
 		label: 'Instagram',
-		href: 'https://twitter.com/ElevatedxOtaku?t=MQoJDQhAoHNfeAm5EdI1cA&s=09',
+		href: 'https://www.instagram.com/elevatedxotaku/',
 		icon: <FaInstagram />,
 	},
 	{
 		label: 'Email',
-		url: 'mailto:test@test.com',
+		href: 'mailto:elevatedxotaku@gmail.com',
 		icon: <FaEnvelope />,
 	},
 ];
