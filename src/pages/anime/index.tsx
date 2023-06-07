@@ -42,21 +42,22 @@ const BlogListPage: NextPage<{ articles: Article[] }> = ({ articles }) => {
 					<Heading as='h1' size='2xl'>
 						Anime Recommendations
 					</Heading>
-					<ComingSoon />
-					{/* <SpeakingAvatar
+					{/* <ComingSoon /> */}
+					<SpeakingAvatar
 						avatar={thinkingAvatar}
 						content='Not sure what to watch next? Check out these anime recommendations!'
 						alt='Thinking avatar'
-					/> */}
+					/>
 
 					<Divider />
 				</VStack>
-				{/* {!articles ? (
+				{!articles ? (
 					[...Array(4)].map((_, i) => <LoadingCard key={i} />)
 				) : (
 					<SimpleGrid
 						as='section'
 						px={4}
+						py={6}
 						spacing={4}
 						maxW='1000px'
 						columns={[1, null, 2]}
@@ -71,7 +72,7 @@ const BlogListPage: NextPage<{ articles: Article[] }> = ({ articles }) => {
 							/>
 						))}
 					</SimpleGrid>
-				)} */}
+				)}
 			</Flex>
 		</>
 	);
