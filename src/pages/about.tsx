@@ -149,9 +149,9 @@ const AboutPage: NextPage = () => {
 							Moon, the art of perseverance from Pokémon, and how to be a total
 							badass from Dragon Ball Z. And as I continued to grow up and
 							experienced new joys, new struggles, and new challenges in life,
-							anime was right there U+002d growing alongside me; With shows like
-							Cowboy Bebop, Fruits Basket, and Full Metal Alchemist helping to
-							give me a framework and an outlet for understanding and dealing
+							anime was right there &ndash; growing alongside me; With shows
+							like Cowboy Bebop, Fruits Basket, and Full Metal Alchemist helping
+							to give me a framework and an outlet for understanding and dealing
 							with the unfamiliar territory of maturing.
 						</Text>
 						<Text>
@@ -163,7 +163,7 @@ const AboutPage: NextPage = () => {
 							people. Hence, the reason for the ExO podcast and ExO community.
 							The thing that makes me happiest in life is knowing that I&apos;ve
 							helped, entertained, or made a difference in the lives of others
-							U+002d especially those who, like me, may have been ostracized,
+							&ndash; especially those who, like me, may have been ostracized,
 							shut out, or looked down on. I&apos;ve accumulated a lot of
 							knowledge throughout my studies in psychology, diving head first
 							into life, and picking myself up again and again as I set out to
