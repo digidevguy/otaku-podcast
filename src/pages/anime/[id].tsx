@@ -2,6 +2,7 @@ import { Article } from '@/types';
 import { getArticle, getArticles, imageLoader } from '@/utils';
 import {
 	Box,
+	chakra,
 	Flex,
 	Heading,
 	Text,
@@ -24,7 +25,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 	return {
 		paths,
-		fallback: false,
+		fallback: true,
 	};
 };
 
@@ -37,9 +38,11 @@ export const getStaticProps: GetStaticProps = async (context) => {
 		props: {
 			article,
 		},
-		revalidate: 1,
+		revalidate: 86400,
 	};
 };
+
+const ChakraReactMarkdown = chakra(ReactMarkdown);
 
 export default function BlogDetailPage({ article }: { article: Article }) {
 	return (
@@ -69,9 +72,13 @@ export default function BlogDetailPage({ article }: { article: Article }) {
 				</Box>
 			</Flex>
 			<Flex flexDir='column' p={4} maxW='1000px' mx='auto'>
-				<ReactMarkdown components={ChakraUIRenderer()} skipHtml>
+				<ChakraReactMarkdown
+					components={ChakraUIRenderer()}
+					skipHtml
+					whiteSpace='pre-wrap'
+				>
 					{article.attributes.content}
-				</ReactMarkdown>
+				</ChakraReactMarkdown>
 			</Flex>
 		</Flex>
 	);
