@@ -4,7 +4,6 @@ import {
 	Divider,
 	Flex,
 	Heading,
-	Text,
 	SimpleGrid,
 	useColorModeValue,
 	VStack,
@@ -14,7 +13,6 @@ import ArticleCard from '@/components/articles/ArticleCard';
 import LoadingCard from '@/components/shared/LoadingCard';
 import thinkingAvatar from '../../../public/assets/images/gestures/think_pose_resized.png';
 import SpeakingAvatar from '@/components/shared/SpeakingAvatar';
-import ComingSoon from '@/components/shared/ComingSoon';
 
 export const getStaticProps: GetStaticProps = async () => {
 	const { articles }: { articles: Article[] } = await getArticles();

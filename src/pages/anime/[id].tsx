@@ -74,8 +74,8 @@ export default function BlogDetailPage({ article }: { article: Article }) {
 			<Flex flexDir='column' p={4} maxW='1000px' mx='auto'>
 				<ChakraReactMarkdown
 					components={ChakraUIRenderer()}
-					skipHtml
 					whiteSpace='pre-wrap'
+					skipHtml
 				>
 					{article.attributes.content}
 				</ChakraReactMarkdown>
