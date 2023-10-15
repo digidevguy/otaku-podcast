@@ -16,6 +16,8 @@ import SpeakingAvatar from '@/components/shared/SpeakingAvatar';
 
 export const getStaticProps: GetStaticProps = async () => {
 	const { articles }: { articles: Article[] } = await getArticles();
+	console.log(articles);
+	console.log('Image', articles[0].attributes.image);
 
 	return {
 		props: {
@@ -67,6 +69,7 @@ const BlogListPage: NextPage<{ articles: Article[] }> = ({ articles }) => {
 								title={article.attributes.title}
 								content={article.attributes.content}
 								createdAt={article.attributes.createdAt}
+								image={article.attributes.image}
 							/>
 						))}
 					</SimpleGrid>
