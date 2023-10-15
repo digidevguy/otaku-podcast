@@ -15,6 +15,7 @@ import ReactMarkdown from 'react-markdown';
 import ChakraUIRenderer from 'chakra-ui-markdown-renderer';
 import format from 'date-fns/format';
 import { IParams } from '@/types';
+import MarkdownRenderer from '@/components/shared/UIElements/MarkdownRenderer';
 
 export const getStaticPaths: GetStaticPaths = async () => {
 	const { articles }: { articles: Article[] } = await getArticles();
@@ -46,14 +47,19 @@ const ChakraReactMarkdown = chakra(ReactMarkdown);
 
 export default function BlogDetailPage({ article }: { article: Article }) {
 	return (
-		<Flex flexDir='column' bg={useColorModeValue('brand.100', 'gray.800')}>
+		<Flex
+			flexDir='column'
+			alignItems='center'
+			justifyContent='center'
+			bg={useColorModeValue('brand.100', 'gray.800')}
+		>
 			<Flex
 				align='center'
 				borderBottom='1px'
 				borderColor={useColorModeValue('gray.200', 'gray.700')}
 				flexDir={['column-reverse', null, 'row']}
 			>
-				<VStack w={['full', null, '50%']} py={[3, null, 0]}>
+				<VStack w={['full', null, '50%']} py={[3, null, 0]} px={[4, 2, null]}>
 					<Flex maxW='500px' flexDir='column'>
 						<Heading>{article.attributes.title}</Heading>
 						<Text color='gray.500'>
@@ -71,15 +77,7 @@ export default function BlogDetailPage({ article }: { article: Article }) {
 					/>
 				</Box>
 			</Flex>
-			<Flex flexDir='column' p={4} maxW='1000px' mx='auto'>
-				<ChakraReactMarkdown
-					components={ChakraUIRenderer()}
-					whiteSpace='pre-wrap'
-					skipHtml
-				>
-					{article.attributes.content}
-				</ChakraReactMarkdown>
-			</Flex>
+			<MarkdownRenderer content={article.attributes.content} />
 		</Flex>
 	);
 }
