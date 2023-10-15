@@ -1,7 +1,6 @@
 import {
 	Container,
 	Divider,
-	Flex,
 	Heading,
 	Image,
 	Link,

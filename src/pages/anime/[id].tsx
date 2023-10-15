@@ -1,8 +1,7 @@
 import { Article } from '@/types';
-import { getArticle, getArticles, imageLoader } from '@/utils';
+import { getArticle, getArticles } from '@/utils';
 import {
 	Box,
-	chakra,
 	Flex,
 	Heading,
 	Text,
@@ -11,8 +10,6 @@ import {
 } from '@chakra-ui/react';
 import Image from 'next/image';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import ReactMarkdown from 'react-markdown';
-import ChakraUIRenderer from 'chakra-ui-markdown-renderer';
 import format from 'date-fns/format';
 import { IParams } from '@/types';
 import MarkdownRenderer from '@/components/shared/UIElements/MarkdownRenderer';
@@ -42,8 +39,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
 		revalidate: 86400,
 	};
 };
-
-const ChakraReactMarkdown = chakra(ReactMarkdown);
 
 export default function BlogDetailPage({ article }: { article: Article }) {
 	return (
