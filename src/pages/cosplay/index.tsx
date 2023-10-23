@@ -1,6 +1,7 @@
 import { Flex, Heading, useColorModeValue } from '@chakra-ui/react';
 import ComingSoon from '@/components/shared/ComingSoon';
 import { NextPage } from 'next';
+import CosplayForm from '@/components/cosplay/CosplayForm';
 
 const CosplayPage: NextPage = () => {
 	return (
@@ -16,7 +17,7 @@ const CosplayPage: NextPage = () => {
 			<Heading as='h1' size='2xl'>
 				Cosplay Images
 			</Heading>
-			<ComingSoon />
+			<CosplayForm />
 		</Flex>
 	);
 };

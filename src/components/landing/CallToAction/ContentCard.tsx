@@ -2,7 +2,6 @@ import {
 	Button,
 	Flex,
 	Heading,
-	Text,
 	VStack,
 	useColorModeValue,
 } from '@chakra-ui/react';

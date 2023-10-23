@@ -18,6 +18,7 @@ const AboutPage: NextPage = () => {
 	return (
 		<>
 			<Flex
+				as='main'
 				flexDir='column'
 				py={10}
 				px={6}
