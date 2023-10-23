@@ -92,6 +92,7 @@ export default function CosplayForm() {
 			py={6}
 			rounded='md'
 			bg={useColorModeValue('gray.300', 'gray.600')}
+			zIndex={1}
 		>
 			<Heading as='h2' size='md'>
 				Cosplay Form

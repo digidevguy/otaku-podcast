@@ -1,7 +1,8 @@
 import { Flex, Heading, useColorModeValue } from '@chakra-ui/react';
-import ComingSoon from '@/components/shared/ComingSoon';
 import { NextPage } from 'next';
 import CosplayForm from '@/components/cosplay/CosplayForm';
+import Image from 'next/image';
+import backgroundImg from '../../../public/assets/images/gracia-dharma-qTlbO6mkQH0-unsplash.jpg';
 
 const CosplayPage: NextPage = () => {
 	return (
@@ -17,7 +18,29 @@ const CosplayPage: NextPage = () => {
 			<Heading as='h1' size='2xl'>
 				Cosplay Images
 			</Heading>
-			<CosplayForm />
+			<Flex
+				as='section'
+				pos='relative'
+				p={[null, '75px', '150px']}
+				my={10}
+				rounded='md'
+				overflow='hidden'
+			>
+				<Image
+					src={backgroundImg}
+					alt='Background Image'
+					fill
+					style={{
+						position: 'absolute',
+						top: 0,
+						bottom: 0,
+						left: 0,
+						right: 0,
+						objectFit: 'cover',
+					}}
+				/>
+				<CosplayForm />
+			</Flex>
 		</Flex>
 	);
 };
