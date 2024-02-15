@@ -9,6 +9,7 @@ import {
 	useColorModeValue,
 	useToast,
 } from '@chakra-ui/react';
+import { set } from 'date-fns';
 import { useState } from 'react';
 
 export default function CosplayForm() {
@@ -19,10 +20,25 @@ export default function CosplayForm() {
 		image: null as string | ArrayBuffer | null | undefined,
 	});
 	const [isLoading, setIsLoading] = useState<boolean>(false);
+	const [sizeError, setSizeError] = useState<boolean>(false);
 	const toast = useToast();
 
 	function setImagePath(e: React.ChangeEvent<HTMLInputElement>) {
+		setSizeError(false);
 		const target = e.target as HTMLInputElement;
+		const size = target.files?.[0].size;
+
+		if (size && size > 1000000) {
+			toast({
+				title: 'Error',
+				description: 'Image size is too large, file must be under 1MB.',
+				status: 'error',
+				duration: 5000,
+				isClosable: true,
+			});
+			setSizeError(true);
+			return;
+		}
 		const reader = new FileReader();
 
 		if (!target.files) return;
@@ -37,6 +53,31 @@ export default function CosplayForm() {
 		e: React.FormEvent<HTMLFormElement | HTMLDivElement>
 	) {
 		e.preventDefault();
+
+		// if image is null, return error stating that image is required.
+		if (!formData.image) {
+			toast({
+				title: 'Error',
+				description: 'Image is required',
+				status: 'error',
+				duration: 5000,
+				isClosable: true,
+			});
+			return;
+		}
+
+		// if image size is too large, return error stating that image size is too large.
+		if (sizeError) {
+			toast({
+				title: 'Error',
+				description: 'Image size is too large, must be under 1MB.',
+				status: 'error',
+				duration: 5000,
+				isClosable: true,
+			});
+			return;
+		}
+
 		setIsLoading(true);
 
 		try {
@@ -54,7 +95,6 @@ export default function CosplayForm() {
 			});
 
 			const data = await res.json();
-			console.log('Data: ', data);
 
 			toast({
 				title: 'Success!',
@@ -70,6 +110,8 @@ export default function CosplayForm() {
 				image: '',
 			});
 		} catch (error: any) {
+			console.error('error', error);
+
 			toast({
 				title: 'Error',
 				description: error.message,
@@ -154,6 +196,7 @@ export default function CosplayForm() {
 			</FormControl>
 			<Button
 				type='submit'
+				isDisabled={sizeError || isLoading}
 				isLoading={isLoading}
 				loadingText='Submitting...'
 				bg={useColorModeValue('brand.300', 'gray.500')}
