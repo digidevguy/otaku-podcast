@@ -15,7 +15,7 @@ export default function Home() {
 			</Head>
 			<Flex
 				as='main'
-				flexDir='column'
+				direction='column'
 				bg={useColorModeValue('brand.100', 'gray.800')}
 			>
 				<HeroSection />
