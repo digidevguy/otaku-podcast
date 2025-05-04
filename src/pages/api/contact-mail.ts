@@ -42,9 +42,19 @@ const handler: NextApiHandler = async (
 		};
 
 		try {
-			await sgMail.send(msg);
+			const response = await sgMail.send(msg);
+			console.log(response);
+
+			if (response[0].statusCode < 200 || response[0].statusCode >= 300) {
+				throw new Error(
+					`Failed to send email. Status code: ${response[0].statusCode}`
+				);
+			}
+
 			res.status(200).json({ message: 'Email sent successfully!' });
 		} catch (error) {
+			if (error instanceof Error)
+				console.error(error.message ? error.message : 'Unknown error');
 			res.status(400).json({ message: 'Email not sent.' });
 		}
 	} else {
